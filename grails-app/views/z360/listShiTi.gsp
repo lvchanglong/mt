@@ -50,7 +50,7 @@
 				</g:javascript>
 			</g:if>
 											
-			<g:if test="${ session.uid && session.uid == yongHuInstance.id }">
+			<g:if test="${ session.uid && session.uid == yongHuInstance?.id }">
 				<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
 					<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required=""/>
 					<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" style="width:100%;" placeholder="如果您想说点什么"/>
