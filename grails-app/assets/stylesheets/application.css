@@ -1,0 +1,319 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require main
+*= require mobile
+*= require font-awesome-4.3.0/css/font-awesome.min
+*= require nprogress-master/nprogress.css
+*= require_self
+*/
+.borderRadius {
+	border-radius:5px;
+	-moz-border-radius:5px; /* 老的 Firefox */
+}
+.verticalAlignBottom {
+	vertical-align:bottom;
+}
+.smallTextArea {
+	padding:10px 15px;
+	height:150px;
+}
+.messageBox {
+	float:left;
+	margin: 5px 0;
+	line-height: 34px;
+	height: 34px;
+	color:#a2a2a2;
+	font-size: 13px;
+}
+.submitBtn {
+	float:right;
+}
+.relative {
+	position:relative;
+}
+.neiRong, .biaoTi, .guanJianCi {
+	font-weight:bold;
+	font-size:16px;
+}
+.yongHu {
+	font-size:20px;
+	font-weight:bold;
+}
+.defaultPage {
+	position:relative;
+	padding-bottom:25px;
+}
+.clearfix:after {
+	content:"";
+	display:block; 
+	height:0; 
+	visibility:hidden; 
+	clear:both;
+}
+.fa {
+	padding-right:3px;
+}
+.separator {
+	padding:0 11px;
+}
+.shengXiao {
+	background-image: url("SuCai/十二生肖.png");
+	width:150px;
+	height:150px;
+}
+.shengXiao.shu {
+	background-position:0 0;
+}
+.shengXiao.niu {
+	background-position:-150px 0;
+}
+.shengXiao.hu {
+	background-position:-300px 0;
+}
+.shengXiao.tu {
+	background-position:-450px 0;
+}
+.shengXiao.long {
+	background-position:0 -150px;
+}
+.shengXiao.she {
+	background-position:-150px -150px;
+}
+.shengXiao.ma {
+	background-position:-300px -150px;
+}
+.shengXiao.yang {
+	background-position:-450px -150px;
+}
+.shengXiao.hou {
+	background-position:0 -300px;
+}
+.shengXiao.ji {
+	background-position:-150px -300px;
+}
+.shengXiao.gou {
+	background-position:-300px -300px;
+}
+.shengXiao.zhu {
+	background-position:-450px -300px;
+}
+.bold {
+	font-weight:bold;
+}
+.tuPianXuanZe, .tuPianShangChuan, .tuPianXiaZai {
+	position:relative;
+	display: block;
+	width:180px;
+}
+[type=file] {
+	position:absolute;
+	left:0;
+	top:0;
+	width:180px;
+	height:100%;
+	padding:0;
+	margin:0;
+	opacity:0.0;
+	filter:Alpha(opacity=0);
+	cursor:pointer;
+}
+.inlineBlock {
+	display:inline-block;
+}
+.minWidth {
+	min-width:360px;
+}
+.zIndexMax{
+	z-index:999;
+}
+.zIndex9{
+	z-index:900;
+}
+.zIndex8{
+	z-index:800;
+}
+.zIndex7{
+	z-index:700;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+#main {
+	position:relative;
+	min-height:100%;
+	width:100%;
+	margin:0 auto;
+}
+#main-wrapper {
+	padding:0 6px 170px 6px;
+	position: relative;
+	width: 80%;
+	margin:0 auto;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+#main-wrapper a {
+	text-decoration:underline;
+}
+#main-wrapper img {
+	max-width:100%;
+}
+#spinner {
+	background-color:white;
+	border:7px solid black;
+    position: fixed;
+	top: 0;
+	left:0;
+	bottom:0;
+	right: 0;
+	width:360px;
+	height:180px;
+	margin:auto;
+	z-index:1000;
+	display:none;
+}
+#spinner .tiShi{
+	position:absolute;
+	right:0;
+	top:0;
+	width:180px;
+	height:180px;
+	line-height:180px;
+}
+#spinner img {
+	width:180px;
+	height:180px;
+}
+#main-footer {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	min-height:135px;
+	text-align:center;
+	background-color: #2C3E50;
+	color: #ccc;
+	overflow: hidden;
+	z-index:800;
+}
+#main-footer li {
+	float:left;
+	height:25px;
+	line-height:25px;
+	margin:0;
+	padding:0 10px;
+}
+#main-footer a {
+	text-decoration:underline;
+}
+#main-footer a:hover {
+	color:white;
+}
+
+/*------------------------------------------------------------------------------------------*/
+
+#main-header {
+	position:relative;
+}
+#main-header .daoHang {
+	width:100%;
+	line-height:56px;
+	background-color: #2C3E50;
+	color:#fff;
+	box-shadow: 0 0 17px #333;
+	position:relative;
+	z-index:999;
+}
+
+#main-header-logo {
+	display:block;
+	width:260px;
+	height:56px;
+	float:left;
+}
+#main-header-logo img {
+	height:100%;
+	width:100%;
+	vertical-align:top;
+}
+
+#main-header-menu {
+	display:block;
+	width:100px;
+	height:56px;
+	float:right;
+	text-align:center;
+	font-size:26px;
+	color: #ccc;
+}
+#main-header-menu a {
+	display:block;
+	width:50%;
+	height:100%;
+	float:right;
+}
+
+#main-header-toggle {
+	float:left;
+}
+#main-header-toggle li {
+	float:left;
+	width:120px;
+	text-align:center;
+	margin:0;
+	color: #ccc;
+}
+#main-header-toggle li:hover, #main-header-menu a:hover {
+	color: #fff;
+}
+#main-header-toggle a {
+	display:block;
+}
+
+#main-header .hiddenBox {
+	display:none;
+	width:94%;
+	margin:0 3%;
+	min-height:400px;
+	z-index:900;
+	background-color: white;
+	border-width:0 7px 7px 7px;
+	border-style:solid;
+	border-color:#2C3E50;
+	position:absolute;
+	left:0;
+	top:auto;
+}
+
+#main-header .innerWrapper {
+	max-width:360px;
+	margin:0 auto;
+	width:100%;
+	padding:5px 5px 130px 5px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 960px) {
+	* {
+		white-space:normal !important;
+		word-wrap:break-word;
+		word-break:break-all;
+	}
+}
+
+.cke_textarea_inline {
+	padding: 10px;
+	min-height: 300px;
+	overflow: auto;
+	border: 1px solid gray;
+	-webkit-appearance: textfield;
+}

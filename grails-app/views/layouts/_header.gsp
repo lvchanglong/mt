@@ -1,0 +1,167 @@
+<%@ page import="mt.YongHu" %>
+
+<g:set var="dangQianYongHu" value="${ YongHu.get(session.uid) }" />
+
+<header id="main-header" class="clearfix minWidth">
+	
+	<div class="daoHang clearfix">
+		<g:link uri="/" elementId="main-header-logo">
+			<asset:image src="Logo/logo.png" alt="主坦克"/>
+		</g:link>
+		
+		<div id="main-header-menu">
+			<a href="javascript:void(0);" onclick="hideAll('.hiddenBox');">
+				<i class="fa fa-chevron-up"></i>
+			</a>
+		</div>
+		
+		<ol id="main-header-toggle">			
+			<g:if test="${ dangQianYongHu }">
+				<li>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiXinXi')"><i class="fa fa-user"></i>${ dangQianYongHu.xingMing }</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key"></i>密码修改</a>
+				</li>
+				<li>
+					<g:link controller="z360" action="geRenGuanLi" id="${ session.uid }"><i class="fa fa-cog"></i>个人管理</g:link>
+				</li>
+				<li>
+					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:"z520", action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out"></i>退出登录</a>
+				</li>
+			</g:if>
+			<g:else>
+				<li>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverDengLu')"><i class="fa fa-sign-in"></i>用户登录</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverZhuCe')"><i class="fa fa-user-plus"></i>用户注册</a>
+				</li>
+			</g:else>
+		</ol>
+	</div>
+	
+	<g:if test="${ dangQianYongHu }">
+		<%-- 信息修改 --%>
+		<div class="hiddenBox" id="hoverGaiXinXi">
+			<div class="innerWrapper clearfix">
+				<g:form name="xinXiXiuGai" url="[controller:'yongHu', action:'update', id:session.uid]" method="PUT" class="clearfix">
+					<h3>
+						(^﹃^ )<span class="separator">/</span><span id="yongHuXiuGaiTiShi" class="message-content">姓名、简介</span>
+					</h3>
+					<g:hiddenField name="version" value="${gengXinInstance?.version}" />
+					<g:textField name="xingMing" value="${dangQianYongHu?.xingMing}" placeholder="姓名"/>
+					<g:textArea name="jianJie" value="${dangQianYongHu?.jianJie}" placeholder="简介" style="min-height:130px;"/>
+
+					<g:submitButton name="xiuGaiXX" value="修改" class="submitBtn btn-default"/>
+				</g:form>
+				
+				<g:javascript>
+					jQuery("#xinXiXiuGai").ajaxForm({
+						success:function(data,textStatus){
+							success(data,textStatus,'#yongHuXiuGaiTiShi');
+						}, 
+						error:function(XMLHttpRequest,textStatus,errorThrown){
+							error(XMLHttpRequest,textStatus,errorThrown,'#yongHuXiuGaiTiShi');
+						}
+					});
+				</g:javascript>
+			
+				<div class="touXiangKongJian" style="float:left;width:180px;">
+					<div id="touXiangWrapper" style="width:180px;height:180px;">
+						<asset:image src="${ dangQianYongHu.touXiang }" width="180px;" height="180px" alt="头像"/>
+					</div>
+					<g:uploadForm useToken="true" controller="z520" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"z520", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false">									
+						<div class="relative">
+							<div id="tuPianXuanZe" class="tuPianXuanZe btn btn-default">
+								选择图片
+							</div>
+							<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-default"/>
+						</div>
+						<g:hiddenField name="uid" value="${ session.uid }"/>
+						<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="tuPianShangChuan btn-default"/>
+					</g:uploadForm>
+				</div>
+			</div>
+		</div>
+		
+		<%-- 密码修改 --%>
+		<div class="hiddenBox" id="hoverGaiMiMa">
+			<div class="innerWrapper">
+				<g:form name="miMaXiuGai" url="[controller:'z520', action:'miMaXiuGai', id:session.uid]">
+					<h3>
+						(^﹃^ )<span class="separator">/</span><span id="miMaXiuGaiTiShi" class="message-content">原密、新密、确认</span>
+					</h3>
+					<g:passwordField name="yuanMiMa" required="" value="" placeholder="原始密码"/>
+					<g:passwordField name="xinMiMa" required="" value="" placeholder="新的密码"/>
+					<g:passwordField name="queRenMiMa" required="" value="" placeholder="确认密码"/>
+					<g:submitButton name="xiuGai" value="修改" class="submitBtn btn-default"/>
+				</g:form>
+				
+				<g:javascript>
+					jQuery("#miMaXiuGai").ajaxForm({
+						success:function(data,textStatus){
+							success(data,textStatus,'#miMaXiuGaiTiShi');
+						}, 
+						error:function(XMLHttpRequest,textStatus,errorThrown){
+							error(XMLHttpRequest,textStatus,errorThrown,'#miMaXiuGaiTiShi');
+						}
+					});
+				</g:javascript>
+			</div>
+		</div>
+	</g:if>
+	<g:else>
+		<%-- 用户登录 --%>
+		<div class="hiddenBox" id="hoverDengLu">
+			<div class="innerWrapper">
+				<g:form name="yongHuDengLu" url="[controller:'z520', action:'yongHuDengLu']">
+					<h3>
+						(^﹃^ )<span class="separator">/</span><span id="dengLuTiShi" class="message-content">账号</span>
+					</h3>
+					<g:textField name="zhangHao" required="" value="" placeholder="账号：是ＱＱ么？"/>
+					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
+					<g:submitButton name="dengLu" value="登录" class="submitBtn btn-default"/>
+				</g:form>
+				
+				<g:javascript>
+					jQuery("#yongHuDengLu").ajaxForm({
+						success:function(data,textStatus){
+							success(data,textStatus,'#dengLuTiShi');
+							window.location.reload();
+						}, 
+						error:function(XMLHttpRequest,textStatus,errorThrown){
+							error(XMLHttpRequest,textStatus,errorThrown,'#dengLuTiShi');
+						}
+					});
+				</g:javascript>
+			</div>
+		</div>
+		
+		<%-- 用户注册 --%>
+		<div class="hiddenBox" id="hoverZhuCe">
+			<div class="innerWrapper">
+				<g:form name="yongHuZhuCe" url="[controller:'z520', action:'yongHuZhuCe']">
+					<h3>
+						(^﹃^ )<span class="separator">/</span><span id="zhuCeTiShi" class="message-content">默认密码：${ grailsApplication.config.application.password }</span>
+					</h3>
+					<g:textField name="zhangHao" required="" value="" placeholder="账号：使用ＱＱ？"/>
+					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
+					<g:passwordField name="queRenMiMa" value="" placeholder="确认：默认"/>
+					<g:submitButton name="zhuCe" value="注册" class="submitBtn btn-default"/>
+				</g:form>
+				
+				<g:javascript>
+					jQuery("#yongHuZhuCe").ajaxForm({
+						success:function(data,textStatus){
+							success(data,textStatus,'#zhuCeTiShi');
+						}, 
+						error:function(XMLHttpRequest,textStatus,errorThrown){
+							error(XMLHttpRequest,textStatus,errorThrown,'#zhuCeTiShi');
+						}
+					});
+				</g:javascript>
+			</div>
+		</div>
+	</g:else>
+</header>
