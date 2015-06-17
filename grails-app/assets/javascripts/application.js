@@ -10,6 +10,7 @@
 //= require_self
 //= require form-master/jquery.form.js
 //= require nprogress-master/nprogress.js
+//= require ckeditor/ckeditor.js
 
 if (typeof jQuery !== 'undefined') {
     (function($) {
