@@ -6,11 +6,11 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.1.3.js
+//= require form-master/jquery.form.js
+//= require ckeditor/ckeditor.js
+//= require nprogress-master/nprogress.js
 //= require_tree .
 //= require_self
-//= require form-master/jquery.form.js
-//= require nprogress-master/nprogress.js
-//= require ckeditor/ckeditor.js
 
 if (typeof jQuery !== 'undefined') {
     (function($) {

@@ -51,9 +51,5 @@
 			<asset:image src="SuCai/奔跑.png" alt="处理中"/>
 			<div class="tiShi">处理中...</div>
 		</div>
-		
-		<g:javascript>
-			CKEDITOR.basePath = "/assets/ckeditor/";
-		</g:javascript>
 	</body>
 </html>

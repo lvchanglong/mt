@@ -10,7 +10,7 @@
 *= require main
 *= require mobile
 *= require font-awesome-4.3.0/css/font-awesome.min
-*= require nprogress-master/nprogress.css
+*= require nprogress-master/nprogress
 *= require_self
 */
 .borderRadius {

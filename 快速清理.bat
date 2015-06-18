@@ -1,1 +1,1 @@
-grails clean
+grails clean-all
