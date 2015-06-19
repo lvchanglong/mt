@@ -36,6 +36,8 @@
 		
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
+		
+		<asset:javascript src="ckeditor/ckeditor.js"/>
 		<g:layoutHead/>
 	</head>
 	<body class="minWidth">
