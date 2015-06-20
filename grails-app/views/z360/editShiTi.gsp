@@ -12,7 +12,8 @@
 					<g:hiddenField name="version" value="${shiTiInstance?.version}" />
 
 					<g:textField name="biaoTi" required="" value="${shiTiInstance?.biaoTi}" style="margin: 60px 0 15px 0;"/>
-					<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}"/>
+					<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}" class="ckeditor"/>
+					
 					<g:javascript>
 						CKEDITOR.inline('shiTiNeiRongUpdate');
 					</g:javascript>
@@ -25,6 +26,10 @@
 			
 				<g:javascript>
 					jQuery("#shiTi-update-form").ajaxForm({
+						beforeSerialize: function($form, options) { 
+						    var dataHtml = CKEDITOR.instances.shiTiNeiRongUpdate.getData();
+						    jQuery("#shiTiNeiRongUpdate").val(dataHtml);
+						},
 						success:function(data,textStatus){
 							success(data,textStatus,'#shiTi-message-update');
 						}, 

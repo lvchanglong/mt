@@ -7,7 +7,7 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
-*= require encoding UTF-8
+*= encoding UTF-8
 *= require main
 *= require mobile
 *= require font-awesome-4.3.0/css/font-awesome.min
