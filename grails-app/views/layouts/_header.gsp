@@ -119,14 +119,18 @@
 					<h3>
 						(^﹃^ )<span class="separator">/</span><span id="dengLuTiShi" class="message-content">账号</span>
 					</h3>
-					<g:textField name="zhangHao" required="" value="" placeholder="账号：是ＱＱ么？"/>
+					<g:textField id="saveZhangHao" name="zhangHao" required="" value="" placeholder="账号：是ＱＱ么？"/>
 					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
+					<div style="float:left;margin-top:10px;"><g:checkBox id="saveAuto" name="saveAuto" checked="true"/>&nbsp;&nbsp;记住账号</div>
 					<g:submitButton name="dengLu" value="登录" class="submitBtn btn-default"/>
 				</g:form>
 				
 				<g:javascript>
 					jQuery("#yongHuDengLu").ajaxForm({
 						success:function(data,textStatus){
+
+							saveZhangHao();//保存账号信息
+							
 							success(data,textStatus,'#dengLuTiShi');
 							window.location.reload();
 						}, 
@@ -134,6 +138,27 @@
 							error(XMLHttpRequest,textStatus,errorThrown,'#dengLuTiShi');
 						}
 					});
+					
+					loadZhangHao();//加载账号信息
+					
+					function saveZhangHao() {
+						if(localStorage) {
+							var zhangHao = jQuery("#saveZhangHao").val();
+							if(true == jQuery("#saveAuto").is(":checked")) {
+								localStorage.zhangHao = zhangHao;
+							} else {
+								localStorage.zhangHao = '';
+							}
+						}
+					}
+					
+					function loadZhangHao() {
+						if(localStorage) {
+							if(localStorage.zhangHao) {
+								jQuery("#saveZhangHao").val(localStorage.zhangHao);
+							}
+						}
+					}
 				</g:javascript>
 			</div>
 		</div>

@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>组件仓库</title>
+		<title>组件</title>
 	</head>
 	<body>
 
 		<div id="fuWu" class="clearfix defaultPage">
 
-			<h1>组件仓库</h1>
+			<h1>组件</h1>
 
 			<h2>ＩＰ查询</h2>
 			<g:render template="/layouts/plugins/yongHuIP" />

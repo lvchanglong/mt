@@ -26,8 +26,6 @@
 											</g:each>
 										</ul>
 									</div>
-									
-									<hr/>
 								</li>
 							</g:each>
 						</ul>
@@ -45,6 +43,7 @@
 			</g:if>
 											
 			<g:if test="${ session.uid && session.uid == yongHuInstance.id }">
+				<hr/>
 				<g:form name="kongJian-save-form" url="[controller:'kongJian', action:'save']" class="clearfix">
 					<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required=""/>
 					<g:textArea name="neiRong" value="" style="width:100%;min-height:300px;" placeholder="1,2,3,7,9"/>

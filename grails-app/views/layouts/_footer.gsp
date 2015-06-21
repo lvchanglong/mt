@@ -26,13 +26,13 @@
 			</g:link>
 		</li>
 		<li>
-			<g:link controller="z360" action="zuJianCangKu">
-				组件仓库
+			<g:link controller="z360" action="zuJian">
+				组件
 			</g:link>
 		</li>
 		<li>
-			<g:link controller="z360" action="yongHuFanKui">
-				用户反馈
+			<g:link controller="z360" action="fanKui">
+				反馈
 			</g:link>
 		</li>
 		<li>

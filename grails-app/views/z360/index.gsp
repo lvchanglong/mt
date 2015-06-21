@@ -10,12 +10,6 @@
 
 		<div id="zhuYe" class="clearfix defaultPage">
 
-			<g:render template="/layouts/plugins/faBuFanKui" />
-			<hr />
-
-			<g:render template="/layouts/plugins/baiDuZhanNei"/>
-			<hr/>
-			
 			<g:if test="${shiTiInstanceList}">
 				<div id="shiTi-wrapper">
 				
@@ -49,8 +43,6 @@
 						<div class="pagination">
 							<g:paginate total="${shiTiInstanceCount}" params="[id:yongHuInstance?.id]"/>
 						</div>
-						
-						<hr />
 					</div>
 					
 				</div>
@@ -59,6 +51,10 @@
 					paginate("#shiTi-wrapper", "#shiTi-load");
 				</g:javascript>
 			</g:if>
+			
+			<div style="display:none;">
+				<g:render template="/layouts/plugins/baiDuZhanNei"/>
+			</div>
 			
 		</div>
 

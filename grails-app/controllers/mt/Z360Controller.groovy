@@ -131,17 +131,17 @@ class Z360Controller {
 	}
 	
 	/**
-	 * 用户反馈
+	 * 反馈
 	 */
-	def yongHuFanKui(Integer max) {
+	def fanKui(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
 		respond FanKui.list(params), model:[fanKuiInstanceCount: FanKui.count()]
 	}
 	
 	/**
-	 * 组件仓库
+	 * 组件
 	 */
-	def zuJianCangKu() {
+	def zuJian() {
 		ArrayList slideList = [
 			[url:assetPath(src:"HuanDengPian/images/1.jpg"), alt:"Dan The Man Stage 1", href:"javascript:void(0);"],
 			[url:assetPath(src:"HuanDengPian/images/2.jpg"), alt:"Dan The Man Stage 2", href:"javascript:void(0);"],
