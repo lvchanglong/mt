@@ -3,7 +3,7 @@
 		<span style="font-weight:700;font-size:70px;">!</span>
 	</div>
 	
-	<g:form name="shengXiaoChaXun-form" controller="z520" action="shengXiaoChaXun">
+	<g:form name="shengXiaoChaXun-form" controller="public" action="shengXiaoChaXun">
 		<g:field type="number" name="nian" required="" placeholder="年份"/>
 		<g:submitButton name="tiJiao" value="提交"/>
 	</g:form>

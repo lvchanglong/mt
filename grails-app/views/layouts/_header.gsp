@@ -24,13 +24,13 @@
 					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key"></i>密码修改</a>
 				</li>
 				<li>
-					<g:link controller="z360" action="listShiTi" id="${ session.uid }"><i class="fa fa-file"></i>实体管理</g:link>
+					<g:link controller="protected" action="listShiTi" id="${ session.uid }"><i class="fa fa-file"></i>实体管理</g:link>
 				</li>
 				<li>
-					<g:link controller="z360" action="listKongJian" id="${ session.uid }"><i class="fa fa-folder"></i>空间管理</g:link>
+					<g:link controller="protected" action="listKongJian" id="${ session.uid }"><i class="fa fa-folder"></i>空间管理</g:link>
 				</li>
 				<li>
-					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:"z520", action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out"></i>退出登录</a>
+					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out"></i>退出登录</a>
 				</li>
 			</g:if>
 			<g:else>
@@ -74,7 +74,7 @@
 					<div id="touXiangWrapper" style="width:180px;height:180px;">
 						<asset:image src="${ dangQianYongHu.touXiang }" width="180px;" height="180px" alt="头像"/>
 					</div>
-					<g:uploadForm useToken="true" controller="z520" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"z520", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false">									
+					<g:uploadForm useToken="true" controller="protected" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false">									
 						<div class="relative">
 							<div id="tuPianXuanZe" class="tuPianXuanZe btn btn-default">
 								选择图片
@@ -91,7 +91,7 @@
 		<%-- 密码修改 --%>
 		<div class="hiddenBox" id="hoverGaiMiMa">
 			<div class="innerWrapper">
-				<g:form name="miMaXiuGai" url="[controller:'z520', action:'miMaXiuGai', id:session.uid]">
+				<g:form name="miMaXiuGai" url="[controller:'protected', action:'miMaXiuGai', id:session.uid]">
 					<h3>
 						(^﹃^ )<span class="separator">/</span><span id="miMaXiuGaiTiShi" class="message-content">原密、新密、确认</span>
 					</h3>
@@ -118,7 +118,7 @@
 		<%-- 用户登录 --%>
 		<div class="hiddenBox" id="hoverDengLu">
 			<div class="innerWrapper">
-				<g:form name="yongHuDengLu" url="[controller:'z520', action:'yongHuDengLu']">
+				<g:form name="yongHuDengLu" url="[controller:'public', action:'yongHuDengLu']">
 					<h3>
 						(^﹃^ )<span class="separator">/</span><span id="dengLuTiShi" class="message-content">账号</span>
 					</h3>
@@ -169,7 +169,7 @@
 		<%-- 用户注册 --%>
 		<div class="hiddenBox" id="hoverZhuCe">
 			<div class="innerWrapper">
-				<g:form name="yongHuZhuCe" url="[controller:'z520', action:'yongHuZhuCe']">
+				<g:form name="yongHuZhuCe" url="[controller:'public', action:'yongHuZhuCe']">
 					<h3>
 						(^﹃^ )<span class="separator">/</span><span id="zhuCeTiShi" class="message-content">默认密码：${ grailsApplication.config.application.password }</span>
 					</h3>

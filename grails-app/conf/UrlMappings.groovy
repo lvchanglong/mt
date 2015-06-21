@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
 
-        "/"(controller:"z360", action:"index")
+        "/"(controller:"public", action:"index")
 		"/admin"(view:'/index')
         "500"(view:'/error')
 	}

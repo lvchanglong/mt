@@ -3,7 +3,7 @@
 <footer id="main-footer">
 	
 	<div style="padding:15px 0 10px 0;">
-		<g:link class="btn bold" controller="z360" action="guanYuWangZhan">
+		<g:link class="btn bold" controller="public" action="guanYuWangZhan">
 			<i class="fa fa-leaf"></i>关于网站
 		</g:link>
 		
@@ -21,17 +21,17 @@
 			<i class="fa fa-copyright"></i>${ Helper.getNian() }&nbsp;${ grailsApplication.config.author.name }&nbsp;版权所有
 		</li>
 		<li>
-			<g:link controller="z360" action="yongQianBiDu">
+			<g:link controller="public" action="yongQianBiDu">
 				用前必读
 			</g:link>
 		</li>
 		<li>
-			<g:link controller="z360" action="zuJian">
+			<g:link controller="public" action="zuJian">
 				组件
 			</g:link>
 		</li>
 		<li>
-			<g:link controller="z360" action="fanKui">
+			<g:link controller="public" action="fanKui">
 				反馈
 			</g:link>
 		</li>

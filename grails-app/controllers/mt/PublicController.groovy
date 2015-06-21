@@ -1,21 +1,89 @@
 package mt
 
-import grails.converters.JSON
-import grails.transaction.Transactional;
-import java.nio.CharBuffer
-import java.text.DateFormat
-import javax.servlet.http.HttpSession;
 import static org.springframework.http.HttpStatus.*
+import grails.transaction.Transactional
+import grails.converters.JSON
 
 /**
- * 系统后台服务（爱你，在心中）
- * @author lvchanglong
- *
+ * 公有方法，所有人
  */
-class Z520Controller {
+class PublicController {
+
+	static defaultAction = "index"
+	
+	def test() {
+		
+	}
+	
+	def ajaxTest() {
+		render status: BAD_REQUEST, text:"请求不合法！！！！！"
+	}
 	
 	/**
-	 * 用户登录(私有)
+	 * 组件(页面)
+	 */
+	def zuJian() {
+		ArrayList slideList = [
+			[url:assetPath(src:"HuanDengPian/images/1.jpg"), alt:"Dan The Man Stage 1", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/2.jpg"), alt:"Dan The Man Stage 2", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/3.jpg"), alt:"Dan The Man Stage 3", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/4.jpg"), alt:"Dan The Man Stage 4", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/5.jpg"), alt:"Dan The Man Stage 5", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/6.jpg"), alt:"Dan The Man Stage 6", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/7.jpg"), alt:"Dan The Man Stage 7", href:"javascript:void(0);"]
+		]
+		
+		[slideList:slideList]
+	}
+	
+	/**
+	 * 反馈(页面)
+	 */
+	def fanKui(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond FanKui.list(params), model:[fanKuiInstanceCount: FanKui.count()]
+	}
+	
+	/**
+	 * 用前必读(页面)
+	 */
+	def yongQianBiDu() {
+		
+	}
+	
+	/**
+	 * 关于网站(页面)
+	 */
+	def guanYuWangZhan() {
+		
+	}
+	
+	/**
+	 * 实体详情
+	 * @param shiTiInstance
+	 */
+	def showShiTi(ShiTi shiTiInstance) {
+		if (shiTiInstance == null) {
+			render status: NOT_FOUND
+			return
+		}
+		respond shiTiInstance
+	}
+	
+	/**
+	 * 网站首页(页面)
+	 */
+    def index() { 
+		params.max = 1
+		params.sort = "dateCreated"
+		params.order = "desc"
+		[shiTiInstanceList:ShiTi.list(params), shiTiInstanceCount:ShiTi.count()]
+	}
+	
+	//---------------------------------------------------------------------------------------------------
+	
+	/**
+	 * 用户登录(服务)
 	 * @param zhangHao 账号
 	 * @param miMa 密码
 	 */
@@ -39,7 +107,7 @@ class Z520Controller {
 	}
 	
 	/**
-	 * 用户注销(私有)
+	 * 用户注销(服务)
 	 */
 	def yongHuZhuXiao() {
 		session.invalidate()
@@ -47,7 +115,7 @@ class Z520Controller {
 	}
 	
 	/**
-	 * 用户注册
+	 * 用户注册(服务)
 	 */
 	@Transactional
 	def yongHuZhuCe(String zhangHao, String miMa, String queRenMiMa) {
@@ -77,69 +145,7 @@ class Z520Controller {
 	}
 	
 	/**
-	 * 修改密码
-	 * @param yongHuInstance 被处理用户(id:YongHu)
-	 */
-	@Transactional
-	def miMaXiuGai(YongHu yongHuInstance, String yuanMiMa, String xinMiMa, String queRenMiMa) {
-		if (yongHuInstance && yuanMiMa && xinMiMa && queRenMiMa) {
-			if (xinMiMa == queRenMiMa) {//确认密码一致性
-				if (yongHuInstance.miMa == yuanMiMa.encodeAsMD5()) {//原始密码验证
-					yongHuInstance.miMa = xinMiMa.encodeAsMD5() //更新密码
-					yongHuInstance.save(flush: true)
-					render status: OK, text: "修改成功"
-					return
-				}
-				render status: UNAUTHORIZED, text: "原密码有误"
-				return
-			}
-			render status: NOT_ACCEPTABLE, text: "新密码不一致"
-			return
-		}
-		render status: BAD_REQUEST, text: "请求不合法 "
-	}
-	
-	/**
-	 * 头像上传
-	 * @param uid 被处理用户
-	 */
-	@Transactional
-	def touXiangShangChuan(String fileName, String uid) {
-		withForm {
-			def yongHuInstance = YongHu.get(uid)
-			if (yongHuInstance) {
-				def assetPath = "KongJian/${yongHuInstance.zhangHao}/TuPian/${fileName}"
-				BufferedInputStream fileIn = new BufferedInputStream(request.getInputStream())
-				byte[] buf = new byte[1024]
-				File file = Helper.getFile("grails-app/assets/working/${assetPath}")
-				BufferedOutputStream fileOut = new BufferedOutputStream(new FileOutputStream(file))
-				while (true) {
-				   int bytesIn = fileIn.read(buf, 0, 1024)
-				   if (bytesIn == -1) {
-					  break
-				   } else {
-					  fileOut.write(buf, 0, bytesIn)
-				   }
-				}
-				fileOut.flush()
-				fileOut.close()
-				
-				yongHuInstance.touXiang = assetPath
-				yongHuInstance.save(flush: true)//更新路径
-				
-				Helper.yaSuo(file, 180, 180)//图片压缩处理
-				
-				render assetPath
-			} else {
-				render status: NOT_FOUND, text: '用户不存在'
-			}
-		}.invalidToken {
-			// bad request
-		}
-	}
-	
-	/**
-	 * 生肖查询
+	 * 生肖查询(服务)
 	 * @param nian 年份
 	 */
 	def shengXiaoChaXun(Integer nian) {
@@ -151,7 +157,7 @@ class Z520Controller {
 	}
 	
 	/**
-	 * ip详情
+	 * ip详情(服务)
 	 * @param ip地址
 	 */
 	def ipXiangQing(String ip) {
@@ -165,7 +171,7 @@ class Z520Controller {
 	}
 	
 	/**
-	 * 下载
+	 * 下载(服务)
 	 * @param filePath 文件路径  grails-app/assets/working/LinShi/${fileName}
 	 */
 	def xiaZai(String filePath) {
@@ -181,7 +187,7 @@ class Z520Controller {
 	}
 	
 	/**
-	 * 近期公告（HTML5 EventSource（服务器实时推送））
+	 * 近期公告，HTML5 EventSource，服务器实时推送(服务)
 	 */
 	def jinQiGongGao() {
 		def array = ["I want to play a game with you", "我就是吕常龙", "我是这的站长", "我要不断的成长", "这是赔钱的网站，但我似乎并不在意"]

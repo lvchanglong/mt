@@ -39,14 +39,14 @@
 						<ul>
 							<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 								<li>
-									<h1><g:link controller="z360" action="editKongJian" id="${ kongJianInstance.id }" target="_blank">${ kongJianInstance.biaoTi }</g:link></h1>
+									<h1><g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank">${ kongJianInstance.biaoTi }</g:link></h1>
 									
 									<div class="neiRong">
 										<ul>
 											<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 												<g:if test="${ shiTiInstance }">
 													<li>
-														<g:link controller="z360" action="showShiTi" id="${ shiTiInstance.id }" target="_blank">${ shiTiInstance.biaoTi }</g:link>
+														<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank">${ shiTiInstance.biaoTi }</g:link>
 													</li>
 												</g:if>
 											</g:each>

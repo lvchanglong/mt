@@ -9,7 +9,7 @@
 	</ul>
 	
 	<g:javascript>
-		jQuery.post("${ createLink(controller:'z520', action:'ipXiangQing') }", {limit: '${ request.getRemoteAddr() }'}, function(data,textStatus){
+		jQuery.post("${ createLink(controller:'public', action:'ipXiangQing') }", {limit: '${ request.getRemoteAddr() }'}, function(data,textStatus){
 			if(data && data != 'null'){
 				jQuery('#yongHuIP-ip138').html(data);
 			} else {
