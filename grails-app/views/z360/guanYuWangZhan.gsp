@@ -24,6 +24,13 @@
 					<br />
 					步步为营，专注垂直
 				</p>
+			
+				<h2>联系站长</h2>
+				<p>
+					姓名：${ grailsApplication.config.author.name }
+					<br/>
+					ＱＱ：${ grailsApplication.config.author.qq }
+				</p>
 			</div>
 			<asset:image src="SuCai/个人微信.png" alt="加我微信" style="float:right;height:350px;"/>
 		</div>

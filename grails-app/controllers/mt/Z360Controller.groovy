@@ -34,19 +34,6 @@ class Z360Controller {
 	}
 	
 	/**
-	 * 个人管理
-	 * @param yongHuInstance 被处理用户(id:YongHu)
-	 */
-	def geRenGuanLi(YongHu yongHuInstance) {
-		if (!yongHuInstance) {
-			render status: NOT_FOUND
-			return
-		}
-		
-		[yongHuInstance: yongHuInstance]
-	}
-	
-	/**
 	 * 实体列表
 	 */
 	def listShiTi(YongHu yongHuInstance) {

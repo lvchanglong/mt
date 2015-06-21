@@ -7,12 +7,6 @@
 	<body>
 		<div id="yongQianBiDu" class="clearfix defaultPage">
 			<h1>用前必读</h1>
-			<h2>站长声明</h2>
-			<p>
-				当您在使用或者间接使用本站时，就代表您已接受本站的使用协议。如果事实并非如此，请您安静的离开。
-				<br/>
-				假若本站在无意中侵犯了您的知识产权，请及时与我取得联系，我会在第一时间对其进行删除处理。
-			</p>
 			
 			<h2>使用协议</h2>
 			<p>
@@ -35,9 +29,9 @@
 			
 			<h2>联系站长</h2>
 			<p>
-				ＱＱ：${ grailsApplication.config.author.qq }
-				<br/><br/>
 				姓名：${ grailsApplication.config.author.name }
+				<br/><br/>
+				ＱＱ：${ grailsApplication.config.author.qq }
 			</p>
 		</div>
 	</body>

@@ -51,6 +51,20 @@
 			
 			<h2>幻灯片B</h2>
 			<g:render template="/layouts/plugins/huanDengPian" model="[instanceList: slideList, width:'100%', height:'372px']"/>
+			
+			<hr/>
+			
+			<h2>信息推送</h2>
+			<h3 style="color:black;">
+				<span id="kongjian-wrapper-h1">信息推送</span>
+				<g:javascript>
+					var source = new EventSource("${ createLink(controller:"z520", action:"jinQiGongGao") }");
+					source.onmessage = function(event) {
+						jQuery("#kongjian-wrapper-h1").html(event.data);//近期公告
+					};
+				</g:javascript>
+			</h3>
+			
 		</div>
 		
 	</body>

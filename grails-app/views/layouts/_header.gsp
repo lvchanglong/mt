@@ -24,7 +24,10 @@
 					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key"></i>密码修改</a>
 				</li>
 				<li>
-					<g:link controller="z360" action="geRenGuanLi" id="${ session.uid }"><i class="fa fa-cog"></i>个人管理</g:link>
+					<g:link controller="z360" action="listShiTi" id="${ session.uid }"><i class="fa fa-file"></i>实体管理</g:link>
+				</li>
+				<li>
+					<g:link controller="z360" action="listKongJian" id="${ session.uid }"><i class="fa fa-folder"></i>空间管理</g:link>
 				</li>
 				<li>
 					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:"z520", action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out"></i>退出登录</a>
