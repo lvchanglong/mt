@@ -30,7 +30,7 @@
 			<h2>联系站长</h2>
 			<p>
 				姓名：${ grailsApplication.config.author.name }
-				<br/><br/>
+				<br/>
 				ＱＱ：${ grailsApplication.config.author.qq }
 			</p>
 		</div>

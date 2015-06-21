@@ -18,10 +18,9 @@
 						CKEDITOR.inline('shiTiNeiRongUpdate');
 					</g:javascript>
 					
-					<fieldset class="buttons" style="margin-top:15px;">
+					<div style="margin:5px 15px 0 0;float:left;">
 						<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-						<div id="shiTi-message-update" class="messageBox" style="float:right;">(^_,^ )：“我今天又没吃药，感觉自己萌萌哒...”</div>
-					</fieldset>
+					</div>
 				</g:form>
 			
 				<g:javascript>
@@ -31,14 +30,32 @@
 						    jQuery("#shiTiNeiRongUpdate").val(dataHtml);
 						},
 						success:function(data,textStatus){
-							success(data,textStatus,'#shiTi-message-update');
+							success(data,textStatus,'#shiTi-message-console');
 						}, 
 						error:function(XMLHttpRequest,textStatus,errorThrown){
-							error(XMLHttpRequest,textStatus,errorThrown,'#shiTi-message-update');
+							error(XMLHttpRequest,textStatus,errorThrown,'#shiTi-message-console');
 						}
 					});
 				</g:javascript>
 				
+				<g:form name="shiTi-delete-form" url="[resource:shiTiInstance, action:'delete']" method="DELETE">
+					<div style="margin:5px 15px 0 0;float:left;">
+						<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />		
+					</div>
+				</g:form>
+				
+				<g:javascript>
+					jQuery("#shiTi-delete-form").ajaxForm({
+						success:function(data,textStatus){
+							success(data,textStatus,'#shiTi-message-console');
+						}, 
+						error:function(XMLHttpRequest,textStatus,errorThrown){
+							error(XMLHttpRequest,textStatus,errorThrown,'#shiTi-message-console');
+						}
+					});
+				</g:javascript>
+				
+				<div id="shiTi-message-console" class="messageBox" style="float:right;">(^_,^ )：“我今天又没吃药，感觉自己萌萌哒...”</div>
 			</div>
 		</g:if>
 	</body>
