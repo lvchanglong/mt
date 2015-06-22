@@ -49,7 +49,10 @@ class KongJian {
 	
 	List<ShiTi> children() {
 		String[] splits = this.neiRong.split("(,|，)")
-		return ShiTi.getAll(splits)
+		def arrayList = ShiTi.getAll(splits)
+		return arrayList.findAll {elem->
+			elem != null
+		}
 	}
 	
 }

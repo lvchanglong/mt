@@ -12,7 +12,14 @@ class PublicController {
 	static defaultAction = "index"
 	
 	def test() {
-		
+//		def array = new ArrayList([null, null, 'test', null, 'hello', 'world'])
+//		println array
+//
+//		println "n:" + array.findAll {elem->
+//			elem != null
+//		}
+
+//		println KongJian.first().children()
 	}
 	
 	def ajaxTest() {
@@ -73,11 +80,12 @@ class PublicController {
 	/**
 	 * 网站首页(页面)
 	 */
-    def index() { 
-		params.max = 1
+    def index() {
+		def hmIW = [0:'75', 1:'25', 2:'25', 3:'50', 4:'25', 5:'25', 6:'75', 7:'50', 8:'50']
+		params.max = 10
 		params.sort = "dateCreated"
 		params.order = "desc"
-		[shiTiInstanceList:ShiTi.list(params), shiTiInstanceCount:ShiTi.count()]
+		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), hmIW:hmIW]
 	}
 	
 	//---------------------------------------------------------------------------------------------------

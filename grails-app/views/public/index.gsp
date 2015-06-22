@@ -9,42 +9,50 @@
 	<body>
 
 		<div id="zhuYe" class="clearfix defaultPage">
-
-			<g:if test="${shiTiInstanceList}">
-				<div id="shiTi-wrapper">
+			
+			<g:render template="/layouts/plugins/faBuFanKui" />
+			
+			<g:if test="${kongJianInstanceList}">
+				<div id="kongJian-wrapper">
 				
-					<div id="shiTi-load">
+					<div id="kongJian-load">
 						<ul>
-							<g:each in="${shiTiInstanceList}" status="i" var="shiTiInstance">
+							<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 								<li>
-									<h2><g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link></h2>
-
-									<div style="padding: 0 0 15px 0;color:#888888;">
-										<span class="dateCreated">
-											<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
-										</span>
-										<span class="separator"></span>
-										<span class="id">
-											代号：<span style="font-weight:bold;margin:0 10px;font-size:20px;">${ shiTiInstance.id }</span>
-										</span>
+									<h1><g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link></h1>
+									
+									<div class="neiRong clearfix">
+										<ul class="clearfix">
+											<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
+												<g:if test="${ shiTiInstance }">
+													<li class="floatLeft w${ hmIW.get(j%9) }">
+														<div class="box">
+															<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+																<i class="fa fa-hand-o-right"></i>${ shiTiInstance.biaoTi }
+															</g:link>
+															
+															<div class="phone">
+																${ shiTiInstance.neiRong }
+															</div>
+														</div>
+													</li>
+												</g:if>
+											</g:each>
+										</ul>
 									</div>
-									
-									<div style="clear:both;"></div>
-									
-									<div class="neiRong">${shiTiInstance.neiRong}</div>
 								</li>
 							</g:each>
 						</ul>
 						
-						<div class="pagination">
-							<g:paginate total="${shiTiInstanceCount}" params="[id:yongHuInstance?.id]"/>
+						<div class="pagination" style="clear:both;">
+							<g:paginate total="${kongJianInstanceCount}" params="[id:yongHuInstance?.id]"/>
 						</div>
 					</div>
 					
 				</div>
 				
 				<g:javascript>
-					paginate("#shiTi-wrapper", "#shiTi-load");
+					paginate("#kongJian-wrapper", "#kongJian-load");
 				</g:javascript>
 			</g:if>
 			
