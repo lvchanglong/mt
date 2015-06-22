@@ -39,14 +39,26 @@
 						<ul>
 							<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 								<li>
-									<h1><g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank">${ kongJianInstance.biaoTi }</g:link></h1>
+									<h1><g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link></h1>
 									
 									<div class="neiRong">
 										<ul>
 											<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 												<g:if test="${ shiTiInstance }">
 													<li>
-														<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank">${ shiTiInstance.biaoTi }</g:link>
+														<div class="floatLeft w50">
+															<div class="box">
+																<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+																	<i class="fa fa-hand-o-right"></i>${ shiTiInstance.biaoTi }
+																</g:link>
+																
+																<div class="phone">
+																	${ shiTiInstance.neiRong }
+																</div>
+																
+																<i class="fa fa-mobile-phone fa-2" style="position:absolute;top:0;right:0;"></i>
+															</div>
+														</div>
 													</li>
 												</g:if>
 											</g:each>
@@ -56,7 +68,7 @@
 							</g:each>
 						</ul>
 						
-						<div class="pagination">
+						<div class="pagination" style="clear:both;">
 							<g:paginate total="${kongJianInstanceCount}" params="[id:yongHuInstance?.id]"/>
 						</div>
 					</div>

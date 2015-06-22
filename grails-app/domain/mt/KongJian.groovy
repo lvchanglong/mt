@@ -48,7 +48,7 @@ class KongJian {
 	}
 	
 	List<ShiTi> children() {
-		String[] splits = this.neiRong.split(",")
+		String[] splits = this.neiRong.split("(,|，)")
 		return ShiTi.getAll(splits)
 	}
 	

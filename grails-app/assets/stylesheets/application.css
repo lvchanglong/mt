@@ -185,14 +185,21 @@
 	width:75%;
 	padding:15px 10px;
 }
+.w25, .w50, .w75 {
+	min-width:300px;
+}
 .box {
+	position:relative;
 	box-shadow: 0 0 9px #333;
 	padding:15px;
 	min-height:350px;
 	overflow: auto;
 }
-.minw300 {
-	min-width:300px;
+.box .title {
+	display:block;min-height:70px;padding-top:15px;
+}
+.box .phone {
+	height:300px;overflow:auto;margin:0 20px 30px 20px;font-weight:normal;color:gray;border:1px dashed lightgray;clear:both;
 }
 
 /*-----------------------------------------------------------------------------------------------*/

@@ -362,7 +362,7 @@ function reloadConfirm(htmlTitle, htmlContent, callFunction) {
 		htmlTitle = '温馨提示';
 	}
 	if(!htmlContent) {
-		htmlContent = '操作已完成？！！！';
+		htmlContent = '操作已毕？！！！';
 	}
 	if(!callFunction) {
 		callFunction = function() {
