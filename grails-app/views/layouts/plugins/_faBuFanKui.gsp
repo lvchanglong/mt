@@ -8,7 +8,7 @@
 		
 		<g:textArea id="fanKui-save-neiRong" name="neiRong" required="" class="borderRadius smallTextArea" placeholder="你想写多长就写多长"/>
 
-		<div id="fanKui-save-status" class="messageBox">(^_,^ )：“我今天又没吃药，感觉自己萌萌哒...”</div>
+		<div id="fanKui-save-status" class="messageBox">(^_,^ )：“没吃药，萌萌哒...”</div>
 		<g:submitButton name="tiJiao" value="发布" class="submitBtn btn-default"/>
 	</g:form>
 	
@@ -17,6 +17,7 @@
 			success:function(data,textStatus){
 				jQuery("#fanKui-save-neiRong").val("");
 				jQuery("#fanKui-save-status").html("(^_,^ )：“反馈已收到”");
+				window.location.reload();
 			}, 
 			error:function(XMLHttpRequest,textStatus,errorThrown){
 				error(XMLHttpRequest,textStatus,errorThrown,'#fanKui-save-status');

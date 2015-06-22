@@ -18,7 +18,7 @@
 					
 					<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 					<g:submitButton name="faBu" value="发布" class="submitBtn"/>
-					<div id="shiTi-message-save" class="messageBox">(^_,^ )：“我今天又没吃药，感觉自己萌萌哒...”</div>
+					<div id="shiTi-message-save" class="messageBox">(^_,^ )：“没吃药，萌萌哒...”</div>
 				</g:form>
 				
 				<g:javascript>

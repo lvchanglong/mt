@@ -33,6 +33,8 @@
 				<br/>
 				ＱＱ：${ grailsApplication.config.author.qq }
 			</p>
+			
+			<asset:image src="3D/雄鹰.png" style="position:absolute;right:0;bottom:0;width:250px;"/>
 		</div>
 	</body>
 </html>

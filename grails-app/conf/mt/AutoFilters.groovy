@@ -32,7 +32,6 @@ class AutoFilters {
 					redirect(url:"/")
 					return
 				}
-				
 				if(!YongHu.get(session.uid).shiFouGuanLiYuan()) {
 					render status: UNAUTHORIZED, text:"未授权，非管理员"
 					return

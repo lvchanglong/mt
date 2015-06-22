@@ -55,7 +55,7 @@
 					});
 				</g:javascript>
 				
-				<div id="shiTi-message-console" class="messageBox" style="float:right;">(^_,^ )：“我今天又没吃药，感觉自己萌萌哒...”</div>
+				<div id="shiTi-message-console" class="messageBox" style="float:right;">(^_,^ )：“没吃药，萌萌哒...”</div>
 			</div>
 		</g:if>
 	</body>

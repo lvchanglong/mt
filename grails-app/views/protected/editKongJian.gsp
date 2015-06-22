@@ -14,7 +14,7 @@
 					<g:textField name="neiRong" required="" value="${kongJianInstance?.neiRong}"/>
 					<fieldset class="buttons" style="margin-top:15px;">
 						<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />			
-						<div id="kongJian-message-update" class="messageBox" style="float:right;">(^_,^ )：“我今天又没吃药，感觉自己萌萌哒...”</div>
+						<div id="kongJian-message-update" class="messageBox" style="float:right;">(^_,^ )：“没吃药，萌萌哒...”</div>
 					</fieldset>
 				</g:form>
 			
