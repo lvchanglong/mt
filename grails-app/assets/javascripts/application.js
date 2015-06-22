@@ -9,6 +9,7 @@
 //= require jquery-2.1.3.js
 //= require form-master/jquery.form.js
 //= require nprogress-master/nprogress.js
+//= require jquery-ui-1.11.4/jquery-ui.min.js
 //= require_tree .
 //= require_self
 
@@ -347,5 +348,36 @@ function paginate(wrapperSelector, loadSelector) {
 		jQuery(wrapperSelector).load(this.href + " " + loadSelector);
 		window.history.pushState({}, "", this.href);
 		return false;
+	});
+}
+
+/**
+ * 刷新确认框
+ * @param htmlTitle
+ * @param htmlContent
+ * @param callFunction
+ */
+function reloadConfirm(htmlTitle, htmlContent, callFunction) {
+	if(!htmlTitle) {
+		htmlTitle = '温馨提示';
+	}
+	if(!htmlContent) {
+		htmlContent = '操作已完成？！！！';
+	}
+	if(!callFunction) {
+		callFunction = function() {
+			window.location.reload();
+		}
+	}
+	
+	jQuery('<div class="reloadWrapper">' + htmlContent + '</div>').dialog({
+		title:htmlTitle,
+		modal:true,
+		buttons: {
+	    	"确定": function() {
+	    		jQuery(this).dialog('close');
+	    		callFunction();
+	      	}
+	    }
 	});
 }

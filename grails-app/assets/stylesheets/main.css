@@ -35,8 +35,8 @@ html {
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: Georgia, "微软雅黑", serif, "宋体";
-	font-size: 100%;
+	font-family: Georgia, "宋体", Arial, sans-serif;
+	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.6;
 	color:#000;
@@ -358,7 +358,6 @@ input[type="submit"]:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,.btn:hover,
 .btn:focus{
-  color: #ffffff;
   text-decoration: none;
 }
 button:active,

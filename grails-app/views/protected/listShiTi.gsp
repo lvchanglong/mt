@@ -47,7 +47,7 @@
 						<ul>
 							<g:each in="${shiTiInstanceList}" status="i" var="shiTiInstance">
 								<li>
-									<h2><g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank">${ shiTiInstance.biaoTi }</g:link></h2>
+									<h2><g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link></h2>
 
 									<div style="padding: 0 0 15px 0;color:#888888;">
 										<span class="dateCreated">

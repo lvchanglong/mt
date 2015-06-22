@@ -6,8 +6,8 @@
 	</head>
 	<body>
 		<div id="guanYuWangZhan" class="clearfix defaultPage">
-			<h1>关于网站</h1>
-			<p style="text-indent:2em;line-height:30px;">大家好，这是一个赔钱的网站，而我就是那个倒霉的站长。嘿嘿，别看我这么说，其实我心里并不怎么在意。我认为，能有机会做一些自己喜欢的事，要远比得到一个结果更重要。
+	
+			<p style="text-indent:2em;line-height:30px;margin-top:37px;">大家好，这是一个赔钱的网站，而我就是那个倒霉的站长。嘿嘿，别看我这么说，其实我心里并不怎么在意。我认为，能有机会做一些自己喜欢的事，要远比得到一个结果更重要。
 			本站是个人网站，所有的一切目前都由我一人负责。也就是说，网站开发、测试、运营、维护，都需要我一个人来做。话说，一个代码一个代码的用手敲出自己的网站，还真有点当建筑家的意味呢...</p>
 
 			<div class="clearfix" style="float:left;">
@@ -40,6 +40,7 @@
 				</div>
 			</div>
 			<asset:image src="3D/雄鹰.png" alt="" style="float:right;width:250px;margin-top:30px;"/>
+			
 		</div>
 	</body>
 </html>

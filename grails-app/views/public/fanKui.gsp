@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="yongHuFanKui" class="clearfix defaultPage">
-			<h1>反馈</h1>
+		
 			<g:render template="/layouts/plugins/faBuFanKui" />
 			
 			<hr/>
@@ -39,6 +39,7 @@
 			<g:javascript>
 				paginate("#fanKui-wrapper", "#fanKui-load");
 			</g:javascript>
+			
 		</div>
 	</body>
 </html>

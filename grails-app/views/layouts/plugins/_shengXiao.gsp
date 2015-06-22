@@ -1,6 +1,6 @@
 <div id="shengXiao">
 	<div id="shengXiao-wrapper" style="position:relative;width:150px;height:150px;line-height:150px;text-align:center;">
-		<span style="font-weight:700;font-size:70px;">!</span>
+		<asset:image src="SuCai/谜.png" style="widtH:100%;height:100%;padding:5px;"/>
 	</div>
 	
 	<g:form name="shengXiaoChaXun-form" controller="public" action="shengXiaoChaXun">

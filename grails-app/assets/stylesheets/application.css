@@ -12,6 +12,7 @@
 *= require mobile
 *= require font-awesome-4.3.0/css/font-awesome.min
 *= require nprogress-master/nprogress
+*= require jquery-ui-1.11.4/jquery-ui.min.css
 *= require_self
 */
 .borderRadius {
@@ -60,7 +61,26 @@
 	clear:both;
 }
 .fa {
-	padding-right:3px;
+	padding-right:8px;
+	vertical-align: middle;
+}
+.fa-1_5 {
+  font-size: 1.5em;
+}
+.fa-2 {
+  font-size: 2em;
+}
+.fa-3 {
+  font-size: 4em;
+}
+.fa-4 {
+  font-size: 7em;
+}
+.fa-5 {
+  font-size: 12em;
+}
+.fa-6 {
+  font-size: 20em;
 }
 .separator {
 	padding:0 11px;
@@ -169,6 +189,10 @@
 	box-shadow: 0 0 9px #333;
 	padding:15px;
 	min-height:350px;
+	overflow: auto;
+}
+.minw300 {
+	min-width:300px;
 }
 
 /*-----------------------------------------------------------------------------------------------*/
@@ -225,12 +249,13 @@
 	left:0;
 	bottom:0;
 	width:100%;
-	min-height:135px;
+	min-height:130px;
 	text-align:center;
-	background-color: #2C3E50;
-	color: #ccc;
+	background-color:#F6F6F6;
+	color: #252525;
 	overflow: hidden;
 	z-index:800;
+	border-top: 1px solid #ddd;
 }
 #main-footer li {
 	float:left;
@@ -239,11 +264,11 @@
 	margin:0;
 	padding:0 10px;
 }
-#main-footer a {
+#main-footer a:hover {
 	text-decoration:underline;
 }
-#main-footer a:hover {
-	color:white;
+#main-footer .bold {
+	padding:0 25px;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -253,19 +278,28 @@
 }
 #main-header .daoHang {
 	width:100%;
-	line-height:56px;
-	background-color: #2C3E50;
+	line-height:43px;
+	background-color: #333;
 	color:#fff;
 	box-shadow: 0 0 17px #333;
 	position:relative;
 	z-index:999;
 }
 
+#main-header .logoWrapper {
+	position:relative;
+	width:260px;
+	height:43px;
+	float:left;
+}
+
 #main-header-logo {
 	display:block;
 	width:260px;
 	height:56px;
-	float:left;
+	position:absolute;
+	left:0;
+	top:0;
 }
 #main-header-logo img {
 	height:100%;
@@ -276,11 +310,10 @@
 #main-header-menu {
 	display:block;
 	width:100px;
-	height:56px;
+	height:43px;
 	float:right;
 	text-align:center;
 	font-size:26px;
-	color: #ccc;
 }
 #main-header-menu a {
 	display:block;
@@ -294,13 +327,12 @@
 }
 #main-header-toggle li {
 	float:left;
-	width:120px;
+	width:100px;
 	text-align:center;
 	margin:0;
-	color: #ccc;
 }
 #main-header-toggle li:hover, #main-header-menu a:hover {
-	color: #fff;
+	text-decoration:underline;
 }
 #main-header-toggle a {
 	display:block;

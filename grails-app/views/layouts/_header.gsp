@@ -5,9 +5,11 @@
 <header id="main-header" class="clearfix minWidth">
 	
 	<div class="daoHang clearfix">
-		<g:link uri="/" elementId="main-header-logo">
-			<asset:image src="Logo/logo.png" alt="主坦克"/>
-		</g:link>
+		<div class="logoWrapper">
+			<g:link uri="/" elementId="main-header-logo">
+				<asset:image src="Logo/logo.png" alt="主坦克"/>
+			</g:link>
+		</div>
 		
 		<div id="main-header-menu">
 			<a href="javascript:void(0);" onclick="hideAll('.hiddenBox');">
@@ -18,27 +20,27 @@
 		<ol id="main-header-toggle">			
 			<g:if test="${ dangQianYongHu }">
 				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiXinXi')"><i class="fa fa-user"></i>${ dangQianYongHu.xingMing }</a>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiXinXi')"><i class="fa fa-user fa-1_5"></i>${ dangQianYongHu.xingMing }</a>
 				</li>
 				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key"></i>密码修改</a>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key fa-1_5"></i>密码修改</a>
 				</li>
 				<li>
-					<g:link controller="protected" action="listShiTi" id="${ session.uid }"><i class="fa fa-file"></i>实体管理</g:link>
+					<g:link controller="protected" action="listShiTi" id="${ session.uid }"><i class="fa fa-file fa-1_5"></i>实体管理</g:link>
 				</li>
 				<li>
-					<g:link controller="protected" action="listKongJian" id="${ session.uid }"><i class="fa fa-folder"></i>空间管理</g:link>
+					<g:link controller="protected" action="listKongJian" id="${ session.uid }"><i class="fa fa-folder fa-1_5"></i>空间管理</g:link>
 				</li>
 				<li>
-					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out"></i>退出登录</a>
+					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out fa-1_5"></i>退出</a>
 				</li>
 			</g:if>
 			<g:else>
 				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverDengLu')"><i class="fa fa-sign-in"></i>用户登录</a>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverDengLu')"><i class="fa fa-sign-in fa-1_5"></i>登录</a>
 				</li>
 				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverZhuCe')"><i class="fa fa-user-plus"></i>用户注册</a>
+					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverZhuCe')"><i class="fa fa-user-plus fa-1_5"></i>注册</a>
 				</li>
 			</g:else>
 		</ol>
@@ -124,7 +126,7 @@
 					</h3>
 					<g:textField id="saveZhangHao" name="zhangHao" required="" value="" placeholder="账号：是ＱＱ么？"/>
 					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
-					<div style="float:left;margin-top:10px;"><g:checkBox id="saveAuto" name="saveAuto" checked="true"/>&nbsp;&nbsp;记住账号</div>
+					<div style="float:left;margin-top:10px;"><g:checkBox id="saveAuto" name="saveAuto" checked="true" style="vertical-align:middle;"/>&nbsp;&nbsp;记住账号</div>
 					<g:submitButton name="dengLu" value="登录" class="submitBtn btn-default"/>
 				</g:form>
 				

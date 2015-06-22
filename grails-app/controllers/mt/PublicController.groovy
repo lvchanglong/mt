@@ -24,13 +24,13 @@ class PublicController {
 	 */
 	def zuJian() {
 		ArrayList slideList = [
-			[url:assetPath(src:"HuanDengPian/images/1.jpg"), alt:"Dan The Man Stage 1", href:"javascript:void(0);"],
-			[url:assetPath(src:"HuanDengPian/images/2.jpg"), alt:"Dan The Man Stage 2", href:"javascript:void(0);"],
-			[url:assetPath(src:"HuanDengPian/images/3.jpg"), alt:"Dan The Man Stage 3", href:"javascript:void(0);"],
-			[url:assetPath(src:"HuanDengPian/images/4.jpg"), alt:"Dan The Man Stage 4", href:"javascript:void(0);"],
-			[url:assetPath(src:"HuanDengPian/images/5.jpg"), alt:"Dan The Man Stage 5", href:"javascript:void(0);"],
-			[url:assetPath(src:"HuanDengPian/images/6.jpg"), alt:"Dan The Man Stage 6", href:"javascript:void(0);"],
-			[url:assetPath(src:"HuanDengPian/images/7.jpg"), alt:"Dan The Man Stage 7", href:"javascript:void(0);"]
+			[url:assetPath(src:"HuanDengPian/images/z1.jpg"), alt:"Dan The Man Stage 1", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/z2.jpg"), alt:"Dan The Man Stage 2", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/z3.jpg"), alt:"Dan The Man Stage 3", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/z4.jpg"), alt:"Dan The Man Stage 4", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/z5.jpg"), alt:"Dan The Man Stage 5", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/z6.jpg"), alt:"Dan The Man Stage 6", href:"javascript:void(0);"],
+			[url:assetPath(src:"HuanDengPian/images/z7.jpg"), alt:"Dan The Man Stage 7", href:"javascript:void(0);"]
 		]
 		
 		[slideList:slideList]
