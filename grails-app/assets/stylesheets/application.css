@@ -254,7 +254,6 @@
 	background-color:#F6F6F6;
 	color: #252525;
 	overflow: hidden;
-	z-index:800;
 	border-top: 1px solid #ddd;
 }
 #main-footer li {
