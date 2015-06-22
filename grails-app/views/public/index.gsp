@@ -17,19 +17,15 @@
 						<ul>
 							<g:each in="${shiTiInstanceList}" status="i" var="shiTiInstance">
 								<li>
-									<h1>${ shiTiInstance.biaoTi }</h1>
-									
-									<div style="float:right;">
-										<strong class="yongHu">
-											${ shiTiInstance.getYongHuAsString() }
-										</strong>
-										<span class="separator">/</span>
+									<h2><g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link></h2>
+
+									<div style="padding: 0 0 15px 0;color:#888888;">
 										<span class="dateCreated">
 											<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
 										</span>
-										<span class="separator">/</span>
+										<span class="separator"></span>
 										<span class="id">
-											${ shiTiInstance.id }
+											代号：<span style="font-weight:bold;margin:0 10px;font-size:20px;">${ shiTiInstance.id }</span>
 										</span>
 									</div>
 									

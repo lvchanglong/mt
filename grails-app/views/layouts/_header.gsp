@@ -126,7 +126,7 @@
 					</h3>
 					<g:textField id="saveZhangHao" name="zhangHao" required="" value="" placeholder="账号：是ＱＱ么？"/>
 					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
-					<div style="float:left;margin-top:10px;"><g:checkBox id="saveAuto" name="saveAuto" checked="true" style="vertical-align:middle;"/>&nbsp;&nbsp;记住账号</div>
+					<div style="float:left;margin-top:10px;"><g:checkBox id="saveAuto" name="saveAuto" checked="true" style="margin-top:0;vertical-align:middle;"/>&nbsp;&nbsp;记住账号</div>
 					<g:submitButton name="dengLu" value="登录" class="submitBtn btn-default"/>
 				</g:form>
 				

@@ -50,7 +50,7 @@ class ProtectedController {
 				}
 			}
 		}
-		params.max = 10
+		params.max = 1
 		params.sort = "dateCreated"
 		params.order = "desc"
 		[kongJianInstanceList:criteria.list(params), kongJianInstanceCount:criteria.count(), yongHuInstance:yongHuInstance]
