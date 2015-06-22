@@ -26,14 +26,16 @@
 				本站如无意中侵犯了哪个媒体或个人的知识产权，请及时告之，本站将立即给予删除。
 			</p>
 			
-			<h2>联系站长</h2>
-			<p>
-				姓名：${ grailsApplication.config.author.name }
-				<br/>
-				ＱＱ：${ grailsApplication.config.author.qq }
-			</p>
+			<div style="float:left;">
+				<h2>联系站长</h2>
+				<p>
+					姓名：${ grailsApplication.config.author.name }
+					<br/>
+					ＱＱ：${ grailsApplication.config.author.qq }
+				</p>
+			</div>
 			
-			<asset:image src="3D/雄鹰.png" style="position:absolute;right:0;bottom:0;width:250px;"/>
+			<asset:image src="3D/雄鹰.png" style="float:right;bottom:0;width:250px;"/>
 			
 		</div>
 	</body>
