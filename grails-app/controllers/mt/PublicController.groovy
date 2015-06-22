@@ -82,10 +82,16 @@ class PublicController {
 	 */
     def index() {
 		def hmIW = [0:'75', 1:'25', 2:'25', 3:'50', 4:'25', 5:'25', 6:'75', 7:'50', 8:'50']
+		
+		def dangQianYongHu = null
+		if(session.uid) {
+			dangQianYongHu = YongHu.get(session.uid)
+		}
+		
 		params.max = 10
 		params.sort = "dateCreated"
 		params.order = "desc"
-		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), hmIW:hmIW]
+		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, hmIW:hmIW]
 	}
 	
 	//---------------------------------------------------------------------------------------------------

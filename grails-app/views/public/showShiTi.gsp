@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>实体详情</title>
+		<title>${ shiTiInstance.biaoTi }</title>
 	</head>
 	<body>
 		<div id="showShiTi" class="clearfix defaultPage">

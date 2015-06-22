@@ -5,7 +5,8 @@
 		<title>实体修改</title>
 	</head>
 	<body>
-		<g:if test="${ session.uid && session.uid == shiTiInstance.yongHu?.id }">
+		
+		<g:if test="${ session.uid && session.uid == shiTiInstance.yongHu?.id || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<div id="editShiTi" class="clearfix defaultPage">
 				
 				<g:form name="shiTi-update-form" url="[resource:shiTiInstance, action:'update']" method="PUT" >

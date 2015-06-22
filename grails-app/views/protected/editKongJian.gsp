@@ -5,7 +5,7 @@
 		<title>空间修改</title>
 	</head>
 	<body>
-		<g:if test="${ session.uid && session.uid == kongJianInstance.yongHu?.id }">
+		<g:if test="${ session.uid && session.uid == kongJianInstance.yongHu?.id || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<div id="editKongJian" class="clearfix defaultPage">
 				
 				<g:form name="kongJian-update-form" url="[resource:kongJianInstance, action:'update']" method="PUT" >

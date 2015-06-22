@@ -7,10 +7,10 @@
 	<body>
 		<div id="listKongJian" class="clearfix defaultPage">
 			
-			<g:if test="${ session.uid && session.uid == yongHuInstance.id }">
+			<g:if test="${ session.uid && session.uid == yongHuInstance.id || dangQianYongHu?.shiFouGuanLiYuan() }">
 				<g:form name="kongJian-save-form" url="[controller:'kongJian', action:'save']" class="clearfix" style="margin-top:30px;">
 					<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required=""/>
-					<g:textArea name="neiRong" value="" style="width:100%;min-height:300px;" placeholder="1,2,3,7,9"/>
+					<g:textArea name="neiRong" value="" style="width:100%;min-height:300px;" placeholder="1,2,3,7,9（实体代号格式）"/>
 					
 					<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 					<g:submitButton name="faBu" value="发布" class="submitBtn"/>
@@ -49,7 +49,7 @@
 														<div class="floatLeft w50">
 															<div class="box">
 																<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-																	<i class="fa fa-hand-o-right"></i>${ shiTiInstance.biaoTi }
+																	<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
 																</g:link>
 																
 																<div class="phone">

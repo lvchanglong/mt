@@ -19,7 +19,14 @@
 						<ul>
 							<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 								<li>
-									<h1><g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link></h1>
+									<h1>
+										<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+											<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
+										</g:if>
+										<g:else>
+											${ kongJianInstance.biaoTi }
+										</g:else>
+									</h1>
 									
 									<div class="neiRong clearfix">
 										<ul class="clearfix">
@@ -27,9 +34,16 @@
 												<g:if test="${ shiTiInstance }">
 													<li class="floatLeft w${ hmIW.get(j%9) }">
 														<div class="box">
-															<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-																<i class="fa fa-hand-o-right"></i>${ shiTiInstance.biaoTi }
-															</g:link>
+															<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+																<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
+																	<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
+																</g:link>
+															</g:if>
+															<g:else>
+																<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+																	<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
+																</g:link>
+															</g:else>
 															
 															<div class="phone">
 																${ shiTiInstance.neiRong }

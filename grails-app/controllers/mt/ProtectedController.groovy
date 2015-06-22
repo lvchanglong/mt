@@ -14,6 +14,11 @@ class ProtectedController {
 	 * 实体列表(页面)
 	 */
 	def listShiTi(YongHu yongHuInstance) {
+		def dangQianYongHu = null
+		if(session.uid) {
+			dangQianYongHu = YongHu.get(session.uid)
+		}
+		
 		def criteria = ShiTi.where {
 			if(yongHuInstance) {
 				yongHu {
@@ -24,7 +29,7 @@ class ProtectedController {
 		params.max = 1
 		params.sort = "dateCreated"
 		params.order = "desc"
-		[shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), yongHuInstance:yongHuInstance]
+		[shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), yongHuInstance:yongHuInstance, dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**
@@ -32,17 +37,27 @@ class ProtectedController {
 	 * @param shiTiInstance
 	 */
 	def editShiTi(ShiTi shiTiInstance) {
+		def dangQianYongHu = null
+		if(session.uid) {
+			dangQianYongHu = YongHu.get(session.uid)
+		}
+		
 		if (shiTiInstance == null) {
 			render status: NOT_FOUND
 			return
 		}
-		respond shiTiInstance
+		respond shiTiInstance, model:[dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**
 	 * 空间列表
 	 */
 	def listKongJian(YongHu yongHuInstance) {
+		def dangQianYongHu = null
+		if(session.uid) {
+			dangQianYongHu = YongHu.get(session.uid)
+		}
+		
 		def criteria = KongJian.where {
 			if(yongHuInstance) {
 				yongHu {
@@ -53,7 +68,7 @@ class ProtectedController {
 		params.max = 1
 		params.sort = "dateCreated"
 		params.order = "desc"
-		[kongJianInstanceList:criteria.list(params), kongJianInstanceCount:criteria.count(), yongHuInstance:yongHuInstance]
+		[kongJianInstanceList:criteria.list(params), kongJianInstanceCount:criteria.count(), yongHuInstance:yongHuInstance, dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**
@@ -61,11 +76,16 @@ class ProtectedController {
 	 * @param kongJianInstance
 	 */
 	def editKongJian(KongJian kongJianInstance) {
+		def dangQianYongHu = null
+		if(session.uid) {
+			dangQianYongHu = YongHu.get(session.uid)
+		}
+		
 		if (kongJianInstance == null) {
 			render status: NOT_FOUND
 			return
 		}
-		respond kongJianInstance
+		respond kongJianInstance, model:[dangQianYongHu:dangQianYongHu]
 	}
 	
     def index() {
