@@ -81,14 +81,14 @@ class PublicController {
 	 * 网站首页(页面)
 	 */
     def index() {
-		def hmIW = [0:'75', 1:'25', 2:'25', 3:'50', 4:'25', 5:'25', 6:'75', 7:'50', 8:'50']
+		def hmIW = [0:'70', 1:'30', 2:'30', 3:'40', 4:'30', 5:'30', 6:'70', 7:'50', 8:'50']
 		
 		def dangQianYongHu = null
 		if(session.uid) {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
-		params.max = 10
+		params.max = 15
 		params.sort = "dateCreated"
 		params.order = "desc"
 		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, hmIW:hmIW]

@@ -74,7 +74,7 @@
 			
 				<div class="touXiangKongJian" style="float:left;width:180px;">
 					<div id="touXiangWrapper" style="width:180px;height:180px;">
-						<asset:image src="${ dangQianYongHu.touXiang }" width="180px;" height="180px" alt="头像"/>
+						<g:img uri="${ dangQianYongHu.touXiang }" width="180px;" height="180px" alt="头像"/>
 					</div>
 					<g:uploadForm useToken="true" controller="protected" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false">									
 						<div class="relative">

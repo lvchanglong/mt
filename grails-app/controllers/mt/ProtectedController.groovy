@@ -126,10 +126,10 @@ class ProtectedController {
 		withForm {
 			def yongHuInstance = YongHu.get(uid)
 			if (yongHuInstance) {
-				def assetPath = "KongJian/${yongHuInstance.zhangHao}/TuPian/${fileName}"
+				def imagePath = "images/working/KongJian/${yongHuInstance.zhangHao}/TuPian/${fileName}"
 				BufferedInputStream fileIn = new BufferedInputStream(request.getInputStream())
 				byte[] buf = new byte[1024]
-				File file = Helper.getFile("grails-app/assets/working/${assetPath}")
+				File file = Helper.getFile("web-app/${imagePath}")
 				BufferedOutputStream fileOut = new BufferedOutputStream(new FileOutputStream(file))
 				while (true) {
 				   int bytesIn = fileIn.read(buf, 0, 1024)
@@ -142,12 +142,12 @@ class ProtectedController {
 				fileOut.flush()
 				fileOut.close()
 				
-				yongHuInstance.touXiang = assetPath
+				yongHuInstance.touXiang = imagePath
 				yongHuInstance.save(flush: true)//更新路径
 				
 				Helper.yaSuo(file, 180, 180)//图片压缩处理
 				
-				render assetPath
+				render imagePath
 			} else {
 				render status: NOT_FOUND, text: '用户不存在'
 			}
