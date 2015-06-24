@@ -7,7 +7,7 @@
 	<div class="daoHang clearfix">
 		<div class="logoWrapper">
 			<g:link uri="/" elementId="main-header-logo">
-				<asset:image src="logo/logo.png" alt="主坦克"/>
+				<asset:image src="SuCai/logo.png" alt="主坦克"/>
 			</g:link>
 		</div>
 		
