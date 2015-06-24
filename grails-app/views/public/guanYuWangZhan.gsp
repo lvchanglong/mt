@@ -39,7 +39,7 @@
 					</p>
 				</div>
 			</div>
-			<asset:image src="3D/雄鹰.png" alt="" style="float:right;width:250px;margin-top:30px;"/>
+			<asset:image src="SuCai/雄鹰.png" alt="" style="float:right;width:250px;margin-top:30px;"/>
 			
 		</div>
 	</body>

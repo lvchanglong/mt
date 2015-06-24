@@ -13,23 +13,23 @@ class ProtectedController {
 	/**
 	 * 实体列表(页面)
 	 */
-	def listShiTi(YongHu yongHuInstance) {
+	def listShiTi() {
 		def dangQianYongHu = null
 		if(session.uid) {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
 		def criteria = ShiTi.where {
-			if(yongHuInstance) {
+			if(dangQianYongHu) {
 				yongHu {
-					id == yongHuInstance.id
+					id == dangQianYongHu.id
 				}
 			}
 		}
 		params.max = 1
 		params.sort = "dateCreated"
 		params.order = "desc"
-		[shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), yongHuInstance:yongHuInstance, dangQianYongHu:dangQianYongHu]
+		[shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**
@@ -52,23 +52,23 @@ class ProtectedController {
 	/**
 	 * 空间列表
 	 */
-	def listKongJian(YongHu yongHuInstance) {
+	def listKongJian() {
 		def dangQianYongHu = null
 		if(session.uid) {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
 		def criteria = KongJian.where {
-			if(yongHuInstance) {
+			if(dangQianYongHu) {
 				yongHu {
-					id == yongHuInstance.id
+					id == dangQianYongHu.id
 				}
 			}
 		}
 		params.max = 1
 		params.sort = "dateCreated"
 		params.order = "desc"
-		[kongJianInstanceList:criteria.list(params), kongJianInstanceCount:criteria.count(), yongHuInstance:yongHuInstance, dangQianYongHu:dangQianYongHu]
+		[kongJianInstanceList:criteria.list(params), kongJianInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**
@@ -96,15 +96,15 @@ class ProtectedController {
 	
 	/**
 	 * 修改密码(服务)
-	 * @param yongHuInstance 被处理用户(id:YongHu)
 	 */
 	@Transactional
-	def miMaXiuGai(YongHu yongHuInstance, String yuanMiMa, String xinMiMa, String queRenMiMa) {
-		if (yongHuInstance && yuanMiMa && xinMiMa && queRenMiMa) {
+	def miMaXiuGai(String yuanMiMa, String xinMiMa, String queRenMiMa) {
+		def dangQianYongHu = YongHu.get(session.uid)
+		if (dangQianYongHu && yuanMiMa && xinMiMa && queRenMiMa) {
 			if (xinMiMa == queRenMiMa) {//确认密码一致性
-				if (yongHuInstance.miMa == yuanMiMa.encodeAsMD5()) {//原始密码验证
-					yongHuInstance.miMa = xinMiMa.encodeAsMD5() //更新密码
-					yongHuInstance.save(flush: true)
+				if (dangQianYongHu.miMa == yuanMiMa.encodeAsMD5()) {//原始密码验证
+					dangQianYongHu.miMa = xinMiMa.encodeAsMD5() //更新密码
+					dangQianYongHu.save(flush: true)
 					render status: OK, text: "修改成功"
 					return
 				}
@@ -119,17 +119,18 @@ class ProtectedController {
 	
 	/**
 	 * 头像上传(服务)
-	 * @param uid 被处理用户
 	 */
 	@Transactional
-	def touXiangShangChuan(String fileName, String uid) {
+	def touXiangShangChuan(String fileName) {
 		withForm {
-			def yongHuInstance = YongHu.get(uid)
-			if (yongHuInstance) {
-				def imagePath = "images/working/KongJian/${yongHuInstance.zhangHao}/TuPian/${fileName}"
+			def dangQianYongHu = YongHu.get(session.uid)
+			if (dangQianYongHu) {
+				String realPath = servletContext.getRealPath("/")
+				def imagePath = realPath + "images/userData/${dangQianYongHu.zhangHao}/${fileName}"
+				File file = Helper.getFile(imagePath)
+				
 				BufferedInputStream fileIn = new BufferedInputStream(request.getInputStream())
 				byte[] buf = new byte[1024]
-				File file = Helper.getFile("web-app/${imagePath}")
 				BufferedOutputStream fileOut = new BufferedOutputStream(new FileOutputStream(file))
 				while (true) {
 				   int bytesIn = fileIn.read(buf, 0, 1024)
@@ -142,17 +143,30 @@ class ProtectedController {
 				fileOut.flush()
 				fileOut.close()
 				
-				yongHuInstance.touXiang = imagePath
-				yongHuInstance.save(flush: true)//更新路径
+//				Helper.yaSuo(file, 180, 180)//图片压缩处理
 				
-				Helper.yaSuo(file, 180, 180)//图片压缩处理
+				dangQianYongHu.touXiang = file.getBytes()
+				dangQianYongHu.save(flush: true)//更新路径
 				
-				render imagePath
+				render status: OK
 			} else {
 				render status: NOT_FOUND, text: '用户不存在'
 			}
 		}.invalidToken {
 			// bad request
+		}
+	}
+	
+	/**
+	 * 头像上传(服务)
+	 */
+	def loadTouXiang() {
+		def dangQianYongHu = YongHu.get(session.uid)
+		if (dangQianYongHu) {
+			def out = response.getOutputStream()
+			out << dangQianYongHu.touXiang
+			out.flush()
+			out.close()
 		}
 	}
 	

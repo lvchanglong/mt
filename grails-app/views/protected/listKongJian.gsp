@@ -7,7 +7,7 @@
 	<body>
 		<div id="listKongJian" class="clearfix defaultPage">
 			
-			<g:if test="${ session.uid && session.uid == yongHuInstance.id || dangQianYongHu?.shiFouGuanLiYuan() }">
+			<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 				<g:form name="kongJian-save-form" url="[controller:'kongJian', action:'save']" class="clearfix" style="margin-top:30px;">
 					<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required=""/>
 					<g:textArea name="neiRong" value="" style="width:100%;min-height:300px;" placeholder="1,2,3,7,9（实体代号格式）"/>
@@ -69,7 +69,7 @@
 						</ul>
 						
 						<div class="pagination" style="clear:both;">
-							<g:paginate total="${kongJianInstanceCount}" params="[id:yongHuInstance?.id]"/>
+							<g:paginate total="${kongJianInstanceCount}"/>
 						</div>
 					</div>
 					

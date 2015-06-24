@@ -1,5 +1,7 @@
 package mt
 
+import sun.security.pkcs11.Secmod.Bytes
+
 /**
  * 用户
  * @author lvchanglong
@@ -12,7 +14,7 @@ class YongHu {
 	String zhangHao //账号
 	String miMa //密码
 	String xingMing = "匿名" //姓名
-	String touXiang = "WangLuo/TouXiang/警察.png" //头像
+	byte[] touXiang //头像
 	String jianJie = "暂无" //简介
 	
 	String quanXian = "普通用户" //权限
@@ -40,7 +42,7 @@ class YongHu {
 		zhangHao column: 'ZHANG_HAO'
 		miMa column: 'MI_MA'
 		xingMing column: 'XING_MING'
-		touXiang column: 'TOU_XIANG'
+		touXiang column: 'TOU_XIANG', sqlType: "MediumBlob"
 		jianJie column: 'JIAN_JIE'
 		quanXian column: 'QUAN_XIAN'
 
@@ -89,7 +91,6 @@ class YongHu {
 			zhangHao: "lvchanglong",
 			miMa: "123456",
 			xingMing: "吕常龙",
-			touXiang: "WangLuo/TouXiang/警察.png",
 			jianJie: "用实践更新认识、用认识指导实践",
 			quanXian: "管理员",
 		]

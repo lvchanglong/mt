@@ -7,7 +7,7 @@
 	<div class="daoHang clearfix">
 		<div class="logoWrapper">
 			<g:link uri="/" elementId="main-header-logo">
-				<asset:image src="Logo/logo.png" alt="主坦克"/>
+				<asset:image src="logo/logo.png" alt="主坦克"/>
 			</g:link>
 		</div>
 		
@@ -26,10 +26,10 @@
 					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key fa-1_5"></i>密码修改</a>
 				</li>
 				<li>
-					<g:link controller="protected" action="listShiTi" id="${ session.uid }"><i class="fa fa-file fa-1_5"></i>实体管理</g:link>
+					<g:link controller="protected" action="listShiTi"><i class="fa fa-file fa-1_5"></i>实体管理</g:link>
 				</li>
 				<li>
-					<g:link controller="protected" action="listKongJian" id="${ session.uid }"><i class="fa fa-folder fa-1_5"></i>空间管理</g:link>
+					<g:link controller="protected" action="listKongJian"><i class="fa fa-folder fa-1_5"></i>空间管理</g:link>
 				</li>
 				<li>
 					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out fa-1_5"></i>退出</a>
@@ -74,7 +74,12 @@
 			
 				<div class="touXiangKongJian" style="float:left;width:180px;">
 					<div id="touXiangWrapper" style="width:180px;height:180px;">
-						<g:img uri="${ dangQianYongHu.touXiang }" width="180px;" height="180px" alt="头像"/>
+						<g:if test="${ dangQianYongHu.touXiang }">
+							<g:img uri="${ createLink(controller:'protected', action:'loadTouXiang') }" width="180px" height="180px" alt="头像"/>
+						</g:if>
+						<g:else>
+							<asset:image src="SuCai/记者.png" width="180px" height="180px" alt="头像"/>
+						</g:else>
 					</div>
 					<g:uploadForm useToken="true" controller="protected" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false">									
 						<div class="relative">
@@ -83,7 +88,6 @@
 							</div>
 							<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-default"/>
 						</div>
-						<g:hiddenField name="uid" value="${ session.uid }"/>
 						<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="tuPianShangChuan btn-default"/>
 					</g:uploadForm>
 				</div>

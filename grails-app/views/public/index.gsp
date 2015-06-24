@@ -59,7 +59,7 @@
 						</ul>
 						
 						<div class="pagination" style="clear:both;">
-							<g:paginate total="${kongJianInstanceCount}" params="[id:yongHuInstance?.id]"/>
+							<g:paginate total="${kongJianInstanceCount}"/>
 						</div>
 					</div>
 					

@@ -7,7 +7,7 @@
 	<body>
 		<div id="listShiTi" class="clearfix defaultPage">
 
-			<g:if test="${ session.uid && session.uid == yongHuInstance?.id || dangQianYongHu?.shiFouGuanLiYuan() }">
+			<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 				<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix" style="margin-top:30px;">
 					<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required=""/>
 					<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" style="width:100%;" placeholder="如果您想说点什么" class="ckeditor"/>
@@ -67,7 +67,7 @@
 						</ul>
 						
 						<div class="pagination">
-							<g:paginate total="${shiTiInstanceCount}" params="[id:yongHuInstance?.id]"/>
+							<g:paginate total="${shiTiInstanceCount}"/>
 						</div>
 					</div>
 					
