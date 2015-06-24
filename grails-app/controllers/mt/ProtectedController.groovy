@@ -50,7 +50,7 @@ class ProtectedController {
 	}
 	
 	/**
-	 * 空间列表
+	 * 空间列表(页面)
 	 */
 	def listKongJian() {
 		def dangQianYongHu = null
@@ -72,7 +72,7 @@ class ProtectedController {
 	}
 	
 	/**
-	 * 空间修改
+	 * 空间修改(页面)
 	 * @param kongJianInstance
 	 */
 	def editKongJian(KongJian kongJianInstance) {
@@ -88,6 +88,9 @@ class ProtectedController {
 		respond kongJianInstance, model:[dangQianYongHu:dangQianYongHu]
 	}
 	
+	/**
+	 * 酱油
+	 */
     def index() {
 		render "受保护的"
 	}

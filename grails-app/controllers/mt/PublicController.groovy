@@ -11,21 +11,6 @@ class PublicController {
 
 	static defaultAction = "index"
 	
-	def test() {
-//		def array = new ArrayList([null, null, 'test', null, 'hello', 'world'])
-//		println array
-//
-//		println "n:" + array.findAll {elem->
-//			elem != null
-//		}
-
-//		println KongJian.first().children()
-	}
-	
-	def ajaxTest() {
-		render status: BAD_REQUEST, text:"请求不合法！！！！！"
-	}
-	
 	/**
 	 * 组件(页面)
 	 */
@@ -66,7 +51,7 @@ class PublicController {
 	}
 	
 	/**
-	 * 实体详情
+	 * 实体详情(页面)
 	 * @param shiTiInstance
 	 */
 	def showShiTi(ShiTi shiTiInstance) {

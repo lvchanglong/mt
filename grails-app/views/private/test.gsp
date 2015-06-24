@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		
-		<g:form name="ajaxForm" controller="public" action="ajaxTest">
+		<g:form name="ajaxForm" controller="private" action="ajaxTest">
 			<span id="console">控制台</span>
 			<g:submitButton name="submit" value="提交"/>
 		</g:form>
