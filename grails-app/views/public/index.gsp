@@ -10,20 +10,22 @@
 
 		<g:render template="/layouts/plugins/faBuFanKui" />
 		
+		<hr/>
+		
 		<g:if test="${kongJianInstanceList}">
 			<div id="kongJian-wrapper">
 				<div id="kongJian-load">
 					<ul>
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 							<li>
-								<h1>
+								<h3 class="bold">
 									<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 										<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
 									</g:if>
 									<g:else>
 										${ kongJianInstance.biaoTi }
 									</g:else>
-								</h1>
+								</h3>
 								<div class="neiRong clearfix">
 									<div class="row">
 										<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
