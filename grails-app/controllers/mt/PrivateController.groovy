@@ -32,13 +32,11 @@ class PrivateController {
 	 * 修复图片路径
 	 */
 	def fixImageUrl() {
-		ShiTi.list().each {st->
+		/*ShiTi.list().each {st->
 			st.neiRong = st.neiRong.replaceAll("(kindeditor/attached/image|ueditor/jsp/upload/file|ueditor/jsp/upload/image)", "storage")
 			st.save(flush:true)
-		}
+		}*/
 		render true
 	}
-	
-	//---------------------------------------------------------------------------------------------------
 	
 }

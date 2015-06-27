@@ -8,13 +8,30 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= encoding UTF-8
-*= require main
 *= require mobile
+*= require bootstrap-3.3.5-dist/css/bootstrap.min.css
 *= require font-awesome-4.3.0/css/font-awesome.min
 *= require nprogress-master/nprogress
 *= require jquery-ui-1.11.4/jquery-ui.min.css
 *= require_self
 */
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	        margin:0;
+	white-space:normal;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+html {
+	height: 100%;
+	width: 100%;
+}
+body {
+	min-height:100%;
+	position:relative;
+}
 .borderRadius {
 	border-radius:5px;
 	-moz-border-radius:5px; /* 老的 Firefox */
@@ -23,7 +40,7 @@
 	vertical-align:bottom;
 }
 .smallTextArea {
-	padding:10px 15px;
+	padding:7px 10px;
 	height:150px;
 }
 .messageBox {
@@ -32,18 +49,12 @@
 	line-height: 34px;
 	height: 34px;
 	color:black;
-	font-weight:bold;
-	font-size: 20px;
 }
 .submitBtn {
 	float:right;
 }
 .relative {
 	position:relative;
-}
-.yongHu {
-	font-size:20px;
-	font-weight:bold;
 }
 .defaultPage {
 	position:relative;
@@ -149,7 +160,7 @@
 	min-width:360px;
 }
 .zIndexMax{
-	z-index:999;
+	z-index:1988;
 }
 .zIndex9{
 	z-index:900;
@@ -160,46 +171,13 @@
 .zIndex7{
 	z-index:700;
 }
-.floatLeft w50 box {
-	margin:15px 10px;
-}
-.floatLeft {
-	float:left;
-}
-.floatRight {
-	float:right;
-}
-.w25 {
-	width:25%;
-}
-.w30 {
-	width:30%;
-}
-.w40 {
-	width:40%;
-}
-.w50 {
-	width:50%;
-}
-.w60 {
-	width:60%;
-}
-.w70 {
-	width:70%;
-}
-.w75 {
-	width:75%;
-}
-.w25, .w30, .w40, .w50, .w60, .w70, .w75 {
-	min-width:300px;
-	padding:15px 10px;
-}
 .box {
 	position:relative;
-	box-shadow: 0 0 9px #333;
+	box-shadow: 0 0 7px #333;
 	padding:15px;
 	min-height:350px;
 	overflow: auto;
+	margin-top:15px;
 }
 .box .title {
 	display:block;min-height:70px;padding-top:15px;
@@ -208,29 +186,48 @@
 	height:530px;overflow:auto;margin:0 20px 30px 20px;font-weight:normal;color:gray;border:1px dashed lightgray;clear:both;
 }
 
+/* PAGINATION */
+
+.pagination {
+	border-top: 0;
+	margin: 0;
+	padding: 0.3em 0.2em;
+	text-align: center;
+	width:100%;
+}
+
+.pagination a,
+.pagination .currentStep {
+	color: black;
+	display: inline-block;
+	margin: 0 0.1em;
+	padding: 0.25em 0.7em;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
+	text-decoration: underline;
+}
+
+.pagination a:hover, .pagination a:focus,
+.pagination .currentStep {
+	color: black;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+.pagination .currentStep {
+	font-weight:bold;
+	font-size:22px;
+}
+.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
+.no-borderradius .pagination .currentStep {
+	background-color: transparent;
+	color: #444444;
+	text-decoration: underline;
+}
+
 /*-----------------------------------------------------------------------------------------------*/
 
-#main {
-	position:relative;
-	min-height:100%;
-	width:100%;
-	margin:0 auto;
-}
-#main-wrapper {
-	padding:0 6px 170px 6px;
-	position: relative;
-	width: 90%;
-	margin:0 auto;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-}
-#main-wrapper a {
-	text-decoration:underline;
-}
-#main-wrapper img {
-	max-width:100%;
-}
 #spinner {
 	background-color:white;
 	border:7px solid black;
@@ -242,7 +239,7 @@
 	width:360px;
 	height:180px;
 	margin:auto;
-	z-index:1000;
+	z-index:1988;
 	display:none;
 }
 #spinner .tiShi{
@@ -257,130 +254,25 @@
 	width:180px;
 	height:180px;
 }
-#main-footer {
-	position:absolute;
+
+.footer {
+	position: absolute;
+	bottom: 0;
 	left:0;
-	bottom:0;
-	width:100%;
-	min-height:130px;
-	text-align:center;
-	background-color:#F6F6F6;
-	color: #252525;
-	overflow: hidden;
-	border-top: 1px solid #ddd;
+	width: 100%;
+	padding: 40px 0;
+	color: #999;
+	text-align: center;
+	background-color: #f9f9f9;
+	border-top: 1px solid #e5e5e5;
+	margin-top:30px;
 }
-#main-footer li {
+.footer li {
 	float:left;
 	height:30px;
 	line-height:30px;
 	margin:0;
-	padding:0 15px;
-}
-#main-footer a:hover {
-	text-decoration:underline;
-}
-#main-footer .bold {
-	padding:0 20px;
-}
-
-/*------------------------------------------------------------------------------------------*/
-
-#main-header {
-	position:relative;
-}
-#main-header .daoHang {
-	width:100%;
-	line-height:43px;
-	background-color: #333;
-	color:#fff;
-	box-shadow: 0 0 17px #333;
-	position:relative;
-	z-index:999;
-}
-
-#main-header .logoWrapper {
-	position:relative;
-	width:260px;
-	height:43px;
-	float:left;
-}
-
-#main-header-logo {
-	display:block;
-	width:260px;
-	height:56px;
-	position:absolute;
-	left:0;
-	top:0;
-}
-#main-header-logo img {
-	height:100%;
-	width:100%;
-	vertical-align:top;
-}
-
-#main-header-menu {
-	display:block;
-	width:100px;
-	height:43px;
-	float:right;
-	text-align:center;
-	font-size:26px;
-}
-#main-header-menu a {
-	display:block;
-	width:50%;
-	height:100%;
-	float:right;
-}
-
-#main-header-toggle {
-	float:left;
-}
-#main-header-toggle li {
-	float:left;
-	width:100px;
-	text-align:center;
-	margin:0;
-}
-#main-header-toggle li:hover, #main-header-menu a:hover {
-	text-decoration:underline;
-}
-#main-header-toggle a {
-	display:block;
-}
-
-#main-header .hiddenBox {
-	display:none;
-	width:90%;
-	margin:0 5%;
-	min-height:350px;
-	z-index:900;
-	background-color: white;
-	border-width:0 7px 7px 7px;
-	border-style:solid;
-	border-color:#2C3E50;
-	position:absolute;
-	left:0;
-	top:auto;
-	box-shadow: 0 0 11px #333;
-}
-
-#main-header .innerWrapper {
-	max-width:360px;
-	margin:0 auto;
-	width:100%;
-	padding:5px 5px 100px 5px;
-}
-
-/*------------------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 960px) {
-	* {
-		white-space:normal !important;
-		word-wrap:break-word;
-		word-break:break-all;
-	}
+	padding:0 7px;
 }
 
 .cke_textarea_inline {
@@ -389,4 +281,25 @@
 	overflow: auto;
 	border: 1px solid gray;
 	-webkit-appearance: textfield;
+}
+
+.paddingWrapper {
+	padding: 30px 40px 70px 40px;
+}
+
+input {
+	margin-bottom:9px;
+}
+input[type=submit] {
+	margin-top:10px;
+}
+textarea {
+	min-height:130px;
+}
+ul {
+	list-style-type:none;
+	padding-left:0;
+}
+.alert {
+	margin-top:3px;
 }

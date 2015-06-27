@@ -7,6 +7,7 @@
 //
 //= encoding UTF-8
 //= require jquery-2.1.3.js
+//= require bootstrap-3.3.5-dist/js/bootstrap.min.js
 //= require form-master/jquery.form.js
 //= require nprogress-master/nprogress.js
 //= require jquery-ui-1.11.4/jquery-ui.min.js
@@ -38,7 +39,7 @@ function success(data,textStatus,selector) {
 			textStatus = "操作成功";
 			break;
 	}
-	jQuery(selector).html(textStatus);
+	jQuery(selector).attr('class', 'alert alert-success').html(textStatus);
 }
 
 /**
@@ -72,7 +73,7 @@ function error(XMLHttpRequest,textStatus,errorThrown,selector) {
 				break;
 		}
 	}
-	jQuery(selector).html(responseText);
+	jQuery(selector).attr('class', 'alert alert-warning').html(responseText);
 }
 
 /**

@@ -44,13 +44,6 @@ class PublicController {
 	}
 	
 	/**
-	 * 关于网站(页面)
-	 */
-	def guanYuWangZhan() {
-		
-	}
-	
-	/**
 	 * 实体详情(页面)
 	 * @param shiTiInstance
 	 */
@@ -66,7 +59,7 @@ class PublicController {
 	 * 网站首页(页面)
 	 */
     def index() {
-		def hmIW = [0:'70', 1:'30', 2:'30', 3:'40', 4:'30', 5:'30', 6:'70', 7:'50', 8:'50']
+		def hmIW = [0:'8', 1:'4', 2:'3', 3:'6', 4:'3', 5:'4', 6:'8', 7:'6', 8:'6']
 		
 		def dangQianYongHu = null
 		if(session.uid) {

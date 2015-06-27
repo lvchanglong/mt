@@ -2,200 +2,263 @@
 
 <g:set var="dangQianYongHu" value="${ YongHu.get(session.uid) }" />
 
-<header id="main-header" class="clearfix minWidth">
-	
-	<div class="daoHang clearfix">
-		<div class="logoWrapper">
-			<g:link uri="/" elementId="main-header-logo">
-				<asset:image src="SuCai/logo.png" alt="主坦克"/>
-			</g:link>
-		</div>
-		
-		<div id="main-header-menu">
-			<a href="javascript:void(0);" onclick="hideAll('.hiddenBox');">
-				<i class="fa fa-chevron-up"></i>
-			</a>
-		</div>
-		
-		<ol id="main-header-toggle">			
-			<g:if test="${ dangQianYongHu }">
-				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiXinXi')"><i class="fa fa-user fa-1_5"></i>${ dangQianYongHu.xingMing }</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverGaiMiMa')"><i class="fa fa-key fa-1_5"></i>密码修改</a>
-				</li>
-				<li>
-					<g:link controller="protected" action="listShiTi"><i class="fa fa-file fa-1_5"></i>实体管理</g:link>
-				</li>
-				<li>
-					<g:link controller="protected" action="listKongJian"><i class="fa fa-folder fa-1_5"></i>空间管理</g:link>
-				</li>
-				<li>
-					<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});"><i class="fa fa-sign-out fa-1_5"></i>退出</a>
-				</li>
-			</g:if>
-			<g:else>
-				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverDengLu')"><i class="fa fa-sign-in fa-1_5"></i>登录</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" onclick="clickToHover('.hiddenBox', '#hoverZhuCe')"><i class="fa fa-user-plus fa-1_5"></i>注册</a>
-				</li>
-			</g:else>
-		</ol>
-	</div>
-	
-	<g:if test="${ dangQianYongHu }">
-		<%-- 信息修改 --%>
-		<div class="hiddenBox" id="hoverGaiXinXi">
-			<div class="innerWrapper clearfix">
-				<g:form name="xinXiXiuGai" url="[controller:'yongHu', action:'update', id:session.uid]" method="PUT" class="clearfix">
-					<h3>
-						(^﹃^ )<span class="separator">/</span><span id="yongHuXiuGaiTiShi" class="message-content">姓名、简介</span>
-					</h3>
-					<g:hiddenField name="version" value="${gengXinInstance?.version}" />
-					<g:textField name="xingMing" value="${dangQianYongHu?.xingMing}" placeholder="姓名"/>
-					<g:textArea name="jianJie" value="${dangQianYongHu?.jianJie}" placeholder="简介" style="min-height:130px;"/>
-
-					<g:submitButton name="xiuGaiXX" value="修改" class="submitBtn btn-default"/>
-				</g:form>
-				
-				<g:javascript>
-					jQuery("#xinXiXiuGai").ajaxForm({
-						success:function(data,textStatus){
-							success(data,textStatus,'#yongHuXiuGaiTiShi');
-						}, 
-						error:function(XMLHttpRequest,textStatus,errorThrown){
-							error(XMLHttpRequest,textStatus,errorThrown,'#yongHuXiuGaiTiShi');
-						}
-					});
-				</g:javascript>
-			
-				<div class="touXiangKongJian" style="float:left;width:180px;">
-					<div id="touXiangWrapper" style="width:180px;height:180px;">
-						<g:if test="${ dangQianYongHu.touXiang }">
-							<g:img uri="${ createLink(controller:'protected', action:'loadTouXiang') }" width="180px" height="180px" alt="头像"/>
-						</g:if>
-						<g:else>
-							<asset:image src="SuCai/记者.png" width="180px" height="180px" alt="头像"/>
-						</g:else>
-					</div>
-					<g:uploadForm useToken="true" controller="protected" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false">									
-						<div class="relative">
-							<div id="tuPianXuanZe" class="tuPianXuanZe btn btn-default">
-								选择图片
+<nav class="navbar navbar-inverse navbar-fixed-top zIndexMax">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mt-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <g:link uri="/" class="navbar-brand">MT</g:link>
+    	</div>
+    	
+    	<div class="collapse navbar-collapse" id="mt-navbar-collapse">
+    		<ul class="nav navbar-nav">
+    			<g:if test="${ dangQianYongHu }">
+					<li>
+						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverGaiXinXi"><i class="fa fa-user"></i>${ dangQianYongHu.xingMing }</a>
+						
+						<div class="modal fade" id="hoverGaiXinXi" tabindex="-1" role="dialog" aria-labelledby="hoverGaiXinXiTitle">
+							<div class="modal-dialog" role="document" aria-hidden="true">
+								<div class="modal-content">
+								
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						       	 		<h4 class="modal-title" id="hoverGaiXinXiTitle">时人莫小池中水,浅处不妨有卧龙&nbsp;&nbsp;&nbsp;——&nbsp;窦庠</h4>
+									</div>
+									<div class="modal-body paddingWrapper">
+										<div class="row">
+											<div class="col-md-6">
+												<g:form name="xinXiXiuGai" url="[controller:'yongHu', action:'update', id:session.uid]" method="PUT">
+										        	<div id="yongHuXiuGaiTiShi" class="alert alert-info" role="alert">
+										        		<strong>姓名、简介</strong>
+												    </div>
+											        
+													<g:hiddenField name="version" value="${gengXinInstance?.version}"/>
+													
+													<g:textField name="xingMing" value="${dangQianYongHu?.xingMing}" class="form-control" required="" autofocus="" placeholder="姓名"/>
+													<g:textArea name="jianJie" value="${dangQianYongHu?.jianJie}" class="form-control" placeholder="简介"/>
+													
+													<g:submitButton name="xiuGai" value="修改" class="btn btn-lg btn-primary btn-block"/>
+											    </g:form>
+												<g:javascript>
+													jQuery("#xinXiXiuGai").ajaxForm({
+														success:function(data,textStatus){
+															success(data,textStatus,'#yongHuXiuGaiTiShi');
+														}, 
+														error:function(XMLHttpRequest,textStatus,errorThrown){
+															error(XMLHttpRequest,textStatus,errorThrown,'#yongHuXiuGaiTiShi');
+														}
+													});
+												</g:javascript>
+											</div>
+											<div class="col-md-6">
+												<g:uploadForm useToken="true" controller="protected" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false" style="width:180px;margin:0 auto;">									
+													<div id="touXiangWrapper" style="text-align:center;margin-bottom:15px;">
+														<g:if test="${ dangQianYongHu.touXiang }">
+															<g:img uri="${ createLink(controller:'protected', action:'loadTouXiang') }" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
+														</g:if>
+														<g:else>
+															<asset:image src="SuCai/记者.png" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
+														</g:else>
+													</div>
+													<div style="position:relative;width:180px;margin:0 auto;">
+														<div id="tuPianXuanZe" class="btn btn-primary btn-block">
+															选择图片
+														</div>
+														<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-primary btn-block"/>
+													</div>
+													<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="btn btn-default btn-block"/>
+												</g:uploadForm>
+											</div>
+										</div>
+										
+							      	</div>
+									
+								</div>
 							</div>
-							<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-default"/>
 						</div>
-						<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="tuPianShangChuan btn-default"/>
-					</g:uploadForm>
-				</div>
-			</div>
-		</div>
-		
-		<%-- 密码修改 --%>
-		<div class="hiddenBox" id="hoverGaiMiMa">
-			<div class="innerWrapper">
-				<g:form name="miMaXiuGai" url="[controller:'protected', action:'miMaXiuGai', id:session.uid]">
-					<h3>
-						(^﹃^ )<span class="separator">/</span><span id="miMaXiuGaiTiShi" class="message-content">原密、新密、确认</span>
-					</h3>
-					<g:passwordField name="yuanMiMa" required="" value="" placeholder="原始密码"/>
-					<g:passwordField name="xinMiMa" required="" value="" placeholder="新的密码"/>
-					<g:passwordField name="queRenMiMa" required="" value="" placeholder="确认密码"/>
-					<g:submitButton name="xiuGai" value="修改" class="submitBtn btn-default"/>
-				</g:form>
-				
-				<g:javascript>
-					jQuery("#miMaXiuGai").ajaxForm({
-						success:function(data,textStatus){
-							success(data,textStatus,'#miMaXiuGaiTiShi');
-						}, 
-						error:function(XMLHttpRequest,textStatus,errorThrown){
-							error(XMLHttpRequest,textStatus,errorThrown,'#miMaXiuGaiTiShi');
-						}
-					});
-				</g:javascript>
-			</div>
-		</div>
-	</g:if>
-	<g:else>
-		<%-- 用户登录 --%>
-		<div class="hiddenBox" id="hoverDengLu">
-			<div class="innerWrapper">
-				<g:form name="yongHuDengLu" url="[controller:'public', action:'yongHuDengLu']">
-					<h3>
-						(^﹃^ )<span class="separator">/</span><span id="dengLuTiShi" class="message-content">账号</span>
-					</h3>
-					<g:textField id="saveZhangHao" name="zhangHao" required="" value="" placeholder="账号：是ＱＱ么？"/>
-					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
-					<div style="float:left;margin-top:10px;"><g:checkBox id="saveAuto" name="saveAuto" checked="true" style="margin-top:0;vertical-align:middle;"/>&nbsp;&nbsp;记住账号</div>
-					<g:submitButton name="dengLu" value="登录" class="submitBtn btn-default"/>
-				</g:form>
-				
-				<g:javascript>
-					jQuery("#yongHuDengLu").ajaxForm({
-						success:function(data,textStatus){
-
-							saveZhangHao();//保存账号信息
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverGaiMiMa")"><i class="fa fa-key"></i>密码修改</a>
+						
+						<div class="modal fade" id="hoverGaiMiMa" tabindex="-1" role="dialog" aria-labelledby="hoverGaiMiMaTitle">
+							<div class="modal-dialog" role="document" aria-hidden="true">
+								<div class="modal-content">
+								
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						       	 		<h4 class="modal-title" id="hoverGaiMiMaTitle">生当作人杰，死亦为鬼雄&nbsp;&nbsp;&nbsp;——&nbsp;李清照</h4>
+									</div>
+									<div class="modal-body paddingWrapper">
+							        	<g:form name="miMaXiuGai" url="[controller:'protected', action:'miMaXiuGai']">
+								        	<div id="miMaXiuGaiTiShi" class="alert alert-info" role="alert">
+								        		<strong>原密、新密、确认</strong>
+										    </div>
+									        
+									        <g:passwordField name="yuanMiMa" value="" required="" autofocus="" class="form-control" placeholder="原始密码"/>
+									        <g:passwordField name="xinMiMa" value="" class="form-control" placeholder="新的密码"/>
+											<g:passwordField name="queRenMiMa" value="" class="form-control" placeholder="确认密码"/>
+											
+											<g:submitButton name="xiuGai" value="修改" class="btn btn-lg btn-primary btn-block"/>
+									    </g:form>
+										<g:javascript>
+											jQuery("#miMaXiuGai").ajaxForm({
+												success:function(data,textStatus){
+													success(data,textStatus,'#miMaXiuGaiTiShi');
+												}, 
+												error:function(XMLHttpRequest,textStatus,errorThrown){
+													error(XMLHttpRequest,textStatus,errorThrown,'#miMaXiuGaiTiShi');
+												}
+											});
+										</g:javascript>
+							      	</div>
+									
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<g:link controller="protected" action="listShiTi"><i class="fa fa-file"></i>实体管理</g:link>
+					</li>
+					<li>
+						<g:link controller="protected" action="listKongJian"><i class="fa fa-folder"></i>空间管理</g:link>
+					</li>
+					<li>
+						<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});">退出</a>
+					</li>
+				</g:if>
+				<g:else>
+					<li>
+						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverDengLu">登录</a>
+						
+						<div class="modal fade" id="hoverDengLu" tabindex="-1" role="dialog" aria-labelledby="hoverDengLuTitle">
+							<div class="modal-dialog" role="document" aria-hidden="true">
+								<div class="modal-content">
+								
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						       	 		<h4 class="modal-title" id="hoverDengLuTitle">举世皆浊我独清，众人皆醉我独醒&nbsp;&nbsp;&nbsp;——&nbsp;屈原</h4>
+									</div>
+									<div class="modal-body paddingWrapper">
+							        	<g:form name="yongHuDengLu" url="[controller:'public', action:'yongHuDengLu']">
+								        	<div id="dengLuTiShi" class="alert alert-info" role="alert">
+								        		温馨提示：密码<strong style='margin:0 5px 0 3px;'>已</strong>默认
+										    </div>
+									        
+									        <label for="inputZhangHao" class="sr-only">账号</label>
+									        <g:textField id="inputZhangHao" name="zhangHao" value="" required="" autofocus="" class="form-control" placeholder="账号：ＱＱ？"/>
+									        
+									        <label for="inputPassword" class="sr-only">密码</label>
+									        <g:passwordField id="inputPassword" name="miMa" value="" class="form-control" placeholder="密码：默认"/>
+									        
+									        <div class="checkbox">
+									        	<label>
+									        		<g:checkBox name="rememberMe" checked="true"/> 记住账号
+									        	</label>
+									        </div>
+									        <g:submitButton name="dengLu" value="登录" class="btn btn-lg btn-primary btn-block"/>
+									    </g:form>
+									    <g:javascript>
+											jQuery("#yongHuDengLu").ajaxForm({
+												success:function(data,textStatus){
 							
-							success(data,textStatus,'#dengLuTiShi');
-							window.location.reload();
-						}, 
-						error:function(XMLHttpRequest,textStatus,errorThrown){
-							error(XMLHttpRequest,textStatus,errorThrown,'#dengLuTiShi');
-						}
-					});
-					
-					loadZhangHao();//加载账号信息
-					
-					function saveZhangHao() {
-						if(localStorage) {
-							var zhangHao = jQuery("#saveZhangHao").val();
-							if(true == jQuery("#saveAuto").is(":checked")) {
-								localStorage.zhangHao = zhangHao;
-							} else {
-								localStorage.zhangHao = '';
-							}
-						}
-					}
-					
-					function loadZhangHao() {
-						if(localStorage) {
-							if(localStorage.zhangHao) {
-								jQuery("#saveZhangHao").val(localStorage.zhangHao);
-							}
-						}
-					}
-				</g:javascript>
-			</div>
-		</div>
-		
-		<%-- 用户注册 --%>
-		<div class="hiddenBox" id="hoverZhuCe">
-			<div class="innerWrapper">
-				<g:form name="yongHuZhuCe" url="[controller:'public', action:'yongHuZhuCe']">
-					<h3>
-						(^﹃^ )<span class="separator">/</span><span id="zhuCeTiShi" class="message-content">默认密码：${ grailsApplication.config.application.password }</span>
-					</h3>
-					<g:textField name="zhangHao" required="" value="" placeholder="账号：使用ＱＱ？"/>
-					<g:passwordField name="miMa" value="" placeholder="密码：默认"/>
-					<g:passwordField name="queRenMiMa" value="" placeholder="确认：默认"/>
-					<g:submitButton name="zhuCe" value="注册" class="submitBtn btn-default"/>
-				</g:form>
-				
-				<g:javascript>
-					jQuery("#yongHuZhuCe").ajaxForm({
-						success:function(data,textStatus){
-							success(data,textStatus,'#zhuCeTiShi');
-						}, 
-						error:function(XMLHttpRequest,textStatus,errorThrown){
-							error(XMLHttpRequest,textStatus,errorThrown,'#zhuCeTiShi');
-						}
-					});
-				</g:javascript>
-			</div>
-		</div>
-	</g:else>
-</header>
+													saveZhangHao();//保存账号信息
+													
+													success(data,textStatus,'#dengLuTiShi');
+													window.location.reload();
+												}, 
+												error:function(XMLHttpRequest,textStatus,errorThrown){
+													error(XMLHttpRequest,textStatus,errorThrown,'#dengLuTiShi');
+												}
+											});
+											
+											loadZhangHao();//加载账号信息
+											
+											function saveZhangHao() {
+												if(localStorage) {
+													var zhangHao = jQuery("#inputZhangHao").val();
+													if(true == jQuery("#rememberMe").is(":checked")) {
+														localStorage.zhangHao = zhangHao;
+													} else {
+														localStorage.zhangHao = '';
+													}
+												}
+											}
+											
+											function loadZhangHao() {
+												if(localStorage) {
+													if(localStorage.zhangHao) {
+														jQuery("#inputZhangHao").val(localStorage.zhangHao);
+													}
+												}
+											}
+										</g:javascript>
+							      	</div>
+									
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverZhuCe">注册</a>
+						
+						<div class="modal fade" id="hoverZhuCe" tabindex="-1" role="dialog" aria-labelledby="hoverZhuCeTitle">
+							<div class="modal-dialog" role="document" aria-hidden="true">
+								<div class="modal-content">
+								
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						       	 		<h4 class="modal-title" id="hoverZhuCeTitle">十年生死两茫茫，不思量，自难忘&nbsp;&nbsp;&nbsp;——&nbsp;苏轼</h4>
+									</div>
+									<div class="modal-body paddingWrapper">
+							        	<g:form name="yongHuZhuCe" url="[controller:'public', action:'yongHuZhuCe']">
+								        	<div id="zhuCeTiShi" class="alert alert-info" role="alert">
+								        		默认密码：<strong>${ grailsApplication.config.application.password }</strong>
+										    </div>
+									        
+									        <g:textField name="zhangHao" value="" required="" autofocus="" class="form-control" placeholder="账号：ＱＱ？"/>
+									        <g:passwordField name="miMa" value="" class="form-control" placeholder="密码：默认"/>
+											<g:passwordField name="queRenMiMa" value="" class="form-control" placeholder="确认：默认"/>
+											
+									        <g:submitButton name="zhuCe" value="注册" class="btn btn-lg btn-primary btn-block"/>
+									    </g:form>
+									    <g:javascript>
+											jQuery("#yongHuZhuCe").ajaxForm({
+												success:function(data,textStatus){
+													success(data,textStatus,'#zhuCeTiShi');
+												}, 
+												error:function(XMLHttpRequest,textStatus,errorThrown){
+													error(XMLHttpRequest,textStatus,errorThrown,'#zhuCeTiShi');
+												}
+											});
+										</g:javascript>
+							      	</div>
+									
+								</div>
+							</div>
+						</div>
+					</li>
+				</g:else>
+      		</ul>
+      		
+      		<%--
+      		<ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		          </ul>
+		        </li>
+		    </ul>
+    		--%>
+    	</div>
+	</div>
+</nav>

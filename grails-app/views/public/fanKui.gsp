@@ -5,41 +5,33 @@
 		<title>反馈</title>
 	</head>
 	<body>
-		<div id="yongHuFanKui" class="clearfix defaultPage">
+		<g:render template="/layouts/plugins/faBuFanKui" />
 		
-			<g:render template="/layouts/plugins/faBuFanKui" />
-			
-			<hr/>
+		<hr/>
 
-			<div id="fanKui-wrapper">
-			
-				<div id="fanKui-load">
-					<ul>
-						<g:each in="${fanKuiInstanceList}" status="i" var="fanKuiInstance">
-							<li>
-								<strong class="yongHu">
-									${ fanKuiInstance.getYongHuAsString() }
-								</strong>
-								<span class="separator">/</span>
-								<span class="dateCreated">
-									<g:formatDate date="${fanKuiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
-								</span>
-								<div class="neiRong">${fanKuiInstance.neiRong}</div>
-							</li>
-						</g:each>
-					</ul>
-					
-					<div class="pagination">
-						<g:paginate total="${fanKuiInstanceCount}" />
-					</div>
+		<div id="fanKui-wrapper">
+			<div id="fanKui-load">
+				<ul>
+					<g:each in="${fanKuiInstanceList}" status="i" var="fanKuiInstance">
+						<li>
+							<span class="yongHu">
+								&nbsp;${ fanKuiInstance.getYongHuAsString() }
+							</span>
+							<span class="separator">/</span>
+							<span class="dateCreated">
+								<g:formatDate date="${fanKuiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
+							</span>
+							<p class="neiRong lead" style="padding-top:5px;">${fanKuiInstance.neiRong}</p>
+						</li>
+					</g:each>
+				</ul>
+				<div class="pagination">
+					<g:paginate total="${fanKuiInstanceCount}" />
 				</div>
-				
 			</div>
-			
-			<g:javascript>
-				paginate("#fanKui-wrapper", "#fanKui-load");
-			</g:javascript>
-			
 		</div>
+		<g:javascript>
+			paginate("#fanKui-wrapper", "#fanKui-load");
+		</g:javascript>
 	</body>
 </html>
