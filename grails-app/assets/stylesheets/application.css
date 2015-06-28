@@ -162,21 +162,6 @@ body {
 .zIndexMax{
 	z-index:1988;
 }
-.box {
-	position:relative;
-	box-shadow: 3px 3px 7px #333;
-	padding:15px;
-	min-height:350px;
-	overflow: auto;
-	margin-top:15px;
-}
-.box .title {
-	display:block;min-height:70px;padding-top:15px;
-}
-.box .phone {
-	height:530px;overflow:auto;margin:0 20px 30px 20px;font-weight:normal;color:gray;border:1px dashed lightgray;clear:both;
-}
-
 .pagination {
 	border-top: 0;
 	margin: 0;
@@ -234,6 +219,7 @@ body {
 	right:0;
 	bottom:30px;
 	color:#5E4485;
+	font-weight:bold;
 }
 #spinner img {
 	width:180px;
@@ -290,4 +276,28 @@ img {
 }
 .alert {
 	margin-top:3px;
+}
+.largeBox {
+	position:relative;
+	box-shadow: 3px 3px 7px #333;
+	padding:15px;
+	min-height:350px;
+	overflow: auto;
+	margin-top:25px;
+}
+.smallBox {
+	position:relative;
+	min-height:70px;
+	box-shadow: 3px 3px 7px lightgray;
+	padding:15px;
+	overflow: auto;
+	margin-top:20px;
+}
+.preview {
+	height: 530px;
+	overflow: auto;
+	margin: 0 20px 30px 20px;
+	font-weight: normal;
+	color: gray;
+	clear: both;
 }

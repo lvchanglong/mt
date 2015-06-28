@@ -27,7 +27,7 @@ class ProtectedController {
 			}
 		}
 		params.max = 1
-		params.sort = "dateCreated"
+		params.sort = "id"
 		params.order = "desc"
 		[shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
 	}
@@ -66,7 +66,7 @@ class ProtectedController {
 			}
 		}
 		params.max = 1
-		params.sort = "dateCreated"
+		params.sort = "id"
 		params.order = "desc"
 		[kongJianInstanceList:criteria.list(params), kongJianInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
 	}

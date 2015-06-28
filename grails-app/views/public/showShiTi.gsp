@@ -23,6 +23,6 @@
 		
 		<div style="clear:both;"></div>
 		
-		<div class="neiRong">${shiTiInstance.neiRong}</div>
+		<div class="neiRong" id="htmlForPreview">${shiTiInstance.neiRong}</div>
 	</body>
 </html>

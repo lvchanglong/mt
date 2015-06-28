@@ -35,21 +35,22 @@
 					<ul>
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 							<li>
-								<h1><g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link></h1>
-								
+								<h1>
+									<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
+									<span style="color:lightgray;margin-left:5px;font-size:18px;">
+										${ kongJianInstance.id }
+									</span>
+								</h1>
 								<div class="neiRong">
 									<div class="row">
 										<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 											<g:if test="${ shiTiInstance }">
          										<div class="col-md-4">
-													<div class="box">
+													<div class="smallBox">
 														<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
 															<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
 														</g:link>
-														
-														<div class="phone">
-															${ shiTiInstance.neiRong }
-														</div>
+														<span style="color:lightgray;margin-left:5px;">${ shiTiInstance.id }</span>
 													</div>
 												</div>
 											</g:if>

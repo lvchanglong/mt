@@ -5,8 +5,8 @@
 		<title>用前必读</title>
 	</head>
 	<body>
-		<h2>使用协议</h2>
-		<p>
+		<h3>使用协议</h3>
+		<p style="line-height:20px;">
 			本站文章信息部分来自于网络转载，但这并不意味着赞同其观点或证实其内容的真实性。如其他媒体、网站或个人从本网下载使用，必须保留本网注明的“稿件来源”并自负版权等法律责任。如对稿件内容有疑议，请及时与我们联系。
 			<br/><br/>
 			本站致力于提供合理、准确、完整的资讯信息，但不保证信息的合理性、准确性和完整性，且不对因信息的不合理、不准确或遗漏导致的任何损失或损害承担责任。本站所有信息仅供参考，不做交易和服务的根据。如自行使用本网资料发生偏差，本站概不负责，亦不负任何法律责任。
@@ -25,19 +25,17 @@
 		</p>
 		
 		<div style="float:left;padding-bottom:30px;">
-			<h2>联系站长</h2>
-			<p>
-				姓名：${ grailsApplication.config.author.name }
-				<br/>
-				ＱＱ：${ grailsApplication.config.author.qq }
-			</p>
+			<h3>联系站长</h3>
+			<ul style="line-height:20px;">
+				<li>姓名：${ grailsApplication.config.author.name }</li>
+				<li>ＱＱ：${ grailsApplication.config.author.qq }</li>
+			</ul>
 			
-			<h2>网站维持</h2>
-			<p>
-				阿里云服务器&nbsp;&nbsp;&nbsp;75元/月
-				<br />
-				网站域名&nbsp;&nbsp;&nbsp;55元/年
-			</p>
+			<h3>网站维持</h3>
+			<ul style="line-height:20px;">
+				<li>阿里云服务器：75元/月</li>
+				<li>网站域名：55元/年</li>
+			</ul>
 		</div>
 		
 		<asset:image src="SuCai/雄鹰.png" style="float:right;bottom:0;width:250px;"/>

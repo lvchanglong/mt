@@ -59,7 +59,7 @@ class PublicController {
 	 * 网站首页(页面)
 	 */
     def index() {
-		def hmIW = [0:'8', 1:'4', 2:'3', 3:'6', 4:'3', 5:'4', 6:'8', 7:'6', 8:'6']
+		def hmIW = [0:'7', 1:'5', 2:'5', 3:'7', 4:'12', 5:'7', 6:'5', 7:'5', 8:'7']
 		
 		def dangQianYongHu = null
 		if(session.uid) {
@@ -67,9 +67,11 @@ class PublicController {
 		}
 		
 		params.max = 15
-		params.sort = "dateCreated"
+		params.sort = "id"
 		params.order = "desc"
-		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, hmIW:hmIW]
+		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, 
+			kongJianInstanceListA:KongJian.getAll([1,2,10]), hmIW:hmIW
+		]
 	}
 	
 	//---------------------------------------------------------------------------------------------------

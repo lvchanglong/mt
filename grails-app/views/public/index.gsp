@@ -11,6 +11,35 @@
 		<g:render template="/layouts/plugins/faBuFanKui" />
 		
 		<hr/>
+		<g:if test="${kongJianInstanceListA}">
+			<ul>
+				<g:each in="${kongJianInstanceListA}" status="i" var="kongJianInstance">
+					<li>
+						<h3 class="bold">
+							${ kongJianInstance.biaoTi }
+						</h3>
+						<div class="neiRong clearfix">
+							<div class="row">
+								<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
+									<g:if test="${ shiTiInstance }">
+										<div class="col-md-${ hmIW.get(j%9) }">
+											<div class="largeBox">
+												<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+													<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
+												</g:link>
+												<div class="preview">
+													${ shiTiInstance.neiRong }
+												</div>
+											</div>
+										</div>
+									</g:if>
+								</g:each>
+							</div>
+						</div>
+					</li>
+				</g:each>
+			</ul>
+		</g:if>
 		
 		<g:if test="${kongJianInstanceList}">
 			<div id="kongJian-wrapper">
@@ -30,8 +59,8 @@
 									<div class="row">
 										<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 											<g:if test="${ shiTiInstance }">
-												<div class="col-md-${ hmIW.get(j%9) }">
-													<div class="box">
+												<div class="col-md-4">
+													<div class="smallBox">
 														<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 															<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
 																<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
@@ -42,10 +71,6 @@
 																<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
 															</g:link>
 														</g:else>
-														
-														<div class="phone">
-															${ shiTiInstance.neiRong }
-														</div>
 													</div>
 												</div>
 											</g:if>
