@@ -162,18 +162,9 @@ body {
 .zIndexMax{
 	z-index:1988;
 }
-.zIndex9{
-	z-index:900;
-}
-.zIndex8{
-	z-index:800;
-}
-.zIndex7{
-	z-index:700;
-}
 .box {
 	position:relative;
-	box-shadow: 0 0 7px #333;
+	box-shadow: 3px 3px 7px #333;
 	padding:15px;
 	min-height:350px;
 	overflow: auto;
@@ -227,14 +218,12 @@ body {
 /*-----------------------------------------------------------------------------------------------*/
 
 #spinner {
-	background-color:white;
-	border:7px solid black;
     position: fixed;
 	top: 0;
 	left:0;
 	bottom:0;
 	right: 0;
-	width:360px;
+	width:180px;
 	height:180px;
 	margin:auto;
 	z-index:1988;
@@ -243,10 +232,8 @@ body {
 #spinner .tiShi{
 	position:absolute;
 	right:0;
-	top:0;
-	width:180px;
-	height:180px;
-	line-height:180px;
+	bottom:30px;
+	color:#5E4485;
 }
 #spinner img {
 	width:180px;

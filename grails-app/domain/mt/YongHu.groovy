@@ -51,9 +51,9 @@ class YongHu {
 		dateCreated column: 'CHUANG_JIAN_SHI_JIAN'
 		lastUpdated column: 'GENG_XIN_SHI_JIAN'
 		
-		fanKuis sort: "dateCreated", order: "desc"
-		kongJians sort: "dateCreated", order: "desc"
-		shiLis sort: "dateCreated", order: "desc"
+		fanKuis sort: "id", order: "desc"
+		kongJians sort: "id", order: "desc"
+		shiLis sort: "id", order: "desc"
 	}
 	
 	String toString() {

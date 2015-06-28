@@ -11,7 +11,7 @@
 		
 		<meta name="renderer" content="webkit">
 		
-		<meta name="Keywords" content="主坦克,mt,吕常龙,lvchanglong"/>
+		<meta name="Keywords" content="主坦克,main-tank,mt,MT,吕常龙,lvchanglong"/>
 		<meta name="Description" content="The more we learn, the less we know."/>
 		<meta name="Author" content="吕常龙">
 

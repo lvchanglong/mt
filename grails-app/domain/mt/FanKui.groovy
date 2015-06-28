@@ -32,7 +32,7 @@ class FanKui {
 		dateCreated column: 'CHUANG_JIAN_SHI_JIAN'
 		lastUpdated column: 'GENG_XIN_SHI_JIAN'
 		
-		sort dateCreated: "desc"
+		sort id: "desc"
 	}
 	
 	String toString() {

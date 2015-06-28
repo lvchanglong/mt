@@ -56,13 +56,8 @@
 											</div>
 											<div class="col-md-6">
 												<g:uploadForm useToken="true" controller="protected" action="touXiangShangChuan" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"touXiangShangChuan") }', '#kaiShiShangChuan', jQuery(this).serialize());return false" style="width:180px;margin:0 auto;">									
-													<div id="touXiangWrapper" style="text-align:center;margin-bottom:15px;">
-														<g:if test="${ dangQianYongHu.touXiang }">
-															<g:img uri="${ createLink(controller:'protected', action:'loadTouXiang') }" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
-														</g:if>
-														<g:else>
-															<asset:image src="SuCai/记者.png" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
-														</g:else>
+													<div id="touXiangWrapper" style="text-align:center;margin-bottom:15px;margin-top:5px;">
+														<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:dangQianYongHu?.id) }" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
 													</div>
 													<div style="position:relative;width:180px;margin:0 auto;">
 														<div id="tuPianXuanZe" class="btn btn-primary btn-block">

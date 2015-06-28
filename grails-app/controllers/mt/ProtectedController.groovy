@@ -160,17 +160,4 @@ class ProtectedController {
 		}
 	}
 	
-	/**
-	 * 头像上传(服务)
-	 */
-	def loadTouXiang() {
-		def dangQianYongHu = YongHu.get(session.uid)
-		if (dangQianYongHu) {
-			def out = response.getOutputStream()
-			out << dangQianYongHu.touXiang
-			out.flush()
-			out.close()
-		}
-	}
-	
 }

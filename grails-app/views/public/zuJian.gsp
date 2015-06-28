@@ -10,8 +10,16 @@
 		<div class="row">
             <div class="col-md-3">
             	<div class="box">
-	            	<h3>ＩＰ查询</h3>
-					<g:render template="/layouts/plugins/yongHuIP" />
+	            	<h3>信息推送</h3>
+					<h3 style="color:black;">
+						<span id="kongjian-wrapper-h1">信息推送</span>
+						<g:javascript>
+							var source = new EventSource("${ createLink(controller:'public', action:"jinQiGongGao") }");
+							source.onmessage = function(event) {
+								jQuery("#kongjian-wrapper-h1").html(event.data);//近期公告
+							};
+						</g:javascript>
+					</h3>
 				</div>
             </div>
             <div class="col-md-6">
@@ -42,24 +50,10 @@
 				</div>
             </div>
             
-            <div class="col-md-9">
+            <div class="col-md-12">
             	<div class="box">
 					<h3>腾云驾雾</h3>
 					<g:render template="/layouts/plugins/feiTeng"/>
-				</div>
-            </div>
-            <div class="col-md-3">
-            	<div class="box">
-	            	<h3>信息推送</h3>
-					<h3 style="color:black;">
-						<span id="kongjian-wrapper-h1">信息推送</span>
-						<g:javascript>
-							var source = new EventSource("${ createLink(controller:'public', action:"jinQiGongGao") }");
-							source.onmessage = function(event) {
-								jQuery("#kongjian-wrapper-h1").html(event.data);//近期公告
-							};
-						</g:javascript>
-					</h3>
 				</div>
             </div>
             

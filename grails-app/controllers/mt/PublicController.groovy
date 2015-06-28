@@ -200,4 +200,21 @@ class PublicController {
 		printWriter.flush()
 	}
 	
+	/**
+	 * 头像加载(服务)
+	 */
+	def loadTouXiang(YongHu yongHuInstance) {
+		def url = new URL(createLink(uri:'/', absolute:true) + assetPath(src:'SuCai/%E8%AE%B0%E8%80%85.png').replaceFirst("/", ""))
+		byte[] byteList = url.getBytes()
+		if (yongHuInstance) {
+			if (yongHuInstance.touXiang) {
+				byteList = yongHuInstance.touXiang
+			}
+		}
+		def out = response.getOutputStream()
+		out << byteList
+		out.flush()
+		out.close()
+	}
+	
 }
