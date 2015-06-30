@@ -12,7 +12,7 @@
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-right:10px;"/>
-				<div id="kongJian-message-save" class="alert alert-info" role="alert">(^_,^ )：“没吃药，萌萌哒...”</div>
+				<div id="kongJian-message-save" class="alert alert-info" role="alert">没吃药，萌萌哒...</div>
 			</g:form>
 			<g:javascript>
 				jQuery("#kongJian-save-form").ajaxForm({

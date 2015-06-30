@@ -37,7 +37,7 @@
 				});
 			</g:javascript>
 			
-			<div id="kongJian-message-console" class="alert alert-info" role="alert">(^_,^ )：“没吃药，萌萌哒...”</div>
+			<div id="kongJian-message-console" class="alert alert-info" role="alert">没吃药，萌萌哒...</div>
 		</g:if>
 	</body>
 </html>
