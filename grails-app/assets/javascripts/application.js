@@ -6,11 +6,6 @@
 // to create separate JavaScript files as needed.
 //
 //= encoding UTF-8
-//= require jquery-2.1.3.js
-//= require bootstrap-3.3.5-dist/js/bootstrap.min.js
-//= require form-master/jquery.form.js
-//= require nprogress-master/nprogress.js
-//= require jquery-ui-1.11.4/jquery-ui.min.js
 //= require_tree .
 //= require_self
 

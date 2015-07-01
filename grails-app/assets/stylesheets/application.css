@@ -9,10 +9,6 @@
 *
 *= encoding UTF-8
 *= require mobile
-*= require bootstrap-3.3.5-dist/css/bootstrap.min.css
-*= require font-awesome-4.3.0/css/font-awesome.min
-*= require nprogress-master/nprogress
-*= require jquery-ui-1.11.4/jquery-ui.min.css
 *= require_self
 */
 * {
@@ -159,9 +155,6 @@ body {
 .minWidth {
 	min-width:360px;
 }
-.zIndexMax{
-	z-index:1988;
-}
 .pagination {
 	border-top: 0;
 	margin: 0;
@@ -223,7 +216,6 @@ body {
 	width:180px;
 	height:180px;
 }
-
 .footer {
 	position: absolute;
 	bottom: 0;
@@ -243,7 +235,6 @@ body {
 	margin:0;
 	padding:0 7px;
 }
-
 .cke_textarea_inline {
 	padding: 10px;
 	min-height: 300px;
@@ -251,16 +242,17 @@ body {
 	border: 1px solid gray;
 	-webkit-appearance: textfield;
 }
-
-.paddingWrapper {
-	padding: 30px 40px 70px 40px;
+.zIndexMax{
+	z-index:1988 !important;
 }
-
+.paddingWrapper {
+	padding: 30px 40px 70px 40px !important;
+}
 input {
-	margin-bottom:9px;
+	margin-bottom:9px !important;
 }
 input[type=submit] {
-	margin-top:10px;
+	margin-top:10px !important;
 }
 textarea {
 	min-height:130px;
