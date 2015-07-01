@@ -59,11 +59,11 @@
 													<div id="touXiangWrapper" style="text-align:center;margin-bottom:15px;margin-top:5px;">
 														<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:dangQianYongHu?.id) }" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
 													</div>
-													<div style="position:relative;width:180px;margin:0 auto;">
+													<div class="xuanZeWenJian">
 														<div id="tuPianXuanZe" class="btn btn-primary btn-block">
 															选择图片
 														</div>
-														<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-primary btn-block"/>
+														<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-primary btn-block up"/>
 													</div>
 													<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="btn btn-default btn-block"/>
 												</g:uploadForm>

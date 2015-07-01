@@ -49,7 +49,6 @@
 		--%>
 		<asset:stylesheet src="application.css"/>
 		
-		<asset:javascript src="application.js"/>
 		<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -69,6 +68,7 @@
 		<asset:javascript src="nprogress-master/nprogress.js"/>
 		<asset:javascript src="jquery-ui-1.11.4/jquery-ui.min.js"/>
 		--%>
+		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
 	</head>
 	<body>
@@ -87,6 +87,9 @@
 		
 		<g:javascript>
 			jQuery(document).ready(function(){
+				NProgress.configure({
+					showSpinner: false
+				});
 				NProgress.start();
 			});
 			jQuery(window).load(function(){

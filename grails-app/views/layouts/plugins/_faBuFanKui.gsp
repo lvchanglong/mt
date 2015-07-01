@@ -1,5 +1,5 @@
 <h3>
-	关于本<asset:image src="SuCai/网站.png" alt="网站" class="verticalAlignBottom"/>，你想<asset:image src="SuCai/说.png" alt="说" class="verticalAlignBottom"/>什么？
+	关于本<asset:image src="SuCai/网站.png" alt="网站" class="verticalAlignBottom" style="width:104px;height:51px;"/>，你想<asset:image src="SuCai/说.png" alt="说" class="verticalAlignBottom" style="width:56px;height:51px;"/>什么？
 </h3>
 
 <g:form name="fanKui-save-form" controller="fanKui" action="save" class="clearfix">

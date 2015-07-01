@@ -11,6 +11,7 @@
 *= require mobile
 *= require_self
 */
+
 * {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -25,8 +26,8 @@ html {
 	width: 100%;
 }
 body {
-	min-height:100%;
 	position:relative;
+	min-height:100%;
 }
 .borderRadius {
 	border-radius:5px;
@@ -35,26 +36,17 @@ body {
 .verticalAlignBottom {
 	vertical-align:bottom;
 }
-.smallTextArea {
-	padding:7px 10px;
-	height:150px;
-}
-.messageBox {
-	float:left;
-	margin: 5px 0;
-	line-height: 37px;
-	height: 37px;
-	color:black;
-}
-.submitBtn {
-	float:right;
-}
 .relative {
 	position:relative;
 }
-.defaultPage {
-	position:relative;
-	padding-bottom:25px;
+.separator {
+	padding:0 11px;
+}
+.bold {
+	font-weight:bold;
+}
+.inlineBlock {
+	display:inline-block;
 }
 .clearfix:after {
 	content:"";
@@ -84,9 +76,6 @@ body {
 }
 .fa-6 {
   font-size: 20em;
-}
-.separator {
-	padding:0 11px;
 }
 .shengXiao {
 	background-image: url("SuCai/十二生肖.png");
@@ -129,32 +118,6 @@ body {
 .shengXiao.zhu {
 	background-position:-450px -300px;
 }
-.bold {
-	font-weight:bold;
-}
-.tuPianXuanZe, .tuPianShangChuan, .tuPianXiaZai {
-	position:relative;
-	display: block;
-	width:180px;
-}
-[type=file] {
-	position:absolute;
-	left:0;
-	top:0;
-	width:180px;
-	height:100%;
-	padding:0;
-	margin:0;
-	opacity:0.0;
-	filter:Alpha(opacity=0);
-	cursor:pointer;
-}
-.inlineBlock {
-	display:inline-block;
-}
-.minWidth {
-	min-width:360px;
-}
 .pagination {
 	border-top: 0;
 	margin: 0;
@@ -162,7 +125,6 @@ body {
 	text-align: center;
 	width:100%;
 }
-
 .pagination a,
 .pagination .currentStep {
 	color: black;
@@ -192,9 +154,50 @@ body {
 	color: #444444;
 	text-decoration: underline;
 }
+.footer {
+	position: absolute;
+	bottom: 0;
+	left:0;
+	width: 100%;
+	padding: 40px 0;
+	color: #999;
+	text-align: center;
+	background-color: #f9f9f9;
+	border-top: 1px solid #e5e5e5;
+	margin-top:30px;
+}
+.footer li {
+	float:left;
+	height:30px;
+	line-height:30px;
+	margin:0;
+	padding:0 7px;
+}
 
 /*-----------------------------------------------------------------------------------------------*/
 
+.xuanZeWenJian {
+	position:relative;width:180px;margin:0 auto;
+}
+.xuanZeWenJian [type=file] {
+	position:absolute;
+	left:0;
+	top:0;
+	width:180px;
+	height:100%;
+	padding:0;
+	margin:0;
+	opacity:0.0;
+	filter:Alpha(opacity=0);
+	cursor:pointer;
+}
+.messageBox {
+	float:left;
+	margin: 5px 0;
+	line-height: 37px;
+	height: 37px;
+	color:black;
+}
 #spinner {
     position: fixed;
 	top: 0;
@@ -215,25 +218,6 @@ body {
 #spinner img {
 	width:180px;
 	height:180px;
-}
-.footer {
-	position: absolute;
-	bottom: 0;
-	left:0;
-	width: 100%;
-	padding: 40px 0;
-	color: #999;
-	text-align: center;
-	background-color: #f9f9f9;
-	border-top: 1px solid #e5e5e5;
-	margin-top:30px;
-}
-.footer li {
-	float:left;
-	height:30px;
-	line-height:30px;
-	margin:0;
-	padding:0 7px;
 }
 .cke_textarea_inline {
 	padding: 10px;
@@ -290,4 +274,13 @@ img {
 	font-weight: normal;
 	color: gray;
 	clear: both;
+}
+
+#nprogress .bar {
+	z-index:1988;
+	background: url(/assets/Sucai/loading.gif) #FF6100 repeat-y right;
+	height: 5px;
+}
+#nprogress .peg {
+	box-shadow:none;
 }
