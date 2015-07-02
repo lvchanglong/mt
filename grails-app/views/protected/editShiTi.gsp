@@ -16,7 +16,7 @@
 					CKEDITOR.inline('shiTiNeiRongUpdate');
 				</g:javascript>
 				
-				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin-left:15px;margin-right:15px;"/>
+				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>
 			</g:form>
 			<g:javascript>
 				jQuery("#shiTi-update-form").ajaxForm({
@@ -34,7 +34,7 @@
 			</g:javascript>
 			
 			<g:form name="shiTi-delete-form" url="[resource:shiTiInstance, action:'delete']" method="DELETE">
-				<g:actionSubmit  class="btn btn-danger pull-right" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />		
+				<g:actionSubmit  class="btn btn-danger pull-right" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" style="margin-top:8px;"/>		
 			</g:form>
 			<g:javascript>
 				jQuery("#shiTi-delete-form").ajaxForm({

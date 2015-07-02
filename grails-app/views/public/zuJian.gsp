@@ -7,7 +7,7 @@
 		<title>组件</title>
 	</head>
 	<body>
-		<div class="row" style="padding-bottom:20px;">
+		<div class="row" style="padding-top:20px;">
             <div class="col-md-3">
             	<div class="largeBox">
 	            	<h4>信息推送</h4>

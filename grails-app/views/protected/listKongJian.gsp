@@ -8,10 +8,15 @@
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="kongJian-save-form" url="[controller:'kongJian', action:'save']" class="clearfix">
 				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
-				<g:textArea name="neiRong" value="" style="width:100%;min-height:300px;" placeholder="1,2,3,7,9（实体代号格式）" class="form-control"/>
 				
+				<g:textArea id="kongJianMiaoShuSave" name="miaoShu" value="" style="width:100%;min-height:300px;" placeholder="描述" class="form-control"/>
+				<g:javascript>
+					CKEDITOR.inline('kongJianMiaoShuSave');
+				</g:javascript>
+				
+				<g:textArea name="neiRong" value="" style="margin:15px 0;width:100%;" placeholder="1,2,3,7,9（实体代号格式）" class="form-control"/>
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
-				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-right:10px;"/>
+				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>
 				<div id="kongJian-message-save" class="alert alert-info" role="alert">没吃药，萌萌哒...</div>
 			</g:form>
 			<g:javascript>
@@ -43,9 +48,12 @@
 								</h1>
 								<div class="neiRong">
 									<div class="row">
+										<div class="col-md-12">
+											${kongJianInstance?.miaoShu}
+										</div>
 										<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 											<g:if test="${ shiTiInstance }">
-         										<div class="col-md-4">
+         										<div class="col-md-3">
 													<div class="smallBox">
 														<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
 															<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }

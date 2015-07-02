@@ -36,7 +36,7 @@
 										        		<strong>姓名、简介</strong>
 												    </div>
 											        
-													<g:hiddenField name="version" value="${gengXinInstance?.version}"/>
+													<g:hiddenField name="version" value="${dangQianYongHu?.version}"/>
 													
 													<g:textField name="xingMing" value="${dangQianYongHu?.xingMing}" class="form-control" required="" autofocus="" placeholder="姓名"/>
 													<g:textArea name="jianJie" value="${dangQianYongHu?.jianJie}" class="form-control" placeholder="简介"/>
@@ -65,7 +65,7 @@
 														</div>
 														<input type="file" name="file" onchange="tuPianChaKan(this.files, '#touXiangWrapper', '#tuPianXuanZe', '#kaiShiShangChuan');" multiple="false" class="btn btn-primary btn-block up"/>
 													</div>
-													<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="btn btn-default btn-block"/>
+													<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="btn btn-default btn-block form-control" style="margin-top:10px;"/>
 												</g:uploadForm>
 											</div>
 										</div>

@@ -59,19 +59,15 @@ class PublicController {
 	 * 网站首页(页面)
 	 */
     def index() {
-		def hmIW = [0:'7', 1:'5', 2:'5', 3:'7', 4:'12', 5:'7', 6:'5', 7:'5', 8:'7']
-		
 		def dangQianYongHu = null
 		if(session.uid) {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
-		params.max = 15
+		params.max = 5
 		params.sort = "id"
 		params.order = "desc"
-		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, 
-			kongJianInstanceListA:KongJian.getAll([1,2,10]), hmIW:hmIW
-		]
+		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu]
 	}
 	
 	//---------------------------------------------------------------------------------------------------

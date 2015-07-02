@@ -13,6 +13,7 @@ class KongJian {
 	
 	String biaoTi
 	String neiRong
+	String miaoShu
 	
 	Date dateCreated
 	Date lastUpdated
@@ -21,6 +22,7 @@ class KongJian {
 		yongHu(nullable: false, blank: false)
 		biaoTi(nullable: false, blank: false)
 		neiRong(nullable: false, blank: false)
+		miaoShu(nullable: true, blank: true)
 	}
 	
 	static mapping = {
@@ -30,6 +32,7 @@ class KongJian {
 		
 		biaoTi column: 'BIAO_TI'
 		neiRong column: 'NEI_RONG'
+		miaoShu column: 'MIAO_SHU', sqlType:"text"
 
 		id column:'ID'
 		version column:'BAN_BEN'

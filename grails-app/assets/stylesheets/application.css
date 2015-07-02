@@ -232,11 +232,8 @@ body {
 .paddingWrapper {
 	padding: 30px 40px 70px 40px !important;
 }
-input {
-	margin-bottom:9px !important;
-}
-input[type=submit] {
-	margin-top:10px !important;
+.form-control {
+	margin-bottom:9px;
 }
 textarea {
 	min-height:130px;
@@ -248,6 +245,9 @@ ul {
 img {
 	max-width:100%;
 }
+h1 {
+	text-align:center;
+}
 .alert {
 	margin-top:3px;
 }
@@ -257,7 +257,7 @@ img {
 	padding:15px;
 	min-height:350px;
 	overflow: auto;
-	margin-top:25px;
+	margin-bottom:25px;
 }
 .smallBox {
 	position:relative;
@@ -265,7 +265,7 @@ img {
 	box-shadow: 3px 3px 7px lightgray;
 	padding:15px;
 	overflow: auto;
-	margin-top:20px;
+	margin-bottom:20px;
 }
 .preview {
 	height: 530px;
