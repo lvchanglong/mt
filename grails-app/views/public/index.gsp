@@ -29,7 +29,10 @@
 								<div class="neiRong clearfix">
 									<div class="row">
 										<div class="col-md-12">
-											${kongJianInstance?.miaoShu}
+											<g:if test="${kongJianInstance?.miaoShu}">
+												${kongJianInstance?.miaoShu}
+												<hr/>
+											</g:if>
 										</div>
 										<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 											<g:if test="${ shiTiInstance }">

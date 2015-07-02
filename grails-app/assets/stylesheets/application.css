@@ -248,6 +248,9 @@ img {
 h1 {
 	text-align:center;
 }
+p {
+	line-height: 28px;
+}
 .alert {
 	margin-top:3px;
 }
