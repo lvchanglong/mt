@@ -38,6 +38,6 @@
 			</ul>
 		</div>
 		
-		<asset:image src="SuCai/雄鹰.png" style="float:right;bottom:0;width:250px;"/>
+		<asset:image src="SuCai/雄鹰.png" title="一切的苦恼，不过是知道的太少" style="float:right;bottom:0;width:250px;"/>
 	</body>
 </html>

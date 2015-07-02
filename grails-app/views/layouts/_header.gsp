@@ -18,7 +18,7 @@
     		<ul class="nav navbar-nav">
     			<g:if test="${ dangQianYongHu }">
 					<li>
-						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverGaiXinXi"><i class="fa fa-user"></i>${ dangQianYongHu.xingMing }</a>
+						<a href="#" data-toggle="modal" data-target="#hoverGaiXinXi"><i class="fa fa-user"></i>${ dangQianYongHu.xingMing }</a>
 						
 						<div class="modal fade" id="hoverGaiXinXi" tabindex="-1" role="dialog" aria-labelledby="hoverGaiXinXiTitle">
 							<div class="modal-dialog" role="document" aria-hidden="true">
@@ -77,7 +77,7 @@
 						</div>
 					</li>
 					<li>
-						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverGaiMiMa")"><i class="fa fa-key"></i>密码修改</a>
+						<a href="#" data-toggle="modal" data-target="#hoverGaiMiMa")"><i class="fa fa-key"></i>密码修改</a>
 						
 						<div class="modal fade" id="hoverGaiMiMa" tabindex="-1" role="dialog" aria-labelledby="hoverGaiMiMaTitle">
 							<div class="modal-dialog" role="document" aria-hidden="true">
@@ -122,12 +122,12 @@
 						<g:link controller="protected" action="listKongJian"><i class="fa fa-folder"></i>空间管理</g:link>
 					</li>
 					<li>
-						<a href="javascript:void(0);" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});">退出</a>
+						<a href="#" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});">退出</a>
 					</li>
 				</g:if>
 				<g:else>
 					<li>
-						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverDengLu">登录</a>
+						<a href="#" data-toggle="modal" data-target="#hoverDengLu">登录</a>
 						
 						<div class="modal fade" id="hoverDengLu" tabindex="-1" role="dialog" aria-labelledby="hoverDengLuTitle">
 							<div class="modal-dialog" role="document" aria-hidden="true">
@@ -198,7 +198,7 @@
 						</div>
 					</li>
 					<li>
-						<a href="javascript:void(0);" data-toggle="modal" data-target="#hoverZhuCe">注册</a>
+						<a href="#" data-toggle="modal" data-target="#hoverZhuCe">注册</a>
 						
 						<div class="modal fade" id="hoverZhuCe" tabindex="-1" role="dialog" aria-labelledby="hoverZhuCeTitle">
 							<div class="modal-dialog" role="document" aria-hidden="true">
