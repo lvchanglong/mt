@@ -13,7 +13,7 @@
 				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}" class="ckeditor"/>
 				
 				<g:javascript>
-					CKEDITOR.inline('shiTiNeiRongUpdate');
+					CKEDITOR.replace('shiTiNeiRongUpdate');
 				</g:javascript>
 				
 				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>

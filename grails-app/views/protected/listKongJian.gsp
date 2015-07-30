@@ -9,10 +9,7 @@
 			<g:form name="kongJian-save-form" url="[controller:'kongJian', action:'save']" class="clearfix">
 				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
 				
-				<g:textArea id="kongJianMiaoShuSave" name="miaoShu" value="" style="width:100%;min-height:300px;" placeholder="描述" class="form-control"/>
-				<g:javascript>
-					CKEDITOR.inline('kongJianMiaoShuSave');
-				</g:javascript>
+				<g:textArea id="kongJianMiaoShuSave" name="miaoShu" value="" style="width:100%;min-height:300px;" placeholder="描述" class="ckeditor"/>
 				
 				<g:textArea name="neiRong" value="" style="margin:15px 0;width:100%;" placeholder="1,2,3,7,9（实体代号格式）" class="form-control"/>
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
