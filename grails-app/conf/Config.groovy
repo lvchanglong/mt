@@ -119,7 +119,7 @@ log4j.main = {
 grails.app.context  = "/"
 
 application {
-	name = '主坦克'
+	name = '吕常龙'
 	code = '辽ICP备14005125号' //网站备案号
 	password = '54mt' //默认密码
 }

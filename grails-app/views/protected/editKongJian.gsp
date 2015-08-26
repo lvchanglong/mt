@@ -8,18 +8,23 @@
 		<g:if test="${ session.uid && session.uid == kongJianInstance.yongHu?.id || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="kongJian-update-form" url="[resource:kongJianInstance, action:'update']" method="PUT" >
 				<g:hiddenField name="version" value="${kongJianInstance?.version}" />
+				
 				<g:textField name="biaoTi" required="" value="${kongJianInstance?.biaoTi}" style="width:100%;" autofocus="" class="form-control"/>
+				<g:textArea name="neiRong" required="" value="${kongJianInstance?.neiRong}" style="margin:15px 0;width:100%;" class="form-control"/>
 				
 				<g:textArea id="kongJianMiaoShuUpdate" name="miaoShu" value="${kongJianInstance?.miaoShu}" style="width:100%;min-height:300px;" placeholder="描述" class="ckeditor"/>
 				<g:javascript>
 					CKEDITOR.replace('kongJianMiaoShuUpdate');
 				</g:javascript>
 				
-				<g:textArea name="neiRong" required="" value="${kongJianInstance?.neiRong}" style="margin:15px 0;width:100%;" class="form-control"/>
 				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>
 			</g:form>
 			<g:javascript>
 				jQuery("#kongJian-update-form").ajaxForm({
+					beforeSerialize: function($form, options) { 
+					    var dataHtml = CKEDITOR.instances.kongJianMiaoShuUpdate.getData();
+					    jQuery("#kongJianMiaoShuUpdate").val(dataHtml);
+					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#kongJian-message-console');
 					}, 

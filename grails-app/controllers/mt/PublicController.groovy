@@ -64,7 +64,7 @@ class PublicController {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
-		params.max = 5
+		params.max = 10
 		params.sort = "id"
 		params.order = "desc"
 		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu]

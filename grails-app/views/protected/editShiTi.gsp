@@ -11,7 +11,6 @@
 
 				<g:textField name="biaoTi" required="" value="${shiTiInstance?.biaoTi}" style="width:100%;" autofocus="" class="form-control"/>
 				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}" class="ckeditor"/>
-				
 				<g:javascript>
 					CKEDITOR.replace('shiTiNeiRongUpdate');
 				</g:javascript>

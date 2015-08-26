@@ -11,8 +11,8 @@ class ShiTi {
 	
 	static belongsTo = [yongHu: YongHu]
 
-	String biaoTi
-	String neiRong
+	String biaoTi //标题
+	String neiRong //内容
 	
 	Date dateCreated
 	Date lastUpdated

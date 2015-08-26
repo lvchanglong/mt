@@ -175,7 +175,9 @@ body {
 }
 
 /*-----------------------------------------------------------------------------------------------*/
-
+.mb30 {
+	margin-bottom:30px;
+}
 .xuanZeWenJian {
 	position:relative;width:180px;margin:0 auto;
 }
@@ -261,8 +263,8 @@ p {
 }
 .smallBox {
 	position:relative;
-	min-height:70px;
-	box-shadow: 3px 3px 7px lightgray;
+	min-height:90px;
+	box-shadow: 3px 3px 7px #333;
 	padding:15px;
 	overflow: auto;
 	margin-bottom:20px;

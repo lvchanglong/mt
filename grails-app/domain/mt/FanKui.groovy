@@ -10,7 +10,7 @@ class FanKui {
 
 	static belongsTo = [yongHu: YongHu]
 	
-	String neiRong
+	String neiRong //内容
 	
 	Date dateCreated
 	Date lastUpdated

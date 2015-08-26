@@ -5,7 +5,6 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>主坦克</title>
 	</head>
 	<body>
 
@@ -18,25 +17,24 @@
 							<ul>
 								<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 									<li>
-										<h1 class="bold">
+										<h2 class="text-center mb30 bold">
 											<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 												<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
 											</g:if>
 											<g:else>
 												${ kongJianInstance.biaoTi }
 											</g:else>
-										</h1>
+										</h2>
 										<div class="neiRong clearfix">
 											<div class="row">
-												<div class="col-md-12">
-													<g:if test="${kongJianInstance?.miaoShu}">
+												<g:if test="${kongJianInstance?.miaoShu}">
+													<div class="col-md-3">
 														${kongJianInstance?.miaoShu}
-														<hr/>
-													</g:if>
-												</div>
+													</div>
+												</g:if>
 												<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 													<g:if test="${ shiTiInstance }">
-														<div class="col-md-4">
+														<div class="col-md-3">
 															<div class="smallBox">
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
@@ -48,6 +46,9 @@
 																		<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:else>
+																<div class="neiRong">
+																	${ shiTiInstance.neiRong }
+																</div>
 															</div>
 														</div>
 													</g:if>
@@ -69,27 +70,31 @@
 				
 			</div>
 			
-			<hr/>
-			
-			<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
-				<g:if test="${ shiTiInstance }">
-					<div class="col-md-4">
-						<div class="smallBox">
-							<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-								<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
-									<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
-								</g:link>
-							</g:if>
-							<g:else>
-								<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-									<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
-								</g:link>
-							</g:else>
+			<div class="col-md-12">
+				
+				<hr/>
+				
+				<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
+					<g:if test="${ shiTiInstance }">
+						<div class="col-md-4">
+							<div class="smallBox">
+								<span style="color:lightgray;margin-right:3px;">${ shiTiInstance.id }</span>
+								<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+									<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
+										${ shiTiInstance.biaoTi }
+									</g:link>
+								</g:if>
+								<g:else>
+									<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+										${ shiTiInstance.biaoTi }
+									</g:link>
+								</g:else>
+							</div>
 						</div>
-					</div>
-				</g:if>
-			</g:each>
+					</g:if>
+				</g:each>
 			
+			</div>
 		</div>
 		
 		<div style="display:none;">

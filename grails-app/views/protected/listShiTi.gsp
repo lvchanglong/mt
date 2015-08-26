@@ -8,7 +8,6 @@
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
 				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
-				
 				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" style="width:100%;" placeholder="如果您想说点什么" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
@@ -40,15 +39,17 @@
 					<ul>
 						<g:each in="${shiTiInstanceList}" status="i" var="shiTiInstance">
 							<li>
-								<h2><g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link></h2>
+								<h2 class="text-center mb30">
+									<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link>
+									
+									<span style="color:lightgray;margin-left:5px;font-size:18px;">
+										${ shiTiInstance.id }
+									</span>
+								</h2>
 
-								<div style="padding: 0 0 15px 0;color:#888888;">
+								<div style="padding: 0 0 15px 0;color:#888888;" class="text-right">
 									<span class="dateCreated">
 										<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
-									</span>
-									<span class="separator"></span>
-									<span class="id">
-										代号：<span style="font-weight:bold;margin:0 10px;font-size:20px;">${ shiTiInstance.id }</span>
 									</span>
 								</div>
 								
