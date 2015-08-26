@@ -37,12 +37,12 @@
 														<div class="col-md-3">
 															<div class="smallBox">
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
+																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title mb30">
 																		<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:if>
 																<g:else>
-																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title mb30">
 																		<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:else>
