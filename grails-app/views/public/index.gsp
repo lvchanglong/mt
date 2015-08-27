@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		
-		<div style="display:block;">
+		<div style="display:none;">
 			<g:render template="/layouts/plugins/baiDuZhanNei"/>
 		</div>
 		
