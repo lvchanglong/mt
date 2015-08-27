@@ -28,13 +28,13 @@
 										<div class="neiRong clearfix">
 											<div class="row">
 												<g:if test="${kongJianInstance?.miaoShu}">
-													<div class="col-md-4">
+													<div class="col-md-6">
 														${kongJianInstance?.miaoShu}
 													</div>
 												</g:if>
 												<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 													<g:if test="${ shiTiInstance }">
-														<div class="col-md-4">
+														<div class="col-md-6">
 															<div class="smallBox">
 																<span style="color:darkgray;margin-right:3px;">${ shiTiInstance.id }</span>
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
