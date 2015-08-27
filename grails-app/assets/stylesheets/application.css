@@ -45,6 +45,9 @@ body {
 .bold {
 	font-weight:bold;
 }
+.block {
+	display:block !important;
+}
 .inlineBlock {
 	display:inline-block;
 }
@@ -175,8 +178,20 @@ body {
 }
 
 /*-----------------------------------------------------------------------------------------------*/
+.mb30, .mb20, .mb10, .mb5 {
+	display:inline-block;
+} 
 .mb30 {
 	margin-bottom:30px;
+}
+.mb20 {
+	margin-bottom:20px;
+}
+.mb10 {
+	margin-bottom:10px;
+}
+.mb5 {
+	margin-bottom:5px;
 }
 .xuanZeWenJian {
 	position:relative;width:180px;margin:0 auto;
@@ -277,7 +292,9 @@ p {
 	color: gray;
 	clear: both;
 }
-
+.title {
+	font-weight:bold;
+}
 #nprogress .bar {
 	z-index:1988;
 	background: url(/assets/SuCai/loading.gif) #FF6100 repeat-y right;

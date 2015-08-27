@@ -17,7 +17,7 @@
 							<ul>
 								<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 									<li>
-										<h2 class="text-center mb30 bold">
+										<h2 class="text-center mb30 bold block">
 											<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 												<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
 											</g:if>
@@ -28,22 +28,23 @@
 										<div class="neiRong clearfix">
 											<div class="row">
 												<g:if test="${kongJianInstance?.miaoShu}">
-													<div class="col-md-3">
+													<div class="col-md-4">
 														${kongJianInstance?.miaoShu}
 													</div>
 												</g:if>
 												<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 													<g:if test="${ shiTiInstance }">
-														<div class="col-md-3">
+														<div class="col-md-4">
 															<div class="smallBox">
+																<span style="color:darkgray;margin-right:3px;">${ shiTiInstance.id }</span>
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title mb30">
-																		<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
+																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title mb5">
+																		${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:if>
 																<g:else>
-																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title mb30">
-																		<i class="fa fa-desktop"></i>${ shiTiInstance.biaoTi }
+																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title mb5">
+																		${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:else>
 																<div class="neiRong">
@@ -73,27 +74,28 @@
 			<div class="col-md-12">
 				
 				<hr/>
-				
-				<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
-					<g:if test="${ shiTiInstance }">
-						<div class="col-md-4">
-							<div class="smallBox">
-								<span style="color:lightgray;margin-right:3px;">${ shiTiInstance.id }</span>
-								<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-									<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
-										${ shiTiInstance.biaoTi }
-									</g:link>
-								</g:if>
-								<g:else>
-									<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-										${ shiTiInstance.biaoTi }
-									</g:link>
-								</g:else>
+				<div class="row">
+					<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
+						<g:if test="${ shiTiInstance }">
+							<div class="col-md-3">
+								<div class="smallBox">
+									<span style="color:darkgray;margin-right:3px;">${ shiTiInstance.id }</span>
+									<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+										<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
+											${ shiTiInstance.biaoTi }
+										</g:link>
+									</g:if>
+									<g:else>
+										<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
+											${ shiTiInstance.biaoTi }
+										</g:link>
+									</g:else>
+								</div>
 							</div>
-						</div>
-					</g:if>
-				</g:each>
-			
+						</g:if>
+					</g:each>
+				</div>
+				
 			</div>
 		</div>
 		
