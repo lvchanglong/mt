@@ -36,14 +36,14 @@
 													<g:if test="${ shiTiInstance }">
 														<div class="col-md-6">
 															<div class="smallBox">
-																<span style="color:darkgray;margin-right:3px;">${ shiTiInstance.id }</span>
+																<span style="color:darkgray;font-weight:bold;margin-right:3px;">${ shiTiInstance.id }</span>
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title mb5">
+																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title mb5 inlineBlock">
 																		${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:if>
 																<g:else>
-																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title mb5">
+																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title mb5 inlineBlock">
 																		${ shiTiInstance.biaoTi }
 																	</g:link>
 																</g:else>
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		
-		<div style="display:none;">
+		<div style="display:block;">
 			<g:render template="/layouts/plugins/baiDuZhanNei"/>
 		</div>
 		

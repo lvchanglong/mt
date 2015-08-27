@@ -28,6 +28,7 @@ html {
 body {
 	position:relative;
 	min-height:100%;
+	font-family:"Microsoft YaHei","SimSun","Arial Narrow" !important;
 }
 .borderRadius {
 	border-radius:5px;
@@ -49,7 +50,7 @@ body {
 	display:block !important;
 }
 .inlineBlock {
-	display:inline-block;
+	display:inline-block !important;
 }
 .clearfix:after {
 	content:"";
@@ -179,7 +180,7 @@ body {
 
 /*-----------------------------------------------------------------------------------------------*/
 .mb30, .mb20, .mb10, .mb5 {
-	display:inline-block;
+	display:block;
 } 
 .mb30 {
 	margin-bottom:30px;
@@ -278,8 +279,8 @@ p {
 }
 .smallBox {
 	position:relative;
-	min-height:90px;
-	box-shadow: 3px 3px 7px #333;
+	min-height:130px;
+	box-shadow: 1px 1px 3px lightgray;
 	padding:15px;
 	overflow: auto;
 	margin-bottom:20px;
@@ -293,6 +294,8 @@ p {
 	clear: both;
 }
 .title {
+	font-size: 18px;
+	line-height: 31px;
 	font-weight:bold;
 }
 #nprogress .bar {

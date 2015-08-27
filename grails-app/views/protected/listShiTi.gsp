@@ -39,7 +39,7 @@
 					<ul>
 						<g:each in="${shiTiInstanceList}" status="i" var="shiTiInstance">
 							<li>
-								<h2 class="text-center mb30">
+								<h2 class="text-center mb30 block">
 									<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link>
 									
 									<span style="color:lightgray;margin-left:5px;font-size:18px;">
@@ -49,8 +49,12 @@
 
 								<div style="padding: 0 0 15px 0;color:#888888;" class="text-right">
 									<span class="dateCreated">
-										<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
+										发布时间：<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
 									</span>
+									<span class="separator"></span>
+									<span class="yongHu">
+										作者：${shiTiInstance.getYongHuAsString()}
+									</span> 
 								</div>
 								
 								<div style="clear:both;"></div>
