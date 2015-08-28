@@ -74,7 +74,7 @@
 	<body>
 		<g:pageProperty name="page.header" default="${ render(template:"/layouts/header") }"/>		
 		
-		<div class="container" style="padding-top:75px;padding-bottom:140px;">
+		<div class="container main">
 			<g:layoutBody/>
 	    </div>
 	    

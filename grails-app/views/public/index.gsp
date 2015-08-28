@@ -8,45 +8,46 @@
 	</head>
 	<body>
 
-		<div class="row">
-			<div class="col-md-12">
-			
+		<g:render template="/layouts/plugins/faBuFanKui" />
+		
+		<div class="row" style="padding-top:30px;">
+		
+			<div class="col-md-8">
 				<g:if test="${kongJianInstanceList}">
 					<div id="kongJian-wrapper">
 						<div id="kongJian-load">
 							<ul>
 								<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 									<li>
-										<h2 class="text-center mb30 bold block">
-											<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-												<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
-											</g:if>
-											<g:else>
+										<div class="midTitle">
+											<div class="cont">
+												<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+													<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();"><span class="glyphicon glyphicon-edit"></span></g:link>
+												</g:if>
 												${ kongJianInstance.biaoTi }
-											</g:else>
-										</h2>
+											</div>
+										</div>
 										<div class="neiRong clearfix">
 											<div class="row">
 												<g:if test="${kongJianInstance?.miaoShu}">
-													<div class="col-md-6">
+													<div class="col-md-12">
 														${kongJianInstance?.miaoShu}
 													</div>
 												</g:if>
 												<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 													<g:if test="${ shiTiInstance }">
-														<div class="col-md-6">
-															<div class="smallBox">
-																<span style="color:darkgray;font-weight:bold;margin-right:3px;">${ shiTiInstance.id }</span>
+														<div class="col-md-12">
+															<div class="borderBottomBox">
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title mb5 inlineBlock">
-																		${ shiTiInstance.biaoTi }
+																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="listTitle mb10 inlineBlock link">
+																		<span class="glyphicon glyphicon-edit"></span>
 																	</g:link>
 																</g:if>
-																<g:else>
-																	<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title mb5 inlineBlock">
-																		${ shiTiInstance.biaoTi }
-																	</g:link>
-																</g:else>
+																
+																<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="listTitle mb10 inlineBlock link">
+																	${ shiTiInstance.id }&nbsp;${ shiTiInstance.biaoTi }
+																</g:link>
+																
 																<div class="neiRong">
 																	${ shiTiInstance.neiRong }
 																</div>
@@ -68,35 +69,29 @@
 						paginate("#kongJian-wrapper", "#kongJian-load");
 					</g:javascript>
 				</g:if>
-				
-			</div>
+			</div><%--col-md-end--%>
 			
-			<div class="col-md-12">
-				
-				<hr/>
+			<div class="col-md-4">
 				<div class="row">
 					<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
 						<g:if test="${ shiTiInstance }">
-							<div class="col-md-3">
-								<div class="smallBox">
-									<span style="color:darkgray;margin-right:3px;">${ shiTiInstance.id }</span>
+							<div class="col-md-12">
+								<div class="mb10">
 									<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-										<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="title">
-											${ shiTiInstance.biaoTi }
+										<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">
+											<span class="glyphicon glyphicon-edit"></span>
 										</g:link>
 									</g:if>
-									<g:else>
-										<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-											${ shiTiInstance.biaoTi }
-										</g:link>
-									</g:else>
+									<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank">
+										${ shiTiInstance.id }&nbsp;${ shiTiInstance.biaoTi }
+									</g:link>
 								</div>
 							</div>
 						</g:if>
 					</g:each>
 				</div>
+			</div><%--col-md-end--%>
 				
-			</div>
 		</div>
 		
 		<div style="display:none;">

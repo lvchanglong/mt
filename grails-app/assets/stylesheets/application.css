@@ -30,6 +30,10 @@ body {
 	min-height:100%;
 	font-family:"Microsoft YaHei","SimSun","Arial Narrow" !important;
 }
+.main {
+	padding-top:75px;
+	padding-bottom:140px;
+}
 .borderRadius {
 	border-radius:5px;
 	-moz-border-radius:5px; /* 老的 Firefox */
@@ -61,7 +65,7 @@ body {
 }
 .fa {
 	padding-right:8px;
-	vertical-align: middle;
+	vertical-align: inherit;
 }
 .fa-1_5 {
   font-size: 1.5em;
@@ -164,11 +168,10 @@ body {
 	left:0;
 	width: 100%;
 	padding: 40px 0;
-	color: #999;
 	text-align: center;
-	background-color: #f9f9f9;
-	border-top: 1px solid #e5e5e5;
 	margin-top:30px;
+	background-color: #000;
+	color: #ddd;
 }
 .footer li {
 	float:left;
@@ -177,7 +180,9 @@ body {
 	margin:0;
 	padding:0 7px;
 }
-
+.footer a {
+	color:inherit;
+}
 /*-----------------------------------------------------------------------------------------------*/
 .mb30, .mb20, .mb10, .mb5 {
 	display:block;
@@ -263,9 +268,6 @@ ul {
 img {
 	max-width:100%;
 }
-p {
-	line-height: 28px;
-}
 .alert {
 	margin-top:3px;
 }
@@ -279,11 +281,16 @@ p {
 }
 .smallBox {
 	position:relative;
-	min-height:130px;
-	box-shadow: 1px 1px 3px lightgray;
+	min-height:90px;
+	border: 1px dashed lightgray;
 	padding:15px;
 	overflow: auto;
 	margin-bottom:20px;
+}
+.borderBottomBox {
+	position:relative;
+	border-bottom: 1px solid #d7d7d7;
+	padding-top: 30px;
 }
 .preview {
 	height: 530px;
@@ -293,16 +300,45 @@ p {
 	color: gray;
 	clear: both;
 }
-.title {
-	font-size: 18px;
-	line-height: 31px;
-	font-weight:bold;
-}
 #nprogress .bar {
 	z-index:1988;
-	background: url(/assets/SuCai/loading.gif) #FF6100 repeat-y right;
+	background: url("/assets/SuCai/loading.gif") #FF6100 repeat-y right;
 	height: 5px;
 }
 #nprogress .peg {
 	box-shadow:none;
+}
+
+.midTitle {
+	width: auto;
+	height: 34px;
+	background: url("/assets/SuCai/dian.gif") 0 18px repeat-x;
+}
+.midTitle .cont {
+	float: left;
+	padding: 0 10px;
+	width: auto;
+	height: 34px;
+	line-height: 34px;
+	font-size: 24px;
+	font-weight: bold;
+	background-color:#fff;
+	border-left: 5px solid #dd3603;
+}
+.link {
+	color:#000;
+}
+.link:hover {
+	color: #e11d03;
+	text-decoration: underline;
+}
+.listTitle {
+	font-size: 18px;
+	line-height: 31px;
+	font-weight:bold;
+}
+.detail {
+	padding: 0 0 15px 0;
+	color:#777;
+	font-size:12px;
 }

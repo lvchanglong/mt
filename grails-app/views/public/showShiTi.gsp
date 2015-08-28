@@ -5,17 +5,17 @@
 		<title>${ shiTiInstance.biaoTi }</title>
 	</head>
 	<body>
-		<h2 class="text-center mb30">
+		<h2 class="text-center mb30 bold">
 			${ shiTiInstance.biaoTi }
 		</h2>
 
-		<div style="padding: 0 0 15px 0;color:#888888;" class="text-right">
-			<span class="dateCreated">
-				发布时间：<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
-			</span>
-			<span class="separator"></span>
+		<div class="text-right detail">
 			<span class="yongHu">
 				作者：${shiTiInstance.getYongHuAsString()}
+			</span>
+			<span class="separator"></span> 
+			<span class="dateCreated">
+				发布时间：<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
 			</span>
 		</div>
 		

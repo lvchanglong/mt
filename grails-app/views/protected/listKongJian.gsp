@@ -59,9 +59,8 @@
 											<g:if test="${ shiTiInstance }">
          										<div class="col-md-3">
 													<div class="smallBox">
-														<span style="color:lightgray;margin-right:3px;">${ shiTiInstance.id }</span>
 														<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-															${ shiTiInstance.biaoTi }
+															${ shiTiInstance.id }&nbsp;${ shiTiInstance.biaoTi }
 														</g:link>
 													</div>
 												</div>
