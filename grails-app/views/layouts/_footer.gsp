@@ -2,11 +2,9 @@
 
 <footer class="footer">
 	<div class="container">
-		<ul class="clearfix">
-			<li>
-				温馨提示：站内含“【原创】”标志的内容，皆为本站的原创内容，著作权归本站所有，转载请注明出处，因为这会让你的转载合法化...
-			</li>
-		</ul>
+		<div class="clearfix text-left" style="padding-left:7px;">
+			温馨提示：站内含“【原创】”标志的内容，皆为本站的原创内容，著作权归本站所有，转载请注明出处，因为这会让你的转载合法化...
+		</div>
 		<ul class="clearfix">
 			<li>
 				<i class="fa fa-copyright"></i>${ Helper.getNian() }&nbsp;${ grailsApplication.config.author.name }&nbsp;版权所有
