@@ -49,7 +49,7 @@
 
 								<div class="text-right detail">
 									<span class="yongHu">
-										作者：${shiTiInstance.getYongHuAsString()}
+										发布人：${shiTiInstance.getYongHuAsString()}
 									</span>
 									<span class="separator"></span> 
 									<span class="dateCreated">

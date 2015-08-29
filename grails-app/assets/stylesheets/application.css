@@ -32,7 +32,7 @@ body {
 }
 .main {
 	padding-top:75px;
-	padding-bottom:140px;
+	padding-bottom:170px;
 }
 .borderRadius {
 	border-radius:5px;
@@ -55,6 +55,9 @@ body {
 }
 .inlineBlock {
 	display:inline-block !important;
+}
+.none {
+	display:none;
 }
 .clearfix:after {
 	content:"";
@@ -339,6 +342,9 @@ img {
 }
 .detail {
 	padding: 0 0 15px 0;
-	color:#777;
+	color:#999;
 	font-size:12px;
+}
+.homeLink {
+	color:#999;
 }

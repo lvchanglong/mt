@@ -51,6 +51,18 @@
 																<div class="neiRong">
 																	${ shiTiInstance.neiRong }
 																</div>
+																
+																<div class="text-left detail">
+																	<span class="yongHu">
+																		发布人：${shiTiInstance.getYongHuAsString()}
+																	</span>
+																	<span class="separator"></span>
+																	<span class="dateCreated">
+																		发布时间：<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
+																	</span>
+																	<span class="separator"></span>
+																	<g:render template="/layouts/plugins/zhuanZai"/>
+																</div>
 															</div>
 														</div>
 													</g:if>

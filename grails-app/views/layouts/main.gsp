@@ -11,11 +11,11 @@
 		
 		<meta name="renderer" content="webkit">
 		
-		<meta name="Keywords" content="吕常龙,lvchanglong,主坦克,main-tank,mt,MT"/>
-		<meta name="Description" content="The more we learn, the less we know."/>
+		<meta name="Keywords" content="吕常龙,lvchanglong,主坦克,main-tank"/>
+		<meta name="Description" content="个人网站，坚持原创"/>
 		<meta name="Author" content="吕常龙">
 
-		<title><g:layoutTitle default="吕常龙"/></title>
+		<title><g:layoutTitle default="吕常龙，个人网站，坚持原创"/></title>
 		
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">

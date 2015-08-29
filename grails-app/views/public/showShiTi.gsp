@@ -11,12 +11,14 @@
 
 		<div class="text-right detail">
 			<span class="yongHu">
-				作者：${shiTiInstance.getYongHuAsString()}
+				发布人：${shiTiInstance.getYongHuAsString()}
 			</span>
 			<span class="separator"></span> 
 			<span class="dateCreated">
 				发布时间：<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
 			</span>
+			<span class="separator"></span>
+			<g:render template="/layouts/plugins/zhuanZai"/>
 		</div>
 		
 		<div style="clear:both;"></div>
