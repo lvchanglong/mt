@@ -86,6 +86,7 @@ class PublicController {
 			def yonghu = YongHu.findByZhangHaoAndMiMa(zhangHao, miMa.encodeAsMD5())
 			if (yonghu) {
 				session.uid = yonghu.id
+				session.setMaxInactiveInterval(10800) //失效时间3小时
 				render status: OK, text: '操作成功，初始化...'
 				return
 			} else {
