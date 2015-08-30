@@ -163,7 +163,7 @@ class PublicController {
 	
 	/**
 	 * 下载(服务)
-	 * @param filePath 文件路径  grails-app/assets/androids/吕常龙v1.0.apk
+	 * @param filePath 文件路径  grails-app/assets/androids/lvchanglong.apk
 	 */
 	def xiaZai(String filePath) {
 		try {

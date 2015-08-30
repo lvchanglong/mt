@@ -103,7 +103,7 @@
 					</div>
 				</div>
 				<div class="paddingTB">
-					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/吕常龙v1.0.apk']" class="btn btn-default">安卓版应用下载</g:link>
+					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="btn btn-default">安卓版应用下载</g:link>
 				</div>
 				
 				<div class="midTitle">
