@@ -66,7 +66,7 @@ class PublicController {
 		
 		params.max = 10
 		params.sort = "id"
-		params.order = "desc"
+		params.order = "asc"
 		[kongJianInstanceList:KongJian.list(params), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu]
 	}
 	
@@ -162,18 +162,22 @@ class PublicController {
 	
 	/**
 	 * 下载(服务)
-	 * @param filePath 文件路径  grails-app/assets/working/LinShi/${fileName}
+	 * @param filePath 文件路径  grails-app/assets/androids/lvchanglongV1.0.apk
 	 */
 	def xiaZai(String filePath) {
-		File file = new File(filePath)
-		def fileName = file.getName()
-		def fileType = Helper.getFileType(fileName)
-		response.contentType = grailsApplication.config.grails.mime.types[fileType]
-		response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName, "UTF-8"))
-		def out = response.getOutputStream()
-		out << file.getBytes()
-		out.flush()
-		out.close()
+		try {
+			File file = new File(filePath)
+			def fileName = file.getName()
+			def fileType = Helper.getFileType(fileName)
+			response.contentType = grailsApplication.config.grails.mime.types[fileType]
+			response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName, "UTF-8"))
+			def out = response.getOutputStream()
+			out << file.getBytes()
+			out.flush()
+			out.close()
+		} catch(Exception e) {
+			
+		}
 	}
 	
 	/**

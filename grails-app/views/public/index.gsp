@@ -20,7 +20,7 @@
 								<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 									<li>
 										<div class="midTitle">
-											<div class="cont">
+											<div class="cont leftBorder">
 												<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 													<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();"><span class="glyphicon glyphicon-edit"></span></g:link>
 												</g:if>
@@ -34,10 +34,10 @@
 														${kongJianInstance?.miaoShu}
 													</div>
 												</g:if>
-												<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
-													<g:if test="${ shiTiInstance }">
-														<div class="col-md-12">
-															<div class="borderBottomBox">
+												<div class="col-md-12 overflowHidden">
+													<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
+														<g:if test="${ shiTiInstance }">
+															<div class="borderTopBox">
 																<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
 																	<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();" class="listTitle mb10 inlineBlock link">
 																		<span class="glyphicon glyphicon-edit"></span>
@@ -64,9 +64,9 @@
 																	<g:render template="/layouts/plugins/zhuanZai"/>
 																</div>
 															</div>
-														</div>
-													</g:if>
-												</g:each>
+														</g:if>
+													</g:each>
+												</div>
 											</div>
 										</div>
 									</li>
@@ -84,23 +84,52 @@
 			</div><%--col-md-end--%>
 			
 			<div class="col-md-4">
-				<div class="row">
-					<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
-						<g:if test="${ shiTiInstance }">
-							<div class="col-md-12">
-								<div class="mb10">
-									<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-										<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">
-											<span class="glyphicon glyphicon-edit"></span>
+				<div class="midTitle">
+					<div class="cont leftPointer">
+						联系站长
+					</div>
+				</div>
+				<div class="paddingTB">
+					<div class="row">
+						<div class="col-md-12">
+							<asset:image src="SuCai/个人微信.png" style="width:100%;" title="加我微信"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="midTitle">
+					<div class="cont leftPointer">
+						手机版本
+					</div>
+				</div>
+				<div class="paddingTB">
+					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglongV1.0.apk']" class="btn btn-default">安卓版应用下载</g:link>
+				</div>
+				
+				<div class="midTitle">
+					<div class="cont leftPointer">
+						成长历程
+					</div>
+				</div>
+				<div class="paddingTB">
+					<div class="row">
+						<g:each in="${ShiTi.list()}" status="j" var="shiTiInstance">
+							<g:if test="${ shiTiInstance }">
+								<div class="col-md-12">
+									<div class="mb10">
+										<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+											<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">
+												<span class="glyphicon glyphicon-edit"></span>
+											</g:link>
+										</g:if>
+										<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank">
+											${ shiTiInstance.id }&nbsp;${ shiTiInstance.biaoTi }
 										</g:link>
-									</g:if>
-									<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank">
-										${ shiTiInstance.id }&nbsp;${ shiTiInstance.biaoTi }
-									</g:link>
+									</div>
 								</div>
-							</div>
-						</g:if>
-					</g:each>
+							</g:if>
+						</g:each>
+					</div>
 				</div>
 			</div><%--col-md-end--%>
 				
