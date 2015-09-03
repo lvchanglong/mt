@@ -106,11 +106,11 @@
 				<div class="paddingTB">
 					<div class="row">
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
-							<div class="col-md-3">
+							<div class="col-md-3 col-xs-3">
 								<a href="#kj${ kongJianInstance.id }" class="btn btn-default">${ kongJianInstance.biaoTi }</a>
 							</div>
 						</g:each>
-						<div class="col-md-12">
+						<div class="col-md-12 col-xs-12">
 							<g:render template="/layouts/plugins/baiDuZhanNei"/>
 						</div>
 					</div>
