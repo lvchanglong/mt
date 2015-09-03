@@ -254,7 +254,7 @@ body {
 	width:180px;
 	height:180px;
 	margin:auto;
-	z-index:1988;
+	z-index:9999;
 	display:none;
 }
 #spinner .tiShi{
@@ -274,7 +274,7 @@ body {
 	-webkit-appearance: textfield;
 }
 .zIndexMax{
-	z-index:1988 !important;
+	z-index:9999 !important;
 }
 .paddingWrapper {
 	padding: 30px 40px 70px 40px !important;
@@ -338,7 +338,7 @@ img {
 	clear: both;
 }
 #nprogress .bar {
-	z-index:1988;
+	z-index:9999;
 	background: url("/assets/SuCai/loading.gif") #FF6100 repeat-y right;
 	height: 5px;
 }
