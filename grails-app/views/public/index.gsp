@@ -18,6 +18,7 @@
 						<div id="kongJian-load">
 							<ul>
 								<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
+									<li id="kj${ kongJianInstance.id }" class="anchor">anchor</li>
 									<li>
 										<div class="midTitle">
 											<div class="cont leftBorder">
@@ -86,6 +87,21 @@
 			<div class="col-md-4">
 				<div class="midTitle">
 					<div class="cont leftPointer">
+						快速通道
+					</div>
+				</div>
+				<div class="paddingTB">
+					<div class="row">
+						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
+							<div class="col-md-3">
+								<a href="#kj${ kongJianInstance.id }" class="btn btn-default">${ kongJianInstance.biaoTi }</a>
+							</div>
+						</g:each>
+					</div>
+				</div>
+				
+				<div class="midTitle">
+					<div class="cont leftPointer">
 						联系站长
 					</div>
 				</div>
@@ -103,7 +119,7 @@
 					</div>
 				</div>
 				<div class="paddingTB">
-					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="btn btn-default">安卓版应用下载</g:link>
+					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="btn btn-primary">安卓版应用下载</g:link>
 				</div>
 				
 				<div class="midTitle">

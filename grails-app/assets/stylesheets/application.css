@@ -368,3 +368,10 @@ img {
 .overflowHidden {
 	overflow:hidden;
 }
+.anchor {
+	position:relative;
+	top:-50px;
+	left:0;
+	height:1px;
+	visibility:hidden;
+}
