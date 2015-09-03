@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>组件</title>
+		<title>组件${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		<div class="row" style="padding-top:20px;">

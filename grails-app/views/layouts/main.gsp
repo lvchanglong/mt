@@ -11,11 +11,11 @@
 		
 		<meta name="renderer" content="webkit">
 		
-		<meta name="Keywords" content="吕常龙,lvchanglong,主坦克,main-tank"/>
-		<meta name="Description" content="个人网站，坚持原创"/>
+		<meta name="Keywords" content="吕常龙,为什么,怎么样,什么是,读后感"/>
+		<meta name="Description" content="能替大家学习，替大家娱乐，替大家做一切可替之事，是我毕生的理想。我就是吕常龙，一个草根站长...要进来看看么？"/>
 		<meta name="Author" content="吕常龙">
 
-		<title><g:layoutTitle default="吕常龙，个人网站，坚持原创"/></title>
+		<title><g:layoutTitle default="替你学习，替你娱乐，替你做一切可替之事${ grailsApplication.config.html.title.suffix }"/></title>
 		
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">

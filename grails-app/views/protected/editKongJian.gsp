@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>空间修改</title>
+		<title>空间修改${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		<g:if test="${ session.uid && session.uid == kongJianInstance.yongHu?.id || dangQianYongHu?.shiFouGuanLiYuan() }">

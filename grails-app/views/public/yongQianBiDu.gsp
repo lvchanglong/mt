@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>用前必读</title>
+		<title>用前必读${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		<h3>使用协议</h3>

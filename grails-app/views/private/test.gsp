@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>测试</title>
+		<title>测试${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		

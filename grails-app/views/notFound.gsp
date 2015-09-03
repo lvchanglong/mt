@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Page Not Found</title>
+        <title>Page Not Found${ grailsApplication.config.html.title.suffix }</title>
         <meta name="layout" content="main">
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>

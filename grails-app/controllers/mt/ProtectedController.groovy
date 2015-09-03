@@ -14,10 +14,7 @@ class ProtectedController {
 	 * 实体列表(页面)
 	 */
 	def listShiTi() {
-		def dangQianYongHu = null
-		if(session.uid) {
-			dangQianYongHu = YongHu.get(session.uid)
-		}
+		def dangQianYongHu = YongHu.get(session.uid)
 		
 		def criteria = ShiTi.where {
 			if(dangQianYongHu) {
@@ -37,10 +34,7 @@ class ProtectedController {
 	 * @param shiTiInstance
 	 */
 	def editShiTi(ShiTi shiTiInstance) {
-		def dangQianYongHu = null
-		if(session.uid) {
-			dangQianYongHu = YongHu.get(session.uid)
-		}
+		def dangQianYongHu = YongHu.get(session.uid)
 		
 		if (shiTiInstance == null) {
 			render status: NOT_FOUND
@@ -53,10 +47,7 @@ class ProtectedController {
 	 * 空间列表(页面)
 	 */
 	def listKongJian() {
-		def dangQianYongHu = null
-		if(session.uid) {
-			dangQianYongHu = YongHu.get(session.uid)
-		}
+		def dangQianYongHu = YongHu.get(session.uid)
 		
 		def criteria = KongJian.where {
 			if(dangQianYongHu) {
@@ -76,10 +67,7 @@ class ProtectedController {
 	 * @param kongJianInstance
 	 */
 	def editKongJian(KongJian kongJianInstance) {
-		def dangQianYongHu = null
-		if(session.uid) {
-			dangQianYongHu = YongHu.get(session.uid)
-		}
+		def dangQianYongHu = YongHu.get(session.uid)
 		
 		if (kongJianInstance == null) {
 			render status: NOT_FOUND

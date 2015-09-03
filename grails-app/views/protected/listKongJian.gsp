@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>空间管理</title>
+		<title>空间管理${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">

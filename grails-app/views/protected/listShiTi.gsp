@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>实体管理</title>
+		<title>实体管理${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
@@ -46,7 +46,9 @@
 										${ shiTiInstance.id }
 									</span>
 								</h2>
-
+								
+								<div class="neiRong">${shiTiInstance.neiRong}</div>
+								
 								<div class="text-right detail">
 									<span class="yongHu">
 										发布人：${shiTiInstance.getYongHuAsString()}
@@ -58,8 +60,6 @@
 								</div>
 								
 								<div style="clear:both;"></div>
-								
-								<div class="neiRong">${shiTiInstance.neiRong}</div>
 							</li>
 						</g:each>
 					</ul>

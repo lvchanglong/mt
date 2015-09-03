@@ -119,15 +119,21 @@ log4j.main = {
 
 grails.app.context  = "/"
 
-application {
-	name = '吕常龙'
+application { //网站
+	name = '吕常龙' //网站名称
 	code = '辽ICP备14005125号' //网站备案号
 	password = '54mt' //默认密码
 }
 
-author {
+author { //站长
 	name = '吕常龙'
 	qq = '417891235'
 	email = '417891235@qq.com'
 	phone = '13478275273'
+}
+
+html { //页面
+	title {
+		suffix = '_吕常龙' //标题后缀
+	}
 }

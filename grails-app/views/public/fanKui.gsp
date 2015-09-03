@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>反馈</title>
+		<title>反馈${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
 		<g:render template="/layouts/plugins/faBuFanKui" />
