@@ -87,6 +87,19 @@
 			<div class="col-md-4">
 				<div class="midTitle">
 					<div class="cont leftPointer">
+						联系站长
+					</div>
+				</div>
+				<div class="paddingTB">
+					<div class="row">
+						<div class="col-md-12">
+							<asset:image src="SuCai/个人微信.png" style="width:100%;" title="加我微信"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="midTitle">
+					<div class="cont leftPointer">
 						快速通道
 					</div>
 				</div>
@@ -97,18 +110,8 @@
 								<a href="#kj${ kongJianInstance.id }" class="btn btn-default">${ kongJianInstance.biaoTi }</a>
 							</div>
 						</g:each>
-					</div>
-				</div>
-				
-				<div class="midTitle">
-					<div class="cont leftPointer">
-						联系站长
-					</div>
-				</div>
-				<div class="paddingTB">
-					<div class="row">
 						<div class="col-md-12">
-							<asset:image src="SuCai/个人微信.png" style="width:100%;" title="加我微信"/>
+							<g:render template="/layouts/plugins/baiDuZhanNei"/>
 						</div>
 					</div>
 				</div>
@@ -149,10 +152,6 @@
 				</div>
 			</div><%--col-md-end--%>
 				
-		</div>
-		
-		<div style="display:none;">
-			<g:render template="/layouts/plugins/baiDuZhanNei"/>
 		</div>
 		
 	</body>
