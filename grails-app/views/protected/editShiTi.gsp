@@ -11,17 +11,19 @@
 
 				<g:textField name="biaoTi" required="" value="${shiTiInstance?.biaoTi}" style="width:100%;" autofocus="" class="form-control"/>
 				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}" class="ckeditor"/>
-				<g:javascript>
-					CKEDITOR.replace('shiTiNeiRongUpdate');
-				</g:javascript>
+				<br/>
+				<g:textArea id="shiTiFuJianUpdate" name="fuJian" required="" value="${shiTiInstance?.fuJian}" class="ckeditor"/>
 				
 				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>
 			</g:form>
 			<g:javascript>
 				jQuery("#shiTi-update-form").ajaxForm({
 					beforeSerialize: function($form, options) { 
-					    var dataHtml = CKEDITOR.instances.shiTiNeiRongUpdate.getData();
-					    jQuery("#shiTiNeiRongUpdate").val(dataHtml);
+					    var neiRongHtml = CKEDITOR.instances.shiTiNeiRongUpdate.getData();
+					    jQuery("#shiTiNeiRongUpdate").val(neiRongHtml);
+					    
+					    var fuJianHtml = CKEDITOR.instances.shiTiFuJianUpdate.getData();
+					    jQuery("#shiTiFuJianUpdate").val(fuJianHtml);
 					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#shiTi-message-console');

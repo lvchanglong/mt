@@ -11,6 +11,12 @@
 		
 		<div class="neiRong" id="htmlForPreview">${shiTiInstance.neiRong}</div>
 		
+		<g:if test="${shiTiInstance?.fuJian}">
+			<div class="fuJian">
+				${shiTiInstance?.fuJian}
+			</div>
+		</g:if>
+								
 		<div class="text-right detail">
 			<span class="yongHu">
 				发布人：${shiTiInstance.getYongHuAsString()}

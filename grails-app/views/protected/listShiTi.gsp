@@ -8,7 +8,9 @@
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
 				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
-				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" style="width:100%;" placeholder="如果您想说点什么" class="ckeditor"/>
+				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" style="width:100%;" placeholder="内容" class="ckeditor"/>
+				<br/>
+				<g:textArea id="shiTiFuJianSave" name="fuJian" value="" style="width:100%;" placeholder="附件" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>
@@ -17,8 +19,11 @@
 			<g:javascript>
 				jQuery("#shiTi-save-form").ajaxForm({
 					beforeSerialize: function($form, options) { 
-					    var dataHtml = CKEDITOR.instances.shiTiNeiRongSave.getData();
-					    jQuery("#shiTiNeiRongSave").val(dataHtml);
+					    var neiRongHtml = CKEDITOR.instances.shiTiNeiRongSave.getData();
+					    jQuery("#shiTiNeiRongSave").val(neiRongHtml);
+					    
+					    var fuJianHtml = CKEDITOR.instances.shiTiFuJianSave.getData();
+					    jQuery("#shiTiFuJianSave").val(fuJianHtml);
 					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#shiTi-message-save');
@@ -48,6 +53,12 @@
 								</h2>
 								
 								<div class="neiRong">${shiTiInstance.neiRong}</div>
+								
+								<g:if test="${shiTiInstance?.fuJian}">
+									<div class="fuJian">
+										${shiTiInstance?.fuJian}
+									</div>
+								</g:if>
 								
 								<div class="text-right detail">
 									<span class="yongHu">

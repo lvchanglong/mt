@@ -30,9 +30,9 @@
 										</div>
 										<div class="neiRong clearfix">
 											<div class="row">
-												<g:if test="${kongJianInstance?.miaoShu}">
+												<g:if test="${kongJianInstance?.fuJian}">
 													<div class="col-md-12">
-														${kongJianInstance?.miaoShu}
+														${kongJianInstance?.fuJian}
 													</div>
 												</g:if>
 												<div class="col-md-12 overflowHidden">
@@ -106,7 +106,7 @@
 				<div class="paddingTB">
 					<div class="row">
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
-							<div class="col-md-3 col-xs-3">
+							<div class="col-md-3 col-xs-3 mb10">
 								<a href="#kj${ kongJianInstance.id }" class="btn btn-default">${ kongJianInstance.biaoTi }</a>
 							</div>
 						</g:each>

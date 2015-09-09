@@ -13,6 +13,7 @@ class ShiTi {
 
 	String biaoTi //标题
 	String neiRong //内容
+	String fuJian //附件 
 	
 	Date dateCreated
 	Date lastUpdated
@@ -21,6 +22,7 @@ class ShiTi {
 		yongHu(nullable: true, blank: true)
 		biaoTi(nullable: false, blank: false)
 		neiRong(nullable: false, blank: false)
+		fuJian(nullable: true, blank: true)
 	}
 	
 	static mapping = {
@@ -30,6 +32,7 @@ class ShiTi {
 		
 		biaoTi column: 'BIAO_TI'
 		neiRong column: 'NEI_RONG', sqlType:"text"
+		fuJian column: 'FU_JIAN', sqlType:"text"
 
 		id column:'ID'
 		version column:'BAN_BEN'

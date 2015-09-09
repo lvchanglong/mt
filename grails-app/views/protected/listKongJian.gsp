@@ -10,7 +10,7 @@
 				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
 				<g:textArea name="neiRong" value="" style="margin:15px 0;width:100%;" placeholder="1,2,3,7,9（实体代号格式）" class="form-control"/>
 				
-				<g:textArea id="kongJianMiaoShuSave" name="miaoShu" value="" style="width:100%;min-height:300px;" placeholder="描述" class="ckeditor"/>
+				<g:textArea id="kongJianFuJianSave" name="fuJian" value="" style="width:100%;min-height:300px;" placeholder="附件" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>
@@ -19,8 +19,8 @@
 			<g:javascript>
 				jQuery("#kongJian-save-form").ajaxForm({
 					beforeSerialize: function($form, options) { 
-					    var dataHtml = CKEDITOR.instances.kongJianMiaoShuSave.getData();
-					    jQuery("#kongJianMiaoShuSave").val(dataHtml);
+					    var dataHtml = CKEDITOR.instances.kongJianFuJianSave.getData();
+					    jQuery("#kongJianFuJianSave").val(dataHtml);
 					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#kongJian-message-save');
@@ -49,9 +49,9 @@
 								</h2>
 								<div class="neiRong">
 									<div class="row">
-										<g:if test="${kongJianInstance?.miaoShu}">
-											<div class="col-md-3">
-												${kongJianInstance?.miaoShu}
+										<g:if test="${kongJianInstance?.fuJian}">
+											<div class="col-md-12">
+												${kongJianInstance?.fuJian}
 											</div>
 										</g:if>
 										
