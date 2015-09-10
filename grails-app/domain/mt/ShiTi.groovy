@@ -21,7 +21,7 @@ class ShiTi {
 	static constraints = {
 		yongHu(nullable: true, blank: true)
 		biaoTi(nullable: false, blank: false)
-		neiRong(nullable: false, blank: false)
+		neiRong(nullable: true, blank: true)
 		fuJian(nullable: true, blank: true)
 	}
 	
