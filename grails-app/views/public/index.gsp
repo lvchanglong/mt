@@ -8,8 +8,6 @@
 	</head>
 	<body>
 
-		<g:render template="/layouts/plugins/faBuFanKui" />
-		
 		<div class="row" style="padding-top:30px;">
 		
 			<div class="col-md-8">
@@ -106,8 +104,8 @@
 				<div class="paddingTB">
 					<div class="row">
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
-							<div class="col-md-3 col-xs-3 mb10">
-								<a href="#kj${ kongJianInstance.id }" class="btn btn-default">${ kongJianInstance.biaoTi }</a>
+							<div class="col-md-6 col-xs-6 mb10">
+								<a href="#kj${ kongJianInstance.id }" class="btn btn-default block">${ kongJianInstance.biaoTi }</a>
 							</div>
 						</g:each>
 						<div class="col-md-12 col-xs-12">
@@ -151,7 +149,7 @@
 					</div>
 				</div>
 			</div><%--col-md-end--%>
-				
+
 		</div>
 		
 	</body>
