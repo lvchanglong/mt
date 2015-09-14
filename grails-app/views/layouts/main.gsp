@@ -11,7 +11,7 @@
 		
 		<meta name="renderer" content="webkit">
 		
-		<meta name="Keywords" content="吕常龙,为什么,怎么样,什么是,读后感"/>
+		<meta name="Keywords" content="吕常龙"/>
 		<meta name="Description" content="能替大家学习，替大家娱乐，替大家做一切可替之事，是我毕生的理想。我就是吕常龙，一个草根站长...要进来看看么？"/>
 		<meta name="Author" content="吕常龙">
 
