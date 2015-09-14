@@ -64,7 +64,10 @@ class PublicController {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
-		[kongJianInstanceList:KongJian.list([sort:'id', order:'asc']), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu]
+		File folder = Helper.getFolder("grails-app/assets/images/XiangSu")
+		String[] fileNameList = folder.list()//个人像素作品
+		
+		[kongJianInstanceList:KongJian.list([sort:'id', order:'asc']), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, fileNameList:fileNameList]
 	}
 	
 	//---------------------------------------------------------------------------------------------------
