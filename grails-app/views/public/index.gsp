@@ -104,40 +104,6 @@
 				
 				<div class="midTitle">
 					<div class="cont leftPointer">
-						手机版本
-					</div>
-				</div>
-				<div class="paddingTB">
-					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="btn btn-primary">安卓版应用下载</g:link>
-				</div>
-				
-				<div class="midTitle">
-					<div class="cont leftPointer">
-						联系站长
-					</div>
-				</div>
-				<div class="paddingTB">
-					<div class="row">
-						<div class="col-md-12">
-							<asset:image src="SuCai/个人微信.png" style="width:100%;" title="加我微信"/>
-						</div>
-					</div>
-				</div>
-				
-				<div class="midTitle">
-					<div class="cont leftPointer">
-						站长作品
-					</div>
-				</div>
-				
-				<div class="paddingTB">
-					<g:each in="${fileNameList}" status="j" var="fileName">
-						<asset:image src="XiangSu/${ fileName }" titile="${ fileName }"/>
-					</g:each>
-				</div>
-				
-				<div class="midTitle">
-					<div class="cont leftPointer">
 						成长历程
 					</div>
 				</div>
@@ -161,8 +127,41 @@
 						</g:each>
 					</div>
 				</div>
-			</div><%--col-md-end--%>
 
+				<div class="midTitle">
+					<div class="cont leftPointer">
+						联系站长
+					</div>
+				</div>
+				<div class="paddingTB">
+					<div class="row">
+						<div class="col-md-12">
+							<asset:image src="SuCai/个人微信.png" style="width:100%;" title="加我微信"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="midTitle">
+					<div class="cont leftPointer">
+						站长作品
+					</div>
+				</div>
+				<div class="paddingTB">
+					<g:each in="${fileNameList}" status="j" var="fileName">
+						<asset:image src="XiangSu/${ fileName }" titile="${ fileName }"/>
+					</g:each>
+				</div>
+				
+				<div class="midTitle">
+					<div class="cont leftPointer">
+						手机版本
+					</div>
+				</div>
+				<div class="paddingTB">
+					<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="btn btn-primary">安卓版应用下载</g:link>
+				</div>
+			</div><%--col-md-end--%>
+			
 		</div>
 		
 	</body>
