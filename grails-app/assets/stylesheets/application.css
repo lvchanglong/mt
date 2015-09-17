@@ -28,11 +28,21 @@ html {
 body {
 	position:relative;
 	min-height:100%;
-	font-family:"Microsoft YaHei","SimSun","Arial Narrow" !important;
+	font-family:"Hiragino Sans GB",Helvetica,"Microsoft Yahei",Arial !important;
 }
+.h1,h1{font-size:30px}
+.h2,h2{font-size:26px}
+.h3,h3{font-size:18px}
+.h4,h4{font-size:16px}
+.h5,h5{font-size:14px}
+.h6,h6{font-size:12px}
 .main {
 	padding-top:75px;
 	padding-bottom:190px;
+}
+a {
+	color:inherit;
+	display:inline-block;
 }
 .borderRadius {
 	border-radius:5px;
@@ -170,10 +180,10 @@ body {
 	bottom: 0;
 	left:0;
 	width: 100%;
-	padding: 30px 0;
+	padding: 30px 0 35px 0;
+	background-color: #1f1f1f;
 	text-align: center;
 	margin-top:30px;
-	background-color: #000;
 	color: #ddd;
 }
 .footer li {
@@ -183,8 +193,8 @@ body {
 	margin:0;
 	padding:0 7px;
 }
-.footer a {
-	color:inherit;
+.footer a:hover {
+	color:#e11d03;
 }
 /*-----------------------------------------------------------------------------------------------*/
 .midTitle {
@@ -209,7 +219,7 @@ body {
 	background: #fff url("/assets/SuCai/pointerDown.gif") no-repeat;
 }
 .mb30, .mb20, .mb10, .mb5 {
-	display:block;
+	display:inline-block;
 } 
 .mb30 {
 	margin-bottom:30px;
@@ -220,8 +230,14 @@ body {
 .mb10 {
 	margin-bottom:10px;
 }
+.mb0 {
+	margin-bottom:0;
+}
 .mb5 {
 	margin-bottom:5px;
+}
+.mt15 {
+	margin-top:15px;
 }
 .mt10 {
 	margin-top:10px;
@@ -317,20 +333,10 @@ img {
 	overflow: auto;
 	margin-bottom:20px;
 }
-.borderTopBox {
+.borderBox {
 	position:relative;
-	margin-top:-1px;
-	border-top: 1px dashed #d7d7d7;
-	padding: 25px 0 10px 0;
-}
-.borderBottomBox {
-	position:relative;
-	border-bottom: 1px dashed #d7d7d7;
-	padding-top: 30px;
-}
-.normalBox {
-	position:relative;
-	padding-top: 30px;
+	border-bottom: 1px dotted #c8c8c8;
+	padding: 30px 0;
 }
 .paddingTB {
 	padding:15px 0 30px 0;
@@ -353,20 +359,18 @@ img {
 }
 .link {
 	color:#333;
+	font-weight:bold;
+	text-decoration:none !important;
 }
 .link:hover {
 	color: #e11d03;
-	text-decoration: underline;
 }
-.listTitle {
-	font-size: 18px;
-	line-height: 31px;
-	font-weight:bold;
+.content {
+	padding-top:5px;
 }
 .detail {
-	padding: 0 0 15px 0;
 	color:#999;
-	font-size:12px;
+	line-height:30px;
 }
 .homeLink {
 	color:#999;
@@ -380,4 +384,11 @@ img {
 	left:0;
 	height:1px;
 	visibility:hidden;
+}
+.mh150 {
+	position:relative;
+	min-height:150px;	
+}
+.colorGray {
+	color:gray;
 }
