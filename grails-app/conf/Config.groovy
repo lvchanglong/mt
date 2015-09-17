@@ -134,6 +134,6 @@ author { //站长
 
 html { //页面
 	title {
-		suffix = '_吕常龙' //标题后缀
+		suffix = ' · 吕常龙' //标题后缀
 	}
 }
