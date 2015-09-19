@@ -25,14 +25,14 @@
 												</g:if>
 												${ kongJianInstance.biaoTi }
 											</h1>
+											<g:if test="${kongJianInstance?.fuJian}">
+												<p>
+													${kongJianInstance?.fuJian}
+												</p>
+											</g:if>
 										</div>
 										
 										<div class="row">
-											<g:if test="${kongJianInstance?.fuJian}">
-												<div class="col-md-12">
-													${kongJianInstance?.fuJian}
-												</div>
-											</g:if>
 											<div class="col-md-12">
 												<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
 													<g:if test="${ shiTiInstance }">
@@ -50,7 +50,7 @@
 																	${ shiTiInstance.neiRong }
 																</div>
 																
-																<div class="text-right detail">
+																<div class="text-right detail inlineBlock">
 																	<span class="yongHu">
 																		${shiTiInstance.getYongHuAsString()}
 																	</span>
