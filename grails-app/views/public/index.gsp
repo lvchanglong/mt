@@ -50,15 +50,15 @@
 																	${ shiTiInstance.neiRong }
 																</div>
 																
-																<div class="text-right detail inlineBlock">
+																<div class="text-right detail block">
 																	<span class="yongHu">
 																		${shiTiInstance.getYongHuAsString()}
 																	</span>
-																	<span class="separator">|</span>
+																	<span class="shortSeparator">|</span>
 																	<span class="dateCreated">
 																		<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy年MM月dd日" />
 																	</span>
-																	<span class="separator">|</span>
+																	<span class="shortSeparator">|</span>
 																	<g:render template="/layouts/plugins/zhuanZai"/>
 																</div>
 															</div>
