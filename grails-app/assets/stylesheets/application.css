@@ -29,6 +29,7 @@ body {
 	position:relative;
 	min-height:100%;
 	font-family:"Hiragino Sans GB",Helvetica,"Microsoft Yahei",Arial !important;
+	line-height:1.5em;
 }
 .h1,h1{font-size:30px}
 .h2,h2{font-size:26px}
@@ -367,6 +368,7 @@ img {
 }
 .content {
 	padding-top:5px;
+	padding-bottom:5px;
 }
 .detail {
 	color:#999;
@@ -391,4 +393,7 @@ img {
 }
 .colorGray {
 	color:gray;
+}
+.colorLight {
+	color:#8d9096;
 }

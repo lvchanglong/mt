@@ -46,7 +46,7 @@
 																
 																<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="mb10 h1 link">${ shiTiInstance.biaoTi }</g:link>
 																
-																<div class="content relative clearfix">
+																<div class="content relative clearfix colorLight">
 																	${ shiTiInstance.neiRong }
 																</div>
 																
@@ -56,7 +56,7 @@
 																	</span>
 																	<span class="separator">|</span>
 																	<span class="dateCreated">
-																		<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy年MM月dd HH:mm:ss" />
+																		<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy年MM月dd日" />
 																	</span>
 																	<span class="separator">|</span>
 																	<g:render template="/layouts/plugins/zhuanZai"/>
