@@ -47,7 +47,9 @@
 											<g:if test="${ kongJianInstance }">
          										<div class="col-md-3">
 													<div class="smallBox">
-														${ kongJianInstance.id }&nbsp;${ kongJianInstance.biaoTi }
+														<g:link controller="public" action="showKongJian" id="${ kongJianInstance.id }" target="_blank" class="title">
+															${ kongJianInstance.id }&nbsp;${ kongJianInstance.biaoTi }
+														</g:link>
 													</div>
 												</div>
 											</g:if>
