@@ -52,7 +52,7 @@
 									</span>
 								</h2>
 								
-								<div class="neiRong">${shiTiInstance.neiRong}</div>
+								<div class="neiRong clearfix">${shiTiInstance.neiRong}</div>
 								
 								<g:if test="${shiTiInstance?.fuJian}">
 									<div class="fuJian">
