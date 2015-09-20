@@ -122,6 +122,9 @@
 						<g:link controller="protected" action="listKongJian"><i class="fa fa-folder"></i>空间管理</g:link>
 					</li>
 					<li>
+						<g:link controller="protected" action="listZhuanTi"><i class="fa fa-folder"></i>专题管理</g:link>
+					</li>
+					<li>
 						<a href="#" onclick="jQuery.post('${ createLink(controller:'public', action:"yongHuZhuXiao") }', function(){window.location.reload();});">退出</a>
 					</li>
 				</g:if>

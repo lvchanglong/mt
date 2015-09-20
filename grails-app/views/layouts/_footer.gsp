@@ -4,7 +4,7 @@
 	<div class="container">
 		<ul class="clearfix">
 			<li>
-				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() }&nbsp;${ grailsApplication.config.author.name }&nbsp;版权所有
+				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() }&nbsp;&nbsp;${ grailsApplication.config.author.name }&nbsp;&nbsp;版权所有
 			</li>
 			<li>
 				<g:link controller="public" action="yongQianBiDu">用前必读</g:link>

@@ -9,7 +9,7 @@ import sun.security.pkcs11.Secmod.Bytes
  */
 class YongHu {
 
-	static hasMany = [fanKuis: FanKui, kongJians: KongJian, shiTis: ShiTi]
+	static hasMany = [fanKuis: FanKui, shiTis: ShiTi, kongJians: KongJian, zhuanTis: ZhuanTi]
 	
 	String zhangHao //账号
 	String miMa //密码

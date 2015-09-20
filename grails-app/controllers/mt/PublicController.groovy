@@ -56,6 +56,30 @@ class PublicController {
 	}
 	
 	/**
+	 * 空间详情(页面)
+	 * @param kongJianInstance
+	 */
+	def showKongJian(KongJian kongJianInstance) {
+		if (kongJianInstance == null) {
+			render status: NOT_FOUND
+			return
+		}
+		respond kongJianInstance
+	}
+	
+	/**
+	 * 专题详情(页面)
+	 * @param zhuanTiInstance
+	 */
+	def showZhuanTi(ZhuanTi zhuanTiInstance) {
+		if (zhuanTiInstance == null) {
+			render status: NOT_FOUND
+			return
+		}
+		respond zhuanTiInstance
+	}
+	
+	/**
 	 * 网站首页(页面)
 	 */
     def index() {
@@ -64,10 +88,10 @@ class PublicController {
 			dangQianYongHu = YongHu.get(session.uid)
 		}
 		
-		File folder = Helper.getFolder("grails-app/assets/images/XiangSu")
-		String[] fileNameList = folder.list()//个人像素作品
+		def zhuanTiInstance = ZhuanTi.first()
+		def kongJianInstanceList = KongJian.list([sort:'id', order:'asc'])
 		
-		[kongJianInstanceList:KongJian.list([sort:'id', order:'asc']), kongJianInstanceCount:KongJian.count(), dangQianYongHu:dangQianYongHu, fileNameList:fileNameList]
+		[zhuanTiInstance:zhuanTiInstance, kongJianInstanceList:kongJianInstanceList, dangQianYongHu:dangQianYongHu]
 	}
 	
 	//---------------------------------------------------------------------------------------------------

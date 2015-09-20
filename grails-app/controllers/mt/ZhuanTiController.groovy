@@ -6,59 +6,59 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class ShiTiController {
+class ZhuanTiController {
 
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond ShiTi.list(params), [status: OK]
+        respond ZhuanTi.list(params), [status: OK]
     }
 
     @Transactional
-    def save(ShiTi shiTiInstance) {
-        if (shiTiInstance == null) {
+    def save(ZhuanTi zhuanTiInstance) {
+        if (zhuanTiInstance == null) {
             render status: NOT_FOUND
             return
         }
 
-        shiTiInstance.validate()
-        if (shiTiInstance.hasErrors()) {
+        zhuanTiInstance.validate()
+        if (zhuanTiInstance.hasErrors()) {
             render status: NOT_ACCEPTABLE
             return
         }
 
-        shiTiInstance.save flush:true
-        respond shiTiInstance, [status: CREATED]
+        zhuanTiInstance.save flush:true
+        respond zhuanTiInstance, [status: CREATED]
     }
 
     @Transactional
-    def update(ShiTi shiTiInstance) {
-        if (shiTiInstance == null) {
+    def update(ZhuanTi zhuanTiInstance) {
+        if (zhuanTiInstance == null) {
             render status: NOT_FOUND
             return
         }
 
-        shiTiInstance.validate()
-        if (shiTiInstance.hasErrors()) {
+        zhuanTiInstance.validate()
+        if (zhuanTiInstance.hasErrors()) {
             render status: NOT_ACCEPTABLE
             return
         }
 
-        shiTiInstance.save flush:true
-        respond shiTiInstance, [status: OK]
+        zhuanTiInstance.save flush:true
+        respond zhuanTiInstance, [status: OK]
     }
 
     @Transactional
-    def delete(ShiTi shiTiInstance) {
+    def delete(ZhuanTi zhuanTiInstance) {
 
-        if (shiTiInstance == null) {
+        if (zhuanTiInstance == null) {
             render status: NOT_FOUND
             return
         }
 
-        shiTiInstance.delete flush:true
+        zhuanTiInstance.delete flush:true
         render status: NO_CONTENT
     }
 }

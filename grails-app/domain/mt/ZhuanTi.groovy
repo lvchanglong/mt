@@ -1,35 +1,33 @@
 package mt
 
 import java.util.Date;
+import java.util.List;
 
 /**
- * 空间
+ * 专题
  * @author lvchanglong
  *
  */
-class KongJian {
+class ZhuanTi {
 
-    static belongsTo = [yongHu: YongHu]
+	static belongsTo = [yongHu: YongHu]
 	
 	String biaoTi //标题
-	String neiRong //内容（实体ID列表）
-	String fuJian //附件
+	String neiRong //内容（空间ID列表）
 	
 	static constraints = {
 		yongHu(nullable: false, blank: false)
 		biaoTi(nullable: false, blank: false)
 		neiRong(nullable: false, blank: false)
-		fuJian(nullable: true, blank: true)
 	}
 	
 	static mapping = {
-		table 'KONG_JIAN'
+		table 'ZHUAN_TI'
 		
 		yongHu column: 'YONG_HU_ID'
 		
 		biaoTi column: 'BIAO_TI'
 		neiRong column: 'NEI_RONG'
-		fuJian column: 'FU_JIAN', sqlType:"text"
 
 		id column:'ID'
 		version column:'BAN_BEN'
@@ -46,11 +44,11 @@ class KongJian {
 	}
 	
 	/**
-	 * 实体列表
+	 * 空间列表
 	 */
 	List<ShiTi> children() {
 		String[] splits = this.neiRong.trim().split("(,|，)")
-		def arrayList = ShiTi.getAll(splits)
+		def arrayList = KongJian.getAll(splits)
 		return arrayList.findAll {elem->
 			elem != null
 		}

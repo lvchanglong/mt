@@ -333,7 +333,7 @@ img {
 	position:relative;
 	min-height:90px;
 	border: 1px dashed lightgray;
-	padding:15px;
+	padding:15px 7px;
 	overflow: auto;
 	margin-bottom:20px;
 }

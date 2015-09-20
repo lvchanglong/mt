@@ -77,6 +77,39 @@ class ProtectedController {
 	}
 	
 	/**
+	 * 专题列表(页面)
+	 */
+	def listZhuanTi() {
+		def dangQianYongHu = YongHu.get(session.uid)
+		
+		def criteria = ZhuanTi.where {
+			if(dangQianYongHu) {
+				yongHu {
+					id == dangQianYongHu.id
+				}
+			}
+		}
+		params.max = 1
+		params.sort = "id"
+		params.order = "desc"
+		[zhuanTiInstanceList:criteria.list(params), zhuanTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
+	}
+	
+	/**
+	 * 专题修改(页面)
+	 * @param zhuanTiInstance
+	 */
+	def editZhuanTi(ZhuanTi zhuanTiInstance) {
+		def dangQianYongHu = YongHu.get(session.uid)
+		
+		if (zhuanTiInstance == null) {
+			render status: NOT_FOUND
+			return
+		}
+		respond zhuanTiInstance, model:[dangQianYongHu:dangQianYongHu]
+	}
+	
+	/**
 	 * 酱油
 	 */
     def index() {
