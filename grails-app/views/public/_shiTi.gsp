@@ -32,3 +32,7 @@
 </div>
 
 <div style="clear:both;"></div>
+
+<g:javascript>
+	xuanZeXiangYing();
+</g:javascript>

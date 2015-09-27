@@ -29,7 +29,7 @@
 						      				</div>
 						      				<div class="col-md-12 sliderText">
 						      					<div style="padding:0 30px 30px 30px;">
-						      						<h1 class="text-center">
+						      						<h1 class="text-center bold">
 								      					${ kongJianInstance.biaoTi }
 								      				</h1>
 								      				${ kongJianInstance.miaoShu }

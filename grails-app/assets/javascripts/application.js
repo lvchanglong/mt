@@ -377,3 +377,15 @@ function reloadConfirm(htmlTitle, htmlContent, callFunction) {
 	    }
 	});
 }
+
+/**
+ * 情节选择，选择响应（用选择决定故事的结局）
+ */
+function xuanZeXiangYing() {
+	jQuery(".story").click(function(){
+		var titleName = jQuery(this).attr("title");//分组名称
+		jQuery("[title=" + titleName + "]").hide();
+		var id = jQuery(this).attr("id");
+		jQuery("#" + id + "X").show();//展示内容
+	});
+}
