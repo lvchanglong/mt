@@ -17,8 +17,7 @@
 				</g:if>
 				
 				<g:link controller="public" action="showKongJian" id="${ kongJianInstance.id }" class="link" target="_blank">${ kongJianInstance.biaoTi }</g:link>
-				
-				<span style="margin-left:5px;font-size:18px;color:lightgray;">
+				<span style="font-size:18px;color:lightgray;">
 					${ kongJianInstance.id }
 				</span>
 			</h1>
