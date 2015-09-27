@@ -11,7 +11,7 @@
 		<div style="padding:0 30px 30px 30px;color:#fff;">
 			<h1 class="text-center">
 				<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
-					<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();" class="link minWidth25">
+					<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();" class="link minWidth30">
 						<span class="glyphicon glyphicon-edit" style="font-size:18px;"></span>
 					</g:link>
 				</g:if>
