@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-md-2">
 				<g:link uri="/">
-					<asset:image src="WenZi/吕常龙.png" class="toCenter logo" style="height:110px;"/>
+					<asset:image src="WenZi/吕常龙.png" class="toCenter logo" style="height:70px;"/>
 				</g:link>
 			</div>
 			<div class="col-md-5">
@@ -19,19 +19,19 @@
 		
 		<ul class="clearfix inlineBlock">
 			<li>
-				<i class="fa fa-copyright"></i>2014.10.1&nbsp;-&nbsp;${ Helper.getNian() }&nbsp;&nbsp;${ grailsApplication.config.author.name }&nbsp;&nbsp;版权所有
+				<i class="fa fa-copyright"></i>2014.10-${ Helper.getNian() }&nbsp;${ grailsApplication.config.author.name }&nbsp;版权所有
 			</li>
 			<li>
 				<g:link controller="public" action="yongQianBiDu">用前必读</g:link>
 			</li>
 			<li>
-				<g:link controller="public" action="zuJian">
-					组件
+				<g:link controller="public" action="chaKanLiShi">
+					查看历史
 				</g:link>
 			</li>
 			<li>
-				<g:link controller="public" action="liCheng">
-					历程
+				<g:link controller="public" action="zuJian">
+					组件
 				</g:link>
 			</li>
 			<li>

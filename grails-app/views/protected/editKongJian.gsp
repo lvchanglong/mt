@@ -16,7 +16,7 @@
 					CKEDITOR.replace('kongJianFuJianUpdate');
 				</g:javascript>
 				
-				<g:textArea name="neiRong" required="" value="${kongJianInstance?.neiRong}" style="margin:15px 0;width:100%;" class="form-control"/>
+				<g:textArea name="neiRong" value="${kongJianInstance?.neiRong}" style="margin:15px 0;width:100%;" class="form-control"/>
 				
 				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>
 			</g:form>

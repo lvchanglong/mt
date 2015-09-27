@@ -15,6 +15,8 @@
 							<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 								<li data-target="#carousel-example-generic" data-slide-to="${ i }" class="${ (i == 0)?"active":"" }"></li>
 							</g:each>
+							
+							<li data-target="#carousel-example-generic" data-slide-to="${ kongJianInstanceCount }" class=""></li>
 					  	</ol>
 					  	
 					  	<div class="carousel-inner" role="listbox" style="">
@@ -37,6 +39,26 @@
 						      		</g:link>
 					    		</div>
 					  		</g:each>
+					  		
+					  		<div class="item" >
+					  			<g:link controller="public" action="chaKanLiShi" class="block colorWhite" target="_blank">
+					      			<div class="row slider">
+					      				<div class="col-md-12 sliderImg">
+					      					<asset:image src="SuCai/20059142011524.jpg" style="width:100%;height:370px;"/>
+					      				</div>
+					      				<div class="col-md-12 sliderText">
+					      					<div style="padding:0 30px 30px 30px;">
+					      						<h1 class="text-center">
+							      					查看历史
+							      				</h1>
+							      				从前有个山，山里有个庙，庙里有个老和尚在讲故事…
+							      				从前有个山，山里有个庙，庙里有个老和尚在讲故事…
+							      				从前有个山，山里有个庙，庙里有个老和尚在喝水…...
+					      					</div>
+					      				</div>
+					      			</div>
+					      		</g:link>
+					  		</div>
 					  	</div>
 					  	
 					  	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="background-image:none;">
@@ -52,13 +74,18 @@
 				
 				<div class="col-md-4">
 					<div class="rightTopBox bkGreen">
-						<div style="padding-top:40px;">
+						<div style="padding-top:24px;">
+							<div style="font-size:24px;font-weight:bold;padding: 0 40px;" class="text-right">
+								<span class="glyphicon glyphicon-apple"></span>
+								<span class="glyphicon glyphicon-apple"></span>
+								<span class="glyphicon glyphicon-apple"></span>
+							</div>
 							<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
 						</div>
 					</div>
 					<div class="rightBottomBox bkGray">
 						<div style="padding:40px 30px 0 30px;font-weight:bold;font-size:20px;line-height:26px;color:#fff;">
-							${ session.uinfo }
+							我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
 						</div>
 					</div>
 				</div>
@@ -72,6 +99,7 @@
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 							<li>
 								<g:render template="/public/kongJian" model="[kongJianInstance:kongJianInstance]"/>
+								<hr/>
 							</li>
 						</g:each>
 					</ul>

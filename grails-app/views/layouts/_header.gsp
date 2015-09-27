@@ -163,7 +163,7 @@
 				</g:else>
 			</ul>
 			
-			<div class="relative text-right" style="font-size:14px;font-weight:normal;">
+			<div class="relative text-right pull-right" style="font-size:14px;font-weight:normal;">
 				<g:render template="/layouts/plugins/baiDuZhanNei"/>
 			</div>
 			

@@ -21,7 +21,7 @@ class KongJian {
 		biaoTi(nullable: false, blank: false)
 		miaoShu(nullable: false, blank: false)
 		fuJian(nullable: false, blank: false)
-		neiRong(nullable: false, blank: false)
+		neiRong(nullable: true, blank: true)
 	}
 	
 	static mapping = {
@@ -52,11 +52,14 @@ class KongJian {
 	 * 实体列表
 	 */
 	List<ShiTi> children() {
-		String[] splits = this.neiRong.trim().split("(,|，)")
-		def arrayList = ShiTi.getAll(splits)
-		return arrayList.findAll {elem->
-			elem != null
+		if (this.neiRong) {
+			String[] splits = this.neiRong.trim().split("(,|，)")
+			def arrayList = ShiTi.getAll(splits)
+			return arrayList.findAll {elem->
+				elem != null
+			}
 		}
+		return null
 	}
 	
 }

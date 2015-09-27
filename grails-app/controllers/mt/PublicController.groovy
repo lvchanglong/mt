@@ -44,9 +44,9 @@ class PublicController {
 	}
 	
 	/**
-	 * 历程(页面)
+	 * 查看历史(页面)
 	 */
-	def liCheng() {
+	def chaKanLiShi() {
 		
 	}
 	
@@ -79,7 +79,8 @@ class PublicController {
 	 */
     def index() {
 		def kongJianInstanceList = KongJian.list([sort:'id', order:'asc'])
-		[kongJianInstanceList:kongJianInstanceList]
+		def kongJianInstanceCount = kongJianInstanceList.size()
+		[kongJianInstanceList:kongJianInstanceList, kongJianInstanceCount:kongJianInstanceCount]
 	}
 	
 	//---------------------------------------------------------------------------------------------------

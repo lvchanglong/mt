@@ -1,5 +1,9 @@
 package mt
 
+/**
+ * 背景色
+ *
+ */
 class BkColor {
 
 	static def InstList = [

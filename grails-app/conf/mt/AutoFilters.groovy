@@ -8,10 +8,10 @@ class AutoFilters {
         all(controller:'*', action:'*') {
             before = {
 				if(!session.uname) { //姓名
-					session.uname = ChineseName.getXingMing()
+					session.uname = ChineseName.getInst()
 				}
 				if(!session.uinfo) { //简介
-					session.uinfo = Story.getInfo()
+					session.uinfo = Story.getInst()
 				}
             }
             after = { Map model ->

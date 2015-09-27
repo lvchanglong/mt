@@ -1,5 +1,9 @@
 package mt
 
+/**
+ * 中文名
+ *
+ */
 class ChineseName {
 
 	/**
@@ -87,14 +91,14 @@ class ChineseName {
 	/**
 	 * 生成姓名
 	 */
-	static String getXingMing() {
+	static String getInst() {
 		return ChineseName.getXing() + ChineseName.getMing()
 	}
 	
 	static main(args) {
 //		println ChineseName.getXing()
 //		println ChineseName.getMing()
-		println ChineseName.getXingMing()
+		println ChineseName.getInst()
 	}
 
 }

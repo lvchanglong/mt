@@ -1,5 +1,9 @@
 package mt
 
+/**
+ * 故事
+ *
+ */
 class Story {
 
 	static def InfoList = [
@@ -49,7 +53,7 @@ class Story {
 	/**
 	 * 生成故事
 	 */
-	static String getInfo() {
+	static String getInst() {
 		Random random = new Random(System.currentTimeMillis())
 		int bound = InfoList.size()-1//设定范围
 		int idx = random.nextInt(bound)
@@ -57,7 +61,7 @@ class Story {
 	}
 	
 	static main(args) {
-		println Story.getInfo()
+		println Story.getInst()
 	}
 
 }
