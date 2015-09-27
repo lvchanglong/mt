@@ -12,14 +12,16 @@ class KongJian {
     static belongsTo = [yongHu: YongHu]
 	
 	String biaoTi //标题
-	String neiRong //内容（实体ID列表）
+	String miaoShu //描述
 	String fuJian //附件
+	String neiRong //内容（实体ID列表）
 	
 	static constraints = {
 		yongHu(nullable: false, blank: false)
 		biaoTi(nullable: false, blank: false)
+		miaoShu(nullable: false, blank: false)
+		fuJian(nullable: false, blank: false)
 		neiRong(nullable: false, blank: false)
-		fuJian(nullable: true, blank: true)
 	}
 	
 	static mapping = {
@@ -28,8 +30,9 @@ class KongJian {
 		yongHu column: 'YONG_HU_ID'
 		
 		biaoTi column: 'BIAO_TI'
-		neiRong column: 'NEI_RONG'
+		miaoShu column: 'MIAO_SHU'
 		fuJian column: 'FU_JIAN', sqlType:"text"
+		neiRong column: 'NEI_RONG', sqlType:"text"
 
 		id column:'ID'
 		version column:'BAN_BEN'

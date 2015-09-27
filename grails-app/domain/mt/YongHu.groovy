@@ -9,41 +9,39 @@ import sun.security.pkcs11.Secmod.Bytes
  */
 class YongHu {
 
-	static hasMany = [fanKuis: FanKui, shiTis: ShiTi, kongJians: KongJian, zhuanTis: ZhuanTi]
+	static hasMany = [shiTis: ShiTi, kongJians: KongJian]
 	
-	String zhangHao //账号
+	String xingMing //姓名
 	String miMa //密码
-	String xingMing = "匿名" //姓名
-	byte[] touXiang //头像
+	
 	String jianJie = "暂无" //简介
+	
+	byte[] touXiang //头像
 	
 	String quanXian = "普通用户" //权限
 	
 	Date dateCreated //创建时间
 	Date lastUpdated //更新时间
 
-	static transients = ["gongWangIP", "sessionID"] //属性集合（不会出现在数据库中）
+	static transients = ["sessionID"] //属性集合（不会出现在数据库中）
 	
-	String gongWangIP //公网-IP
 	String sessionID //session-ID
 	
 	static constraints = {
-		zhangHao(nullable: false, blank: false, unique: true)
-		miMa(nullable: false, blank: false)
-		xingMing(nullable: true, blank: true)
+		xingMing(nullable: false, blank: false)
+		miMa(nullable: false, blank: false, unique: true)
+		jianJie(nullable: false, blank: false)
 		touXiang(nullable: true, blank: true)
-		jianJie(nullable: true, blank: true)
-		quanXian(nullable: true, blank: true, inList: ["管理员", "普通用户"])
+		quanXian(nullable: false, blank: false, inList: ["管理员", "普通用户"])
 	}
 	
 	static mapping = {
 		table 'YONG_HU'
 		
-		zhangHao column: 'ZHANG_HAO'
 		miMa column: 'MI_MA'
 		xingMing column: 'XING_MING'
-		touXiang column: 'TOU_XIANG', sqlType: "MediumBlob"
 		jianJie column: 'JIAN_JIE'
+		touXiang column: 'TOU_XIANG', sqlType: "MediumBlob"
 		quanXian column: 'QUAN_XIAN'
 
 		id column:'ID'
@@ -51,9 +49,8 @@ class YongHu {
 		dateCreated column: 'CHUANG_JIAN_SHI_JIAN'
 		lastUpdated column: 'GENG_XIN_SHI_JIAN'
 		
-		fanKuis sort: "id", order: "desc"
-		kongJians sort: "id", order: "desc"
 		shiLis sort: "id", order: "desc"
+		kongJians sort: "id", order: "desc"
 	}
 	
 	String toString() {
@@ -61,7 +58,8 @@ class YongHu {
 	}
 	
 	def beforeInsert() {
-		this.miMa = this.miMa.encodeAsMD5()
+		def md5 = (this.xingMing + this.miMa).encodeAsMD5()
+		this.miMa = md5
 	}
 	
 	def beforeUpdate() {
@@ -77,22 +75,32 @@ class YongHu {
 	}
 	
 	/**
+	 * 查询单个实例
+	 * @param strXingMing 姓名
+	 * @param strMiMa 密码
+	 */
+	static def findInstance(String strXingMing, String strMiMa) {
+		def md5 = (strXingMing + strMiMa).encodeAsMD5()
+		return YongHu.findByMiMa(md5)
+	}
+	
+	/**
 	 * 设置管理员
 	 */
 	static boolean sheZhiGuanLiYuan() {
+		def strXingMing = "吕常龙"
+		def strMiMa = "54Mt"
 		
-		def yonghu = YongHu.findWhere([zhangHao: "lvchanglong"])
-		
+		def yonghu = YongHu.findInstance(strXingMing, strMiMa)
 		if (yonghu) {
 			return true
 		}
 		
 		Map map = [
-			zhangHao: "lvchanglong",
-			miMa: "123456",
-			xingMing: "吕常龙",
-			jianJie: "用实践更新认识、用认识指导实践",
-			quanXian: "管理员",
+			xingMing: strXingMing,
+			miMa: strMiMa,
+			jianJie:"我是吕常龙，我是这里的站长...",
+			quanXian: "管理员"
 		]
 		yonghu = new YongHu(map)
 		if (yonghu.hasErrors()) {
@@ -101,7 +109,6 @@ class YongHu {
 			yonghu.save flush:true
 			return true
 		}
-		
 	}
 
 }

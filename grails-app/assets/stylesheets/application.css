@@ -38,8 +38,8 @@ body {
 .h5,h5{font-size:14px}
 .h6,h6{font-size:12px}
 .main {
-	padding-top:75px;
-	padding-bottom:190px;
+	padding-top:35px;
+	padding-bottom:35px;
 }
 a {
 	color:inherit;
@@ -48,6 +48,11 @@ a {
 .borderRadius {
 	border-radius:5px;
 	-moz-border-radius:5px; /* 老的 Firefox */
+}
+.toCenter {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
 }
 .verticalAlignBottom {
 	vertical-align:bottom;
@@ -180,22 +185,20 @@ a {
 	text-decoration: underline;
 }
 .footer {
-	position: absolute;
-	bottom: 0;
-	left:0;
 	width: 100%;
-	padding: 30px 0 35px 0;
-	background-color: #1f1f1f;
 	text-align: center;
 	margin-top:30px;
-	color: #ddd;
+}
+.footer .logo {
+	background-color:#E8041B;
+	margin:20px 0 10px 0;
 }
 .footer li {
 	float:left;
 	height:30px;
 	line-height:30px;
 	margin:0;
-	padding:0 7px;
+	padding:0 10px;
 }
 .footer a:hover {
 	color:#e11d03;
@@ -329,14 +332,6 @@ img {
 	overflow: auto;
 	margin-bottom:25px;
 }
-.smallBox {
-	position:relative;
-	min-height:90px;
-	border: 1px dashed lightgray;
-	padding:15px 7px;
-	overflow: auto;
-	margin-bottom:20px;
-}
 .borderBox {
 	position:relative;
 	border-bottom: 1px dotted #c8c8c8;
@@ -353,35 +348,29 @@ img {
 	color: gray;
 	clear: both;
 }
-#nprogress .bar {
-	z-index:9999;
-	background: url("/assets/SuCai/loading.gif") #FF6100 repeat-y right;
-	height: 5px;
-}
-#nprogress .peg {
-	box-shadow:none;
-}
 .link {
-	color:#333;
 	font-weight:bold;
 	text-decoration:none !important;
+	outline:none !important;
 }
 .link:hover {
 	color: #e11d03;
 }
 .content {
-	padding-top:5px;
+	padding-top:20px;
 	padding-bottom:5px;
 }
 .neiRong {
 	padding-bottom:5px;
 }
-.detail {
-	color:#999;
+.lineHeight30 {
 	line-height:30px;
 }
 .homeLink {
-	color:#999;
+	color:inherit;
+}
+.homeLink:hover {
+	color:inherit;
 }
 .overflowHidden {
 	overflow:hidden;
@@ -402,4 +391,111 @@ img {
 }
 .colorLight {
 	color:#8d9096;
+}
+/*-----------------------------------------------------------------------------------------------*/
+#nprogress .bar {
+	z-index:9999;
+	background: url("/assets/SuCai/loading.gif") #FF6100 repeat-y right;
+	height: 6px;
+}
+#nprogress .peg {
+	box-shadow:none;
+}
+.topLines {
+	width: 100%;
+}
+.topLines .line1{
+	height:6px;
+	width:100%;
+	background:#c22f24;
+}
+.topLines .line2{
+	height:6px;
+	width:100%;
+	background:#d73d31;
+}
+.header {
+	font-weight:bold;
+}
+.header .logo {
+	background-color:#E8041B;
+	margin-bottom:15px;
+}
+.header .hNav {
+	padding-top:10px;
+}
+.hNav li {
+	display:inline-block;
+	padding:0 10px;
+}
+.uname {
+	font-size:22px;
+}
+.colorWhite {
+	color:white;
+}
+.slider {
+	background-color:#26B1C4;
+	color:white;
+	margin-bottom: 10px;
+}
+.sliderImg p {
+	margin:0;
+}
+.sliderImg {
+	min-height:370px;
+}
+.sliderText {
+	min-height:170px;
+}
+.rightTopBox {
+	height:260px;
+	margin-bottom:20px;
+}
+.rightBottomBox {
+	height:260px;
+}
+.bkGreen {
+	background-color:#359F6F;
+}
+.bkLightGreen {
+	background-color:#3EA578;
+}
+.bkYellow {
+	background-color:#F7A901;
+}
+.bkLightYellow {
+	background-color:#F9AF00;
+}
+.bkGray {
+	background-color:#695A45;
+}
+.bkLightGray {
+	background-color:#6D5E49;
+}
+.bkBlue {
+	background-color:#1EABBF;
+}
+.bkLightBlue {
+	background-color:#26B1C4;
+}
+.bkLowGray {
+	background-color:#eee;
+}
+.listBox {
+	padding:30px;
+	margin-top:30px;
+	color:#fff;
+}
+.listHeader {
+	font-size:22px;
+	font-weight:bold;
+}
+.listBox h3 {
+	font-size:16px;
+	margin-top:5px;
+}
+.mb15w {
+	margin-bottom:15px;
+	width:100%;
 }

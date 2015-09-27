@@ -9,10 +9,11 @@
 			<g:form name="shiTi-update-form" url="[resource:shiTiInstance, action:'update']" method="PUT" >
 				<g:hiddenField name="version" value="${shiTiInstance?.version}" />
 
-				<g:textField name="biaoTi" required="" value="${shiTiInstance?.biaoTi}" style="width:100%;" autofocus="" class="form-control"/>
-				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}" class="ckeditor"/>
-				<br/>
+				<g:textField name="biaoTi" required="" value="${shiTiInstance?.biaoTi}" autofocus="" class="form-control mb15w"/>
+				<g:textArea name="miaoShu" required="" value="${shiTiInstance?.miaoShu}" class="form-control mb15w" placeholder="描述"/>
 				<g:textArea id="shiTiFuJianUpdate" name="fuJian" required="" value="${shiTiInstance?.fuJian}" class="ckeditor"/>
+				<br/>
+				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTiInstance?.neiRong}" class="ckeditor"/>
 				
 				<g:actionSubmit class="btn btn-primary pull-right" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>
 			</g:form>

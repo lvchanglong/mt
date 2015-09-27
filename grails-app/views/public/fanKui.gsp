@@ -16,9 +16,9 @@
 						<li class="relative">
 							
 							<div class="pull-left" style="position:relative;margin:0 10px 0 0;">
-								<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:fanKuiInstance?.yongHu?.id) }" width="70px" height="70px" alt="头像" class="img-thumbnail"/>
+								<g:img uri="${ createLink(controller:'public', action:'loadTouXiang') }" width="70px" height="70px" alt="头像" class="img-thumbnail"/>
 								<p style="margin-top:5px;">
-									${ fanKuiInstance.getYongHuAsString() }
+									${ fanKuiInstance.xingMing }
 								</p>
 							</div>
 						

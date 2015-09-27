@@ -82,7 +82,7 @@
 		
 		<div id="spinner">
 			<asset:image src="SuCai/奔跑.png" alt="处理中"/>
-			<div class="tiShi">处理中...</div>
+			<div class="tiShi"></div>
 		</div>
 		
 		<g:javascript>

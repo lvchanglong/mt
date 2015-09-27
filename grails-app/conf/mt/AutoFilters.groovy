@@ -7,7 +7,12 @@ class AutoFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-				
+				if(!session.uname) { //姓名
+					session.uname = ChineseName.getXingMing()
+				}
+				if(!session.uinfo) { //简介
+					session.uinfo = Story.getInfo()
+				}
             }
             after = { Map model ->
 

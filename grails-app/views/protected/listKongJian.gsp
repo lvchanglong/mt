@@ -1,3 +1,5 @@
+<%@ page import="mt.BkColor" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,10 +9,11 @@
 	<body>
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="kongJian-save-form" url="[controller:'kongJian', action:'save']" class="clearfix">
-				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
-				<g:textArea name="neiRong" value="" style="margin:15px 0;width:100%;" placeholder="1,2,3,7,9（实体代号格式）" class="form-control"/>
+				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
+				<g:textArea name="miaoShu" required="" value="" class="form-control mb15w" placeholder="描述"/>
+				<g:textArea id="kongJianFuJianSave" name="fuJian" value="附件图片【100%，370】" placeholder="附件" class="ckeditor"/>
 				
-				<g:textArea id="kongJianFuJianSave" name="fuJian" value="" style="width:100%;min-height:300px;" placeholder="附件" class="ckeditor"/>
+				<g:textArea name="neiRong" value="" style="margin:15px 0;width:100%;" placeholder="1,2,3,7,9（实体代号格式）" class="form-control"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>
@@ -41,33 +44,7 @@
 					<ul>
 						<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
 							<li>
-								<h2 class="text-center mb30">
-									<g:link controller="protected" action="editKongJian" id="${ kongJianInstance.id }" target="_blank" onclick="reloadConfirm();">${ kongJianInstance.biaoTi }</g:link>
-									<span style="color:lightgray;margin-left:5px;font-size:18px;">
-										${ kongJianInstance.id }
-									</span>
-								</h2>
-								<div class="neiRong">
-									<div class="row">
-										<g:if test="${kongJianInstance?.fuJian}">
-											<div class="col-md-12">
-												${kongJianInstance?.fuJian}
-											</div>
-										</g:if>
-										
-										<g:each in="${kongJianInstance.children()}" status="j" var="shiTiInstance">
-											<g:if test="${ shiTiInstance }">
-         										<div class="col-md-3">
-													<div class="smallBox">
-														<g:link controller="public" action="showShiTi" id="${ shiTiInstance.id }" target="_blank" class="title">
-															${ shiTiInstance.id }&nbsp;${ shiTiInstance.biaoTi }
-														</g:link>
-													</div>
-												</div>
-											</g:if>
-										</g:each>
-									</div>
-								</div>
+								<g:render template="/public/kongJian" model="[kongJianInstance:kongJianInstance]"/>
 							</li>
 						</g:each>
 					</ul>

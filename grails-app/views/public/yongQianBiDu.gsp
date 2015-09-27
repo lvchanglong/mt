@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<h3>使用协议</h3>
+		
 		<p style="line-height:20px;">
 			本站文章信息部分来自于网络转载，但这并不意味着赞同其观点或证实其内容的真实性。如其他媒体、网站或个人从本网下载使用，必须保留本网注明的“稿件来源”并自负版权等法律责任。如对稿件内容有疑议，请及时与我们联系。
 			<br/><br/>
@@ -38,6 +39,6 @@
 			</ul>
 		</div>
 		
-		<asset:image src="SuCai/雄鹰.png" title="一切的苦恼，不过是知道的太少" style="float:right;bottom:0;width:250px;"/>
+		<asset:image src="SuCai/个人微信.png" style="float:right;bottom:0;width:250px;" title="联系站长"/>
 	</body>
 </html>

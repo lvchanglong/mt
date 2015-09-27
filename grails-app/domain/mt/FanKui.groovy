@@ -8,39 +8,31 @@ import java.util.Date
  */
 class FanKui {
 
-	static belongsTo = [yongHu: YongHu]
-	
+	String xingMing //姓名
 	String neiRong //内容
 	
 	Date dateCreated
-	Date lastUpdated
 	
 	static constraints = {
-		yongHu(nullable: true, blank: true)
+		xingMing(nullable: false, blank: false)
 		neiRong(nullable: false, blank: false)
 	}
 	
 	static mapping = {
 		table 'FAN_KUI'
 		
-		yongHu column: 'YONG_HU_ID'
-		
-		neiRong column: 'NEI_RONG'
+		xingMing column: 'XING_MING'
+		neiRong column: 'NEI_RONG', sqlType:"text"
 
 		id column:'ID'
 		version column:'BAN_BEN'
 		dateCreated column: 'CHUANG_JIAN_SHI_JIAN'
-		lastUpdated column: 'GENG_XIN_SHI_JIAN'
 		
 		sort id: "desc"
 	}
 	
 	String toString() {
 		return this.neiRong
-	}
-	
-	String getYongHuAsString() {
-		return this.yongHu?:"匿名"
 	}
 	
 }

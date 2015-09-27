@@ -44,6 +44,13 @@ class PublicController {
 	}
 	
 	/**
+	 * 历程(页面)
+	 */
+	def liCheng() {
+		
+	}
+	
+	/**
 	 * 实体详情(页面)
 	 * @param shiTiInstance
 	 */
@@ -68,48 +75,28 @@ class PublicController {
 	}
 	
 	/**
-	 * 专题详情(页面)
-	 * @param zhuanTiInstance
-	 */
-	def showZhuanTi(ZhuanTi zhuanTiInstance) {
-		if (zhuanTiInstance == null) {
-			render status: NOT_FOUND
-			return
-		}
-		respond zhuanTiInstance
-	}
-	
-	/**
 	 * 网站首页(页面)
 	 */
     def index() {
-		def dangQianYongHu = null
-		if(session.uid) {
-			dangQianYongHu = YongHu.get(session.uid)
-		}
-		
-		def zhuanTiInstance = ZhuanTi.first()
 		def kongJianInstanceList = KongJian.list([sort:'id', order:'asc'])
-		
-		[zhuanTiInstance:zhuanTiInstance, kongJianInstanceList:kongJianInstanceList, dangQianYongHu:dangQianYongHu]
+		[kongJianInstanceList:kongJianInstanceList]
 	}
 	
 	//---------------------------------------------------------------------------------------------------
 	
 	/**
 	 * 用户登录(服务)
-	 * @param zhangHao 账号
+	 * @param xingMing 姓名
 	 * @param miMa 密码
 	 */
-	def yongHuDengLu(String zhangHao, String miMa) {
-		if(!miMa) {
-			miMa = grailsApplication.config.application.password
-		}
-		
-		if (zhangHao) {
-			def yonghu = YongHu.findByZhangHaoAndMiMa(zhangHao, miMa.encodeAsMD5())
+	def yongHuDengLu(String xingMing, String miMa) {
+		if (xingMing) {
+			def yonghu = YongHu.findInstance(xingMing, miMa)
 			if (yonghu) {
 				session.uid = yonghu.id
+				session.uname = yonghu.xingMing //姓名
+				session.uinfo = yonghu.jianJie //简介
+				
 				session.setMaxInactiveInterval(10800) //失效时间3小时
 				render status: OK, text: '操作成功，初始化...'
 				return
@@ -118,7 +105,7 @@ class PublicController {
 				return
 			}
 		}
-		render status: BAD_REQUEST, text: '请输入账号'
+		render status: BAD_REQUEST, text: '参数异常'
 	}
 	
 	/**
@@ -133,20 +120,15 @@ class PublicController {
 	 * 用户注册(服务)
 	 */
 	@Transactional
-	def yongHuZhuCe(String zhangHao, String miMa, String queRenMiMa) {
-		if(!miMa && !queRenMiMa) {
-			miMa = grailsApplication.config.application.password
-			queRenMiMa = miMa
-		}
-		
-		if (zhangHao) {
+	def yongHuZhuCe(String xingMing, String miMa, String queRenMiMa) {
+		if (xingMing && miMa) {
 			if (miMa == queRenMiMa) {//确认密码一致性
-				def yongHuInstance = YongHu.findByZhangHao(zhangHao)
-				if (yongHuInstance) {//账号冲突
-					render status: CONFLICT, text: '账号已存在'
+				def yongHuInstance = YongHu.findInstance(xingMing, miMa)
+				if (yongHuInstance) {//冲突
+					render status: CONFLICT, text: '已存在'
 					return
 				}
-				def yonghu = new YongHu([zhangHao: zhangHao, miMa: miMa])//注册用户
+				def yonghu = new YongHu([xingMing: xingMing, miMa: miMa])//注册用户
 				if (!yonghu.hasErrors()) {
 					yonghu.save flush: true
 					render status: OK, text: '注册成功'
@@ -156,7 +138,7 @@ class PublicController {
 			render status: NOT_ACCEPTABLE, text: '密码不一致'
 			return
 		}
-		render status: BAD_REQUEST, text: '请输入账号'
+		render status: BAD_REQUEST, text: '参数异常'
 	}
 	
 	/**

@@ -12,8 +12,9 @@ class ShiTi {
 	static belongsTo = [yongHu: YongHu]
 
 	String biaoTi //标题
+	String miaoShu //描述
+	String fuJian //附件
 	String neiRong //内容
-	String fuJian //附件 
 	
 	Date dateCreated
 	Date lastUpdated
@@ -21,8 +22,9 @@ class ShiTi {
 	static constraints = {
 		yongHu(nullable: true, blank: true)
 		biaoTi(nullable: false, blank: false)
-		neiRong(nullable: true, blank: true)
-		fuJian(nullable: true, blank: true)
+		miaoShu(nullable: false, blank: false)
+		fuJian(nullable: false, blank: false)
+		neiRong(nullable: false, blank: false)
 	}
 	
 	static mapping = {
@@ -31,8 +33,9 @@ class ShiTi {
 		yongHu column: 'YONG_HU_ID'
 		
 		biaoTi column: 'BIAO_TI'
-		neiRong column: 'NEI_RONG', sqlType:"text"
+		miaoShu column: 'MIAO_SHU'
 		fuJian column: 'FU_JIAN', sqlType:"text"
+		neiRong column: 'NEI_RONG', sqlType:"text"
 
 		id column:'ID'
 		version column:'BAN_BEN'

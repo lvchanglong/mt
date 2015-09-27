@@ -122,7 +122,6 @@ grails.app.context  = "/"
 application { //网站
 	name = '吕常龙' //网站名称
 	code = '辽ICP备14005125号' //网站备案号
-	password = '54mt' //默认密码
 }
 
 author { //站长

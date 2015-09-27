@@ -7,10 +7,11 @@
 	<body>
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
-				<g:textField name="biaoTi" value="" style="margin-bottom:15px;width:100%;" placeholder="标题" required="" autofocus="" class="form-control"/>
-				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" style="width:100%;" placeholder="内容" class="ckeditor"/>
+				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
+				<g:textArea name="miaoShu" required="" value="" class="form-control mb15w" placeholder="描述"/>
+				<g:textArea id="shiTiFuJianSave" name="fuJian" value="附件图片【100，100】" placeholder="附件" class="ckeditor"/>
 				<br/>
-				<g:textArea id="shiTiFuJianSave" name="fuJian" value="" style="width:100%;" placeholder="附件" class="ckeditor"/>
+				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="内容" placeholder="内容" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>
@@ -44,33 +45,15 @@
 					<ul>
 						<g:each in="${shiTiInstanceList}" status="i" var="shiTiInstance">
 							<li>
-								<h2 class="text-center mb30 block">
-									<g:link controller="protected" action="editShiTi" id="${ shiTiInstance.id }" target="_blank" onclick="reloadConfirm();">${ shiTiInstance.biaoTi }</g:link>
-									
-									<span style="color:lightgray;margin-left:5px;font-size:18px;">
-										${ shiTiInstance.id }
-									</span>
-								</h2>
+								<g:render template="/public/shiTi" model="[shiTiInstance:shiTiInstance]"/>
 								
-								<div class="neiRong clearfix">${shiTiInstance.neiRong}</div>
+								<hr/>
 								
-								<g:if test="${shiTiInstance?.fuJian}">
-									<div class="fuJian">
-										${shiTiInstance?.fuJian}
-									</div>
-								</g:if>
-								
-								<div class="text-right detail">
-									<span class="yongHu">
-										发布人：${shiTiInstance.getYongHuAsString()}
-									</span>
-									<span class="separator"></span> 
-									<span class="dateCreated">
-										发布时间：<g:formatDate date="${shiTiInstance.dateCreated}" format="yyyy-MM-dd HH:mm:ss" />
-									</span>
+								<div class="fuJian">
+									${shiTiInstance?.fuJian}
 								</div>
 								
-								<div style="clear:both;"></div>
+								${shiTiInstance.miaoShu}
 							</li>
 						</g:each>
 					</ul>
