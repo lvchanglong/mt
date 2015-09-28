@@ -1,12 +1,12 @@
 package mt
 
 /**
- * 故事
+ * 简介
  *
  */
-class Story {
+class JianJie {
 
-	static def InfoList = [
+	static def InstList = [
 		"我曾经是个开发者，我记得我已经死了...",
 		"我曾经是个杀手，我靠接暗杀合同生活，直到我杀错了人...",
 		"我曾经是个假发商，我本可以成为官员的，但是...",
@@ -55,13 +55,13 @@ class Story {
 	 */
 	static String getInst() {
 		Random random = new Random(System.currentTimeMillis())
-		int bound = InfoList.size()-1//设定范围
+		int bound = InstList.size()-1//设定范围
 		int idx = random.nextInt(bound)
-		return InfoList[idx]
+		return InstList[idx]
 	}
 	
 	static main(args) {
-		println Story.getInst()
+		println JianJie.getInst()
 	}
 
 }

@@ -99,7 +99,7 @@ class YongHu {
 		Map map = [
 			xingMing: strXingMing,
 			miMa: strMiMa,
-			jianJie:"我是吕常龙，我是这里的站长...",
+			jianJie:"我是这里的站长...",
 			quanXian: "管理员"
 		]
 		yonghu = new YongHu(map)

@@ -11,7 +11,7 @@ class AutoFilters {
 					session.uname = ChineseName.getInst()
 				}
 				if(!session.uinfo) { //简介
-					session.uinfo = Story.getInst()
+					session.uinfo = JianJie.getInst()
 				}
             }
             after = { Map model ->
