@@ -83,6 +83,13 @@ class PublicController {
 		[kongJianInstanceList:kongJianInstanceList, kongJianInstanceCount:kongJianInstanceCount]
 	}
 	
+	/**
+	 * 我的传说
+	 */
+	def woDeChuanShuo() {
+		[guShiInstance: GuShi.getInst()]
+	}
+	
 	//---------------------------------------------------------------------------------------------------
 	
 	/**
@@ -121,7 +128,7 @@ class PublicController {
 	 * 用户注册(服务)
 	 */
 	@Transactional
-	def yongHuZhuCe(String xingMing, String miMa, String queRenMiMa) {
+	def yongHuZhuCe(String xingMing, String miMa, String queRenMiMa, String jianJie) {
 		if (xingMing && miMa) {
 			if (miMa == queRenMiMa) {//确认密码一致性
 				def yongHuInstance = YongHu.findInstance(xingMing, miMa)
@@ -129,7 +136,7 @@ class PublicController {
 					render status: CONFLICT, text: '已存在'
 					return
 				}
-				def yonghu = new YongHu([xingMing: xingMing, miMa: miMa])//注册用户
+				def yonghu = new YongHu([xingMing: xingMing, miMa: miMa, jianJie: jianJie])//注册用户
 				if (!yonghu.hasErrors()) {
 					yonghu.save flush: true
 					render status: OK, text: '注册成功'
@@ -214,17 +221,21 @@ class PublicController {
 	 * 头像加载(服务)
 	 */
 	def loadTouXiang(YongHu yongHuInstance) {
-		def url = new URL(createLink(uri:'/', absolute:true) + assetPath(src:'SuCai/%E8%AE%B0%E8%80%85.png').replaceFirst("/", ""))
-		byte[] byteList = url.getBytes()
-		if (yongHuInstance) {
-			if (yongHuInstance.touXiang) {
-				byteList = yongHuInstance.touXiang
+		try {
+			def url = new URL(createLink(uri:'/', absolute:true) + assetPath(src:'SuCai/%E8%AE%B0%E8%80%85.png').replaceFirst("/", ""))
+			byte[] byteList = url.getBytes()
+			if (yongHuInstance) {
+				if (yongHuInstance.touXiang) {
+					byteList = yongHuInstance.touXiang
+				}
 			}
+			def out = response.getOutputStream()
+			out << byteList
+			out.flush()
+			out.close()
+		} catch(Exception e) {
+		
 		}
-		def out = response.getOutputStream()
-		out << byteList
-		out.flush()
-		out.close()
 	}
 	
 }

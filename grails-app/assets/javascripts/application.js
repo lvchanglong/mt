@@ -166,6 +166,7 @@ function wenJianShangChuan(files, url, shangChuanSelector, params) {
 							console.log("上传成功");
 							//console.log("response: " + xhr.responseText);
 							$shangChuan.val("上传成功");
+							window.location.reload();
 						}
 					}
 				}

@@ -48,7 +48,7 @@
 					      				</div>
 					      				<div class="col-md-12 sliderText">
 					      					<div style="padding:0 30px 30px 30px;">
-					      						<h1 class="text-center">
+					      						<h1 class="text-center bold">
 							      					查看历史
 							      				</h1>
 							      				从前有个山，山里有个庙，庙里有个老和尚在讲故事…
@@ -73,17 +73,17 @@
 				</div>
 				
 				<div class="col-md-4">
-					<div class="rightTopBox bkGreen">
-						<div style="padding-top:24px;">
-							<div style="font-size:24px;font-weight:bold;padding: 0 40px;" class="text-right">
-								<span class="glyphicon glyphicon-apple"></span>
-								<span class="glyphicon glyphicon-apple"></span>
-								<span class="glyphicon glyphicon-apple"></span>
+					<div class="rightTopBox" style="background-color:#8A8D8C;">
+						<div style="padding-top:40px;">
+							<div style="position:absolute;right:0;top:0;font-size:24px;font-weight:bold;padding:15px 45px 0 0;" class="text-right">
+								<g:link controller="public" action="woDeChuanShuo" target="_self" class="toCenter">
+									<span class="glyphicon glyphicon-chevron-right"></span>
+								</g:link>
 							</div>
 							<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
 						</div>
 					</div>
-					<div class="rightBottomBox bkGray">
+					<div class="rightBottomBox" style="background-color:#2c313a;">
 						<div style="padding:40px 30px 0 30px;font-weight:bold;font-size:20px;line-height:26px;color:#fff;">
 							我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
 						</div>

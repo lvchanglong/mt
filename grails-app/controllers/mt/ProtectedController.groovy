@@ -118,7 +118,7 @@ class ProtectedController {
 			def dangQianYongHu = YongHu.get(session.uid)
 			if (dangQianYongHu) {
 				String realPath = servletContext.getRealPath("/")
-				def imagePath = realPath + "images/userData/${dangQianYongHu.zhangHao}/${fileName}"
+				def imagePath = realPath + "images/userData/${dangQianYongHu.xingMing}/${fileName}"
 				File file = Helper.getFile(imagePath)
 				
 				BufferedInputStream fileIn = new BufferedInputStream(request.getInputStream())
