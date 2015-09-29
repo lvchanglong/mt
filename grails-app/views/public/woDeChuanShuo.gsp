@@ -10,22 +10,18 @@
 	</head>
 	<body>
 		<div class="row" style="font-size:20px;font-weight:bold;line-height:34px;color:#fff;">
-			<div class="col-md-12" style="background-color:#454853;min-height:170px;">
-				<div style="padding:30px;">
-					<h1 style="font-weight:bold;" class="text-center">
-						我的传说
-					</h1>
+			<div class="col-md-12 autoHide">
+				<g:render template="/layouts/plugins/3D" />
+				<hr/>
+			</div>
+			
+			<div class="col-md-4">
+				<div style="padding-top:40px;background-color:#2489C5;min-height:500px;">
+					<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
 				</div>
 			</div>
-			<div class="col-md-4" style="background-color:#8A8D8C;min-height:500px;">
-				<div style="padding-top:40px;">
-					<g:link controller="public" action="woDeChuanShuo" target="_blank" class="toCenter">
-						<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
-					</g:link>
-				</div>
-			</div>
-			<div class="col-md-8" style="background-color:#2c313a;min-height:500px;">
-				<ul style="padding:15px;">
+			<div class="col-md-8">
+				<ul style="padding:30px 35px;background-color:#2c313a;min-height:500px;">
 					<li>
 						我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
 					</li>

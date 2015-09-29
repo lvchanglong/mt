@@ -73,7 +73,7 @@
 				</div>
 				
 				<div class="col-md-4">
-					<div class="rightTopBox" style="background-color:#8A8D8C;">
+					<div class="rightTopBox" style="background-color:#2489C5;">
 						<div style="padding-top:40px;">
 							<div style="position:absolute;right:0;top:0;font-size:24px;font-weight:bold;padding:15px 45px 0 0;" class="text-right">
 								<g:link controller="public" action="woDeChuanShuo" target="_self" class="toCenter">

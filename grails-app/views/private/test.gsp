@@ -8,6 +8,8 @@
 	</head>
 	<body>
 		
+		<g:render template="/layouts/plugins/3D" />
+		
 		<a href="javascript:void(0)" title="A" class="story btn btn-primary" id="Y">我同意</a>
 		<a href="javascript:void(0)" title="A" class="story btn btn-primary" id="N">不同意</a>
 		

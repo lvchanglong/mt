@@ -505,3 +505,9 @@ img {
 .minWidth30 {
 	min-width:30px;
 }
+
+@media screen and (max-width: 992px) {
+	.autoHide {
+		display:none;
+	}
+}
