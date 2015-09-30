@@ -383,7 +383,7 @@ function reloadConfirm(htmlTitle, htmlContent, callFunction) {
  * 情节选择，选择响应（用选择决定故事的结局）
  */
 function xuanZeXiangYing() {
-	jQuery(".story").click(function(){
+	jQuery(document).on('click', ".story", function(){
 		var titleName = jQuery(this).attr("title");//分组名称
 		jQuery("[title=" + titleName + "]").hide();
 		var id = jQuery(this).attr("id");
