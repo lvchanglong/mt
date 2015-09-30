@@ -518,13 +518,13 @@ img {
 	height: 19px;
 	display: inline-block;
 	cursor: pointer;
-	background: url('/assets/SuCai/icons_top.png')}') no-repeat;
-}
-.share .weibo {
-	background-position: 0 0;
+	background: url('/assets/SuCai/icons_top.png') no-repeat;
 }
 .share a:hover {
 	background-position: 0 -19px;
+}
+.share .weibo {
+	background-position: 0 0;
 }
 @media screen and (max-width: 992px) {
 	.autoHide {

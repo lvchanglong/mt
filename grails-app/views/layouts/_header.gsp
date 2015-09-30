@@ -164,7 +164,7 @@
 			</ul>
 			
 			<div class="share">
-				<a class="weibo" title="新浪微博" href="http://weibo.com/lvchanglongx" target="_blank"></a>
+				<a class="weibo" title="新浪微博" href="http://weibo.com/234008728" target="_blank"></a>
 			</div>
 			
 			<div class="relative text-right pull-right" style="font-size:14px;font-weight:normal;">
