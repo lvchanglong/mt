@@ -172,7 +172,7 @@
 			</div>
 			
 			<g:if test="${ dangQianYongHu && dangQianYongHu.shiFouGuanLiYuan() }">
-				<ul class="hNav text-right">
+				<ul class="hNav text-right clearBoth">
 					<li>
 						<g:link controller="protected" action="listShiTi" class="btn btn-default">实体</g:link>
 					</li>

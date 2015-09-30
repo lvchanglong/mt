@@ -47,7 +47,8 @@ class PublicController {
 	 * 查看历史(页面)
 	 */
 	def chaKanLiShi() {
-		
+		params.max = 99
+		[shiTiInstanceList:ShiTi.list(params), shiTiInstanceCount:ShiTi.count()]
 	}
 	
 	/**

@@ -12,7 +12,7 @@
 		<meta name="renderer" content="webkit">
 		
 		<meta name="Keywords" content="吕常龙"/>
-		<meta name="Description" content="我是吕常龙，一个草根站长，我无法预见未来...你信么？"/>
+		<meta name="Description" content="未来，是不断变化的；未来，是不可预知的；未来，什么事都有可能发生。预见未来，不是指预先知道未来的准确走向，而是指预先知道现在的行为可能带来的结果。未来，不要活在别人的观念里..."/>
 		<meta name="Author" content="吕常龙">
 
 		<title><g:layoutTitle default="预见未来${ grailsApplication.config.html.title.suffix }"/></title>

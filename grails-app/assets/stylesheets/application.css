@@ -526,6 +526,9 @@ img {
 .share .weibo {
 	background-position: 0 0;
 }
+.clearBoth {
+	clear:both;
+}
 @media screen and (max-width: 992px) {
 	.autoHide {
 		display:none;
