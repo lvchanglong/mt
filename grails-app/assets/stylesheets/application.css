@@ -505,7 +505,27 @@ img {
 .minWidth30 {
 	min-width:30px;
 }
-
+.share {
+	float: right;
+	display: inline-block;
+	width: 220px;
+	margin-top: 0;
+	margin-right: 11px;
+	text-align: right;
+}
+.share a {
+	width: 23px;
+	height: 19px;
+	display: inline-block;
+	cursor: pointer;
+	background: url('/assets/SuCai/icons_top.png')}') no-repeat;
+}
+.share .weibo {
+	background-position: 0 0;
+}
+.share a:hover {
+	background-position: 0 -19px;
+}
 @media screen and (max-width: 992px) {
 	.autoHide {
 		display:none;

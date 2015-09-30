@@ -23,10 +23,8 @@ class ProtectedController {
 				}
 			}
 		}
-		params.max = 1
-		params.sort = "id"
-		params.order = "desc"
-		[shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
+
+		[shiTiInstanceList:criteria.list([max:1, offset:params.offset, sort:'id', order:'desc']), shiTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**
