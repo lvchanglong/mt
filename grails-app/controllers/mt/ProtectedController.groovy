@@ -14,17 +14,24 @@ class ProtectedController {
 	 * 实体列表(页面)
 	 */
 	def listShiTi() {
-		def dangQianYongHu = YongHu.get(session.uid)
+		try {
+			def dangQianYongHu = YongHu.get(session.uid)
 		
-		def criteria = ShiTi.where {
-			if(dangQianYongHu) {
-				yongHu {
-					id == dangQianYongHu.id
+			def criteria = ShiTi.where {
+				if(dangQianYongHu) {
+					yongHu {
+						id == dangQianYongHu.id
+					}
 				}
 			}
-		}
+			params.max = 1
+			params.sort = 'id'
+			params.order = 'desc'
 
-		[shiTiInstanceList:criteria.list([max:1, offset:params.offset, sort:'id', order:'desc']), shiTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
+			return [shiTiInstanceList:criteria.list(params), shiTiInstanceCount:criteria.count(), dangQianYongHu:dangQianYongHu]
+		} catch(Exception e) {
+			
+		}
 	}
 	
 	/**
