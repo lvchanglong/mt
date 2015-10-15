@@ -36,6 +36,12 @@
 				<li>阿里云服务器：75元/月</li>
 				<li>网站域名：55元/年</li>
 			</ul>
+			
+			<h1 class="bold">网站理念</h1>
+			<ul style="line-height:30px;">
+				<li>我们应该想的，是“未来的样子”</li>
+				<li>我们应该做的，是“适应未来”</li>
+			</ul>
 		</div>
 		
 		<asset:image src="SuCai/个人微信.png" style="float:right;bottom:0;width:250px;" title="联系站长"/>

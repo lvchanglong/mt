@@ -12,7 +12,7 @@
 		<meta name="renderer" content="webkit">
 		
 		<meta name="Keywords" content="吕常龙"/>
-		<meta name="Description" content="未来的样子？"/>
+		<meta name="Description" content="我们应该想的，是“未来的样子”；我们应该做的，是“适应未来”。"/>
 		<meta name="Author" content="吕常龙">
 
 		<title><g:layoutTitle default="预见未来${ grailsApplication.config.html.title.suffix }"/></title>
